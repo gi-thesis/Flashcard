@@ -14,5 +14,4 @@
         <module>web-config</module>
         <module>web-ui</module>
     </modules>
-
 </project>
