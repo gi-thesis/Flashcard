@@ -13,4 +13,13 @@
     <groupId>com.github.szalyi</groupId>
     <artifactId>flashcard-app-core</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+
+    <dependencies>
+        <dependency>
+                <groupId>javax.persistence</groupId>
+                <artifactId>persistence-api</artifactId>
+                <version>${perersistence.api.version}</version>
+        </dependency>
+    </dependencies>
 </project>

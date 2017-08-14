@@ -14,4 +14,8 @@
         <module>web-config</module>
         <module>web-ui</module>
     </modules>
+
+    <properties>
+        <perersistence.api.version>1.0.2</perersistence.api.version>
+    </properties>
 </project>
