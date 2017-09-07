@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by ssalyi on 8/14/2017.
@@ -22,7 +23,9 @@ public class LanguageEntity extends BaseEntity {
     @Column(nullable = false,unique = true)
     private String language;
 
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "language")
-    private WordEntity wordEntity;
+//    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL, mappedBy = "language")
+//    private Set<WordEntity> wordEntity;
+
+
 
 }

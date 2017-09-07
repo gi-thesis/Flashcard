@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by ssalyi on 8/14/2017.
@@ -15,7 +16,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Builder
 @Table(name = "category")
 public class CategoryEntity extends BaseEntity{
 
@@ -25,7 +25,7 @@ public class CategoryEntity extends BaseEntity{
     private String category;
 
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private CardEntity cardEntity;
+//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private Set<CardEntity> cardEntity;
 
 }

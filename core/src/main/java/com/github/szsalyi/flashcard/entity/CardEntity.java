@@ -20,21 +20,22 @@ public class CardEntity extends BaseEntity {
 
     private static final Long serialVersionUID = 1L;
 
-    @Column(nullable = false, unique = true)
+    @OneToOne
+    @JoinColumn(name = "word_id")
     private WordEntity value;
 
+    @OneToMany(mappedBy = "card")
     private Set<WordEntity> meanings;
 
     @ManyToMany(mappedBy = "cardEntities")
-    private UserEntity userEntity;
+    private Set<UserEntity> user;
 
-    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private CategoryEntity categoryEntity;
+    private CategoryEntity category;
 
-    @Column
-    private LanguageEntity languageEntity;
+    @ManyToOne
+    @JoinColumn(name = "language_id")
+    private LanguageEntity language;
 
 
 }

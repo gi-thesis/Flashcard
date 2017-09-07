@@ -22,7 +22,10 @@ public class WordEntity extends BaseEntity {
     @Column(nullable = false,unique = true)
     private String value;
 
-    @Column(nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "card_id")
+    private CardEntity card;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "language_id")
     private LanguageEntity languageEntity;
