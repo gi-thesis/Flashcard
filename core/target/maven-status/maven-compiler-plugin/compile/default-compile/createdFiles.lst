@@ -1,8 +1,0 @@
-com\github\szsalyi\flashcard\entity\LanguageEntity.class
-com\github\szsalyi\flashcard\entity\CardEntity.class
-com\github\szsalyi\flashcard\entity\enums\Role.class
-com\github\szsalyi\flashcard\entity\UserEntity.class
-com\github\szsalyi\flashcard\entity\WordEntity.class
-com\github\szsalyi\flashcard\spring\PersistenceJPAConfig.class
-com\github\szsalyi\flashcard\entity\BaseEntity.class
-com\github\szsalyi\flashcard\entity\CategoryEntity.class
