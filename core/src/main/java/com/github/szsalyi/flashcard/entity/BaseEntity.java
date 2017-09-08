@@ -1,5 +1,6 @@
 package com.github.szsalyi.flashcard.entity;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,13 +16,12 @@ import java.io.Serializable;
 
 
 @MappedSuperclass
+@Data
 public class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Getter
-    @Setter
     private Long id;
 }
