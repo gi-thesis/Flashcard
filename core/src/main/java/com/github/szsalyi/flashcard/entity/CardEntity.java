@@ -24,8 +24,7 @@ public class CardEntity extends BaseEntity {
     @JoinColumn(name = "word_id")
     private WordEntity value;
 
-    @OneToMany(mappedBy = "card")
-    private Set<WordEntity> meanings;
+    private String meaning;
 
     @ManyToMany(mappedBy = "cardEntities")
     private Set<UserEntity> user;

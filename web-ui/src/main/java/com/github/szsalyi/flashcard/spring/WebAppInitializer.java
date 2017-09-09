@@ -17,6 +17,7 @@ public class WebAppInitializer implements WebApplicationInitializer{
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
 
+        //Spring context (bean , controlles..)
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 
         //when servlet context is loaded spring context loads
