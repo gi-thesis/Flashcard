@@ -5,12 +5,82 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.szalyi</groupId>
+        <groupId>com.github.szsalyi</groupId>
         <artifactId>flashcard-app</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.github.szalyi</groupId>
     <artifactId>flashcard-app-web-ui</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.szalyi</groupId>
+            <artifactId>flashcard-app-service</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.szsalyi</groupId>
+            <artifactId>flashcard-app-core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.6.v20170531</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>jetty</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <version>9.4.6.v20170531</version>
+                        <configuration>
+                            <webApp>
+                                <contextPath>/flashcard</contextPath>
+                            </webApp>
+                            <httpConnector>
+                                <port>9090</port>
+                            </httpConnector>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase> <!-- Package phase because of the war file creation and for war file to be running( or later phase) -->
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
