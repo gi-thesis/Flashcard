@@ -1,3 +1,11 @@
+# IDEA Specific Files
 .idea/
 *.iml
+
+# Maven Auto-Generated
 target/
+
+# Logs
+log/
+logs/
+*.log
