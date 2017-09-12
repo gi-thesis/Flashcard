@@ -6,19 +6,25 @@
 
     <parent>
         <groupId>com.github.szsalyi</groupId>
-        <artifactId>flashcard-app</artifactId>
+        <artifactId>flashcard-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.github.szsalyi</groupId>
-    <artifactId>flashcard-app-service</artifactId>
+    <artifactId>flashcard-service</artifactId>
+    <packaging>jar</packaging>
 
+    <name>Flashcard App - Services</name>
+    <description>Service Layer of the Flashcard App.</description>
 
     <dependencies>
         <dependency>
             <groupId>com.github.szsalyi</groupId>
-            <artifactId>flashcard-app-core</artifactId>
+            <artifactId>flashcard-core</artifactId>
             <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 </project>

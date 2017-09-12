@@ -2,89 +2,90 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.szalyi</groupId>
-    <artifactId>flashcard-app</artifactId>
-    <packaging>pom</packaging>
+    <groupId>com.github.szsalyi</groupId>
+    <artifactId>flashcard-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Flashcard App - Parent</name>
+    <description>Web application for learning languages using flashcards.</description>
+    <inceptionYear>2017</inceptionYear>
 
     <modules>
         <module>core</module>
         <module>service</module>
-        <module>web-config</module>
         <module>web-ui</module>
     </modules>
 
     <properties>
-        <java.version>1.8</java.version>
-        <persistence.api.version>1.0.2</persistence.api.version>
-        <spring.version>4.3.10.RELEASE</spring.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <version.java>1.8</version.java>
+        <version.lombok>1.16.18</version.lombok>
+        <version.mysql>5.1.40</version.mysql>
+        <version.hibernate>5.2.10.Final</version.hibernate>
+        <version.servlet>4.0.0</version.servlet>
+        <version.spring>4.3.10.RELEASE</version.spring>
+        <version.springjpa>1.10.6.RELEASE</version.springjpa>
+
+        <version.compiler>3.6.1</version.compiler>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Utilities -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.16.18</version>
+                <version>${version.lombok}</version>
                 <scope>compile</scope>
             </dependency>
+
+            <!-- Database Dependencies -->
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-jdbc</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-tx</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-jpa</artifactId>
-                <version>1.10.6.RELEASE</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>4.3.10.RELEASE</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.persistence</groupId>
-                <artifactId>persistence-api</artifactId>
-                <version>${persistence.api.version}</version>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${version.mysql}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>5.2.6.Final</version>
+                <version>${version.hibernate}</version>
             </dependency>
+
+            <!-- JSR-303 Bean Validation -->
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
-                <version>5.3.4.Final</version>
+                <version>${version.hibernate}</version>
             </dependency>
+
+            <!-- Servlet API -->
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>4.0.0</version>
+                <version>${version.servlet}</version>
                 <scope>provided</scope>
             </dependency>
+
+            <!-- Spring Modules -->
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>6.0.6</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${version.spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${version.springjpa}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${version.spring}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -95,10 +96,10 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.2</version>
+                    <version>${version.compiler}</version>
                     <configuration>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
+                        <source>${version.java}</source>
+                        <target>${version.java}</target>
                     </configuration>
                 </plugin>
             </plugins>
