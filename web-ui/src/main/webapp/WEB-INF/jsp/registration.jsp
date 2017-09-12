@@ -1,49 +1,43 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ssalyi
-  Date: 9/9/2017
-  Time: 11:10 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
     <head>
         <title>Title</title>
     </head>
     <body>
-        <form action = "registration" method = "POST">
+        <form:form action="${pageContext.request.contextPath}/registration" modelAttribute="user">
             <div>
                 <div>
                     <h1>Registration Page</h1>
                 </div>
                 <div>
-                    <label> User Name :</label>
-                    <input type="text" name = "user_name">
+                    <form:label path="userName"> User Name :</form:label>
+                    <form:input id="user_name" type="text" path="userName" required="true"/>
                 </div>
                 <div>
-                    <label> First Name :</label>
-                    <input type="text" name = "first_name">
+                    <form:label path="firstName"> First Name :</form:label>
+                    <form:input id="first_name" type="text" path="firstName" required="true"/>
                 </div>
                 <div>
-                    <label> Last Name :</label>
-                    <input type="text" name = "last_name">
+                    <form:label path="lastName"> Last Name :</form:label>
+                    <form:input id="last_name" type="text" path="lastName" required="true"/>
                 </div>
                 <div>
-                    <label> Password : </label>
-                    <input type="text" name = "password">
+                    <form:label path="password"> Password : </form:label>
+                    <form:input id="password" type="password" path="password" required="true"/>
                 </div>
                 <div>
-                    <label> Password Again : </label>
-                    <input type="text" name = "password">
+                    <label for="password_again"> Password Again : </label>
+                    <input id="password_again" type="password" name="password_again" required="true"/>
                 </div>
                 <div>
-                    <label> Email : </label>
-                    <input type="text" name = "email">
+                    <form:label path="email"> Email : </form:label>
+                    <form:input id="email" type="email" path="email" required="true"/>
                 </div>
                 <div>
-                <input type="submit" value="Submit">
+                    <form:button type="submit">Submit</form:button>
                 </div>
             </div>
-        </form>
+        </form:form>
     </body>
 </html>
