@@ -29,6 +29,12 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String lName;
 
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String email;
+
     @Column(nullable = false, insertable = true, updatable = true)
     @ElementCollection(targetClass = Role.class)
     @Enumerated(EnumType.STRING)

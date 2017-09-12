@@ -2,6 +2,7 @@ package com.github.szsalyi.flashcard.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -18,6 +19,14 @@ public class RegisterController {
 
 
         return "registration";
+    }
+
+    @PostMapping
+    public String postRegister(){
+
+        
+
+        return "registration_success";
     }
 
 }
