@@ -33,7 +33,7 @@
         <version.hibernate>5.2.10.Final</version.hibernate>
         <version.servlet>4.0.0</version.servlet>
         <version.spring>4.3.10.RELEASE</version.spring>
-        <version.springjpa>1.10.6.RELEASE</version.springjpa>
+        <version.springjpa>1.11.6.RELEASE</version.springjpa>
 
         <version.compiler>3.6.1</version.compiler>
 

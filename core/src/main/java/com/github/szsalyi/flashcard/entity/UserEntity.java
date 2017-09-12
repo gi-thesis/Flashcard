@@ -24,10 +24,19 @@ public class UserEntity extends BaseEntity {
     private static final Long serailVersionUID = 1L;
 
     @Column(nullable = false)
-    private String fName;
+    private String userName;
 
     @Column(nullable = false)
-    private String lName;
+    private String firstName;
+
+    @Column(nullable = false)
+    private String lastName;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String email;
 
     @Column(nullable = false, insertable = true, updatable = true)
     @ElementCollection(targetClass = Role.class)

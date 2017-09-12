@@ -3,6 +3,7 @@ package com.github.szsalyi.flashcard.spring;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -18,6 +19,8 @@ import java.util.Properties;
 /**
  * Created by ssalyi on 9/2/2017.
  */
+
+@EnableJpaRepositories(basePackages = "com.github.szsalyi.flashcard.repository")
 @Configuration
 @EnableTransactionManagement
 public class PersistenceJPAConfig{
