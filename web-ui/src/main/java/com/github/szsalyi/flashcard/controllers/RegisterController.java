@@ -1,6 +1,6 @@
 package com.github.szsalyi.flashcard.controllers;
 
-import com.github.szsalyi.flashcard.service.user.User;
+import com.github.szsalyi.flashcard.service.user.UserVO;
 import com.github.szsalyi.flashcard.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,16 +23,16 @@ public class RegisterController {
     @GetMapping
     public String getRegister(Model model){
 
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new UserVO());
 
         return "registration";
     }
 
     @PostMapping
-    public String postRegister(User user){
+    public String postRegister(UserVO userVO){
 
-        userService.save(user);
-        System.out.println(user);
+        userService.save(userVO);
+        System.out.println(userVO);
 
         return "registration_success";
     }

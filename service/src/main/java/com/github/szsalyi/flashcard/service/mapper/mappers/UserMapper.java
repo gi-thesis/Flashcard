@@ -2,7 +2,7 @@ package com.github.szsalyi.flashcard.service.mapper.mappers;
 
 import com.github.szsalyi.flashcard.entity.UserEntity;
 import com.github.szsalyi.flashcard.service.mapper.common.Mapper;
-import com.github.szsalyi.flashcard.service.user.User;
+import com.github.szsalyi.flashcard.service.user.UserVO;
 import org.dozer.DozerBeanMapper;
 
 /**
@@ -14,10 +14,17 @@ public final class UserMapper {
     private UserMapper() {
     }
 
-    public static UserEntity toEntity(final User user) {
-        if (user == null) {
+    public static UserEntity toEntity(final UserVO userVO) {
+        if (userVO == null) {
             return null;
         }
-        return mapper.map(user, UserEntity.class);
+        return mapper.map(userVO, UserEntity.class);
+    }
+
+    public static UserVO toVO(final UserEntity userEntity) {
+        if (userEntity == null) {
+            return null;
+        }
+        return mapper.map(userEntity, UserVO.class);
     }
 }
