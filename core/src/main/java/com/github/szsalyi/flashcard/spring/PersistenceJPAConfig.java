@@ -23,7 +23,7 @@ import java.util.Properties;
 @EnableJpaRepositories(basePackages = "com.github.szsalyi.flashcard.repository")
 @Configuration
 @EnableTransactionManagement
-public class PersistenceJPAConfig{
+public class PersistenceJPAConfig {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -39,17 +39,17 @@ public class PersistenceJPAConfig{
     }
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/flashcard");
-        dataSource.setUsername( "root" );
-        dataSource.setPassword( "root" );
+        dataSource.setUsername("root");
+        dataSource.setPassword("root");
         return dataSource;
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
+    public PlatformTransactionManager transactionManager(final EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
 
@@ -57,7 +57,7 @@ public class PersistenceJPAConfig{
     }
 
     @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 

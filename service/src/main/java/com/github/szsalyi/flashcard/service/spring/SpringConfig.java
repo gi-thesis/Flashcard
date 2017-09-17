@@ -1,6 +1,5 @@
 package com.github.szsalyi.flashcard.service.spring;
 
-import com.github.szsalyi.flashcard.service.user.UserEntityConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +16,7 @@ public class SpringConfig  {
     private List<Converter<?, ?>> converters;
 
     @Bean
-    public ConversionService createConversionService(){
+    public ConversionService createConversionService() {
         DefaultConversionService conversionService = new DefaultConversionService();
         converters.forEach(converter -> conversionService.addConverter(converter));
         return conversionService;
