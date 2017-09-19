@@ -18,47 +18,27 @@
             <form:form class="form-horizontal" action="${pageContext.request.contextPath}/registration" modelAttribute="user">
                     <div class="form-group">
                             <form:label class="control-label col-sm-2"  path="userName"> User Name :</form:label>
-                            <form:input class="col-sm-10" id="user_name" type="text" path="userName" required="true"/>
+                            <form:input class="col-sm-4" id="user_name" type="text" path="userName" required="true"/>
                     </div>
                     <div class="form-group">
-                        <div class="control-label col-sm-2">
-                            <form:label path="firstName"> First Name :</form:label>
-                        </div>
-                        <div class="col-sm-10">
-                            <form:input id="first_name" type="text" path="firstName" required="true"/>
-                        </div>
+                            <form:label class="control-label col-sm-2" path="firstName"> First Name :</form:label>
+                            <form:input class="col-sm-4" id="first_name" type="text" path="firstName" required="true"/>
                     </div>
                     <div class="form-group">
-                        <div class="control-label col-sm-2">
-                        <form:label path="lastName"> Last Name :</form:label>
-                        </div>
-                        <div class="col-sm-10" >
-                        <form:input id="last_name" type="text" path="lastName" required="true"/>
-                        </div>
+                        <form:label class="control-label col-sm-2" path="lastName"> Last Name :</form:label>
+                        <form:input class="col-sm-4" id="last_name" type="text" path="lastName" required="true"/>
                     </div>
                     <div class="form-group">
-                        <div class="control-label col-sm-2">
-                        <form:label path="password"> Password : </form:label>
-                        </div>
-                        <div class="col-sm-10" >
-                        <form:input id="password" type="password" path="password" required="true"/>
-                        </div>
+                        <form:label class="control-label col-sm-2" path="password"> Password : </form:label>
+                        <form:input class="col-sm-4" id="password" type="password" path="password" required="true"/>
                     </div>
                     <div class="form-group">
-                        <div class="control-label col-sm-2">
-                        <label for="password_again"> Password Again : </label>
-                        </div>
-                        <div class="col-sm-10" >
-                        <input id="password_again" type="password" name="password_again" required="true"/>
-                        </div>
+                        <label class="control-label col-sm-2" for="password_again"> Password Again : </label>
+                        <input class="col-sm-4" id="password_again" type="password" name="password_again" required="true"/>
                     </div>
                     <div class="form-group">
-                        <div class="control-label col-sm-2">
-                        <form:label path="email"> Email : </form:label>
-                        </div>
-                        <div class="col-sm-10" >
-                        <form:input id="email" type="email" path="email" required="true"/>
-                        </div>
+                        <form:label class="control-label col-sm-2" path="email"> Email : </form:label>
+                        <form:input class="col-sm-4" id="email" type="email" path="email" required="true"/>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">

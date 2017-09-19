@@ -7,11 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-/**
- * Created by ssalyi on 9/9/2017.
- */
+import org.springframework.web.bind.annotation.RequestMapping;git status
 
 @Controller
 @RequestMapping(path = "registration")
@@ -29,10 +25,10 @@ public class RegisterController {
     }
 
     @PostMapping
-    public String postRegister(UserVO userVO){
+    public String postRegister(UserVO user){
 
-        userService.save(userVO);
-        System.out.println(userVO);
+        userService.save(user);
+        System.out.println(user);
 
         return "registration_success";
     }
