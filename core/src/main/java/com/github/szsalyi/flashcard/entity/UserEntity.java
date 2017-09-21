@@ -10,16 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.ManyToMany;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinTable;
 import javax.persistence.EnumType;
 import java.util.List;
-import java.util.Set;
 
-/**
- * Created by ssalyi on 8/14/2017.
- */
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -46,10 +41,9 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false, insertable = true, updatable = true)
-    @ElementCollection(targetClass = Role.class)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-     private Set<Role> roles;
+     private Role role;
 
     @ManyToMany
     @JoinTable(name = "user_cards")

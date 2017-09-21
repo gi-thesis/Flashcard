@@ -15,7 +15,7 @@ import javax.servlet.ServletRegistration;
 public class WebAppInitializer implements WebApplicationInitializer{
 
     @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
+    public void onStartup(final ServletContext servletContext) throws ServletException {
 
         //Spring context (bean , controlles..)
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
@@ -25,7 +25,7 @@ public class WebAppInitializer implements WebApplicationInitializer{
 
         context.register(WebConfig.class);
 
-        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("Dispatcher",new DispatcherServlet(context));
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("Dispatcher", new DispatcherServlet(context));
 
         dispatcher.addMapping("/");
 

@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class WebConfig {
 
     @Bean
-    public ViewResolver viewResolver(){
+    public ViewResolver viewResolver() {
 
         InternalResourceViewResolver internalViewResolver = new InternalResourceViewResolver();
 
