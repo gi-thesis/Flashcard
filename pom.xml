@@ -36,6 +36,7 @@
         <version.servlet>4.0.0</version.servlet>
         <version.spring>4.3.10.RELEASE</version.spring>
         <version.springjpa>1.11.6.RELEASE</version.springjpa>
+        <version.spring.security>4.2.3.RELEASE</version.spring.security>
 
         <version.compiler>3.6.1</version.compiler>
 
@@ -112,6 +113,16 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
                 <version>${version.spring}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+                <version>${version.spring.security}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+                <version>${version.spring.security}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
