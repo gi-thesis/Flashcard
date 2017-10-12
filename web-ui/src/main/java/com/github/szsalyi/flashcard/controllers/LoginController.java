@@ -19,8 +19,4 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping
-    public String postLogin(final UserVO user) {
-        return "welcome";
-    }
 }
