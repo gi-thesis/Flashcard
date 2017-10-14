@@ -4,6 +4,7 @@ import com.github.szsalyi.flashcard.entity.UserEntity;
 import com.github.szsalyi.flashcard.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
+    @Qualifier("createConversionService")
      private ConversionService conversionService;
 
     @Override
