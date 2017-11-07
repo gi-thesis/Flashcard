@@ -8,26 +8,26 @@ header{
     z-index: 100;
 }
 
-#logo {
-    -moz-filter:hue-rotate(90deg);
-    -webkit-filter:hue-rotate(90deg);
-    -ms-filter:hue-rotate(90deg);
-    filter:hue-rotate(90deg);
-}
-
 .wrapper{
     top: 20%;
     left: 3%;
     position: relative;
 }
 
-.header1, .header2, div > #logo{
+.header1, .header2, .material-icons{
     float: left;
 }
 .header1, .header2{
     font-family: "Oswald", serif;
     font-size: 22px;
     color: white;
+}
+
+.material-icons.md-30{
+    color: #ce93d8;
+    font-size: 30px;
+    margin-right: 3px;
+    vertical-align: center;
 }
 .header1{
     font-weight: bold;

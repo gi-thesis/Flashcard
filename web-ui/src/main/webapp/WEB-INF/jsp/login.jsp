@@ -7,18 +7,19 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css" >
         <title>Title</title>
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     <body>
         <header>
             <div class="wrapper">
                 <div>
-                    <img id="logo" src="resources/images/logo2.png"/>
+                    <i class="material-icons md-30">picture_in_picture_alt</i>
                 </div>
                 <div class="header1">FLASH</div>
                 <div class="header2">CARDS</div>
             </div>
         </header>
-        <form:form class="form-horizontal" action = "${pageContext.request.contextPath}/login" modelAttribute="loginUser">
+        <form:form class="menu-panel" action = "${pageContext.request.contextPath}/login" modelAttribute="loginUser">
             <div class="">
                 <form:label class="" path="userName">User Name : </form:label>
                 <form:input class="" type="text" path="userName" required="true"/>
