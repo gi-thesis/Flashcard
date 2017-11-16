@@ -9,27 +9,17 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-/**
- * Created by ssalyi on 9/2/2017.
- */
-public class WebAppInitializer implements WebApplicationInitializer{
+public class WebAppInitializer implements WebApplicationInitializer {
 
     @Override
     public void onStartup(final ServletContext servletContext) throws ServletException {
-
-        //Spring context (bean , controlles..)
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-
-        //when servlet context is loaded spring context loads
         servletContext.addListener(new ContextLoaderListener(context));
 
         context.register(WebConfig.class);
 
-        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("Dispatcher", new DispatcherServlet(context));
-
+        ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
         dispatcher.addMapping("/");
-
-        //first servlet to be loaded
         dispatcher.setLoadOnStartup(1);
     }
 }

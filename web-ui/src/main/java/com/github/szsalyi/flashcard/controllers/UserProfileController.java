@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserProfileController {
 
     @GetMapping
-    public String getProfile(){
+    public String getProfile() {
         return "profile";
     }
 }

@@ -19,27 +19,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private DataSource dataSource;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/", "/registration", "/resources/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .usernameParameter("userName")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/admin/*")
-                .hasRole("ADMIN");
+            .authorizeRequests()
+            .antMatchers("/", "/registration", "/resources/**").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .usernameParameter("userName")
+            .permitAll()
+            .and()
+            .logout()
+            .permitAll()
+            .and()
+            .authorizeRequests()
+            .antMatchers("/admin/*")
+            .hasRole("ADMIN");
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .usersByUsernameQuery("SELECT userName, password, enabled FROM user WHERE userName=?")

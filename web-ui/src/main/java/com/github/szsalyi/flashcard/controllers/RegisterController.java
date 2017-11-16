@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path = "registration")
+@RequestMapping(path = "/registration")
 public class RegisterController {
 
     @Autowired
@@ -19,9 +19,7 @@ public class RegisterController {
 
     @GetMapping
     public String getRegister(final Model model) {
-
         model.addAttribute("user", new UserVO());
-
         return "registration";
     }
 
@@ -29,9 +27,8 @@ public class RegisterController {
     public String postRegister(final UserVO user) {
         user.setRole(Role.USER);
         user.setEnabled(1);
-        userService.save(user);
-        System.out.println(user);
 
+        userService.save(user);
         return "registration_success";
     }
 
