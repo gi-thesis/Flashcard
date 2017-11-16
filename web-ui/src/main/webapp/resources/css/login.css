@@ -1,5 +1,5 @@
-.menu-panel{
-    top: 30%;
-    left: 30%;
-    position: relative;
+#fc-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
