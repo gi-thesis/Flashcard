@@ -12,24 +12,24 @@
     </head>
     <body id="fc-body">
         <header id="fc-header">
-            <div class="wrapper">
+            <div class="header-wrapper">
                 <i class="material-icons md-30">picture_in_picture_alt</i>
                 <span class="bold-text">FLASH</span>
                 <span class="light-text">CARDS</span>
             </div>
         </header>
-        <form:form class="menu-panel" action = "${pageContext.request.contextPath}/login" modelAttribute="loginUser">
-            <div class="">
-                <form:label class="" path="userName">User Name : </form:label>
-                <form:input class="" type="text" path="userName" required="true"/>
+        <form:form class="login-wrapper" action = "${pageContext.request.contextPath}/login" modelAttribute="loginUser">
+            <div class="details-field">
+                <form:label class="" path="userName">Username  </form:label>
+                <form:input class="input-field" type="text" path="userName" required="true"/>
             </div>
-            <div class="">
-                <form:label class="" path="password"> Password : </form:label>
-                <form:input class="" type="text" path="password" required="true"/>
+            <div class="details-field">
+                <form:label class="" path="password"> Password  </form:label>
+                <form:input class="input-field" type="password" path="password" required="true"/>
             </div>
-            <div class="">
-                <form:button type="submit">Submit</form:button>
-            </div>
+            <form:button id="submit" type="submit">
+                <span class="text-button">LOG IN</span>
+            </form:button>
         </form:form>
     </body>
 </html>

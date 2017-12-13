@@ -12,7 +12,7 @@
     box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.23);
 }
 
-.wrapper{
+.header-wrapper{
     left: 3%;
     position: relative;
     display: flex;
