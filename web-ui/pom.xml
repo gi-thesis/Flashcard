@@ -28,6 +28,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.szsalyi</groupId>
             <artifactId>flashcard-service</artifactId>
             <version>${project.parent.version}</version>

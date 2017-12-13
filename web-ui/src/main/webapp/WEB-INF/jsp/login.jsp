@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <meta charset="utf-8">
@@ -19,6 +20,9 @@
             </div>
         </header>
         <form:form class="login-wrapper" action = "${pageContext.request.contextPath}/login" modelAttribute="loginUser">
+            <c:if test="${param.error eq ''}">
+                <span id="user-error">Wrong username or password!</span>
+            </c:if>
             <div class="details-field">
                 <form:label class="" path="userName">Username  </form:label>
                 <form:input class="input-field" type="text" path="userName" required="true"/>
