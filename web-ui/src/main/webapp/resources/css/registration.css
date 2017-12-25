@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+#fc-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

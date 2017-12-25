@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css" >
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css" >
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
         <title>Title</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
