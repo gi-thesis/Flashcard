@@ -10,7 +10,6 @@
 
 
 .login-wrapper{
-    position: relative;
     display: flex;
     -webkit-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
     -moz-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
@@ -23,16 +22,12 @@
     flex-direction: column;
 }
 
-.user-field{
-
-}
 
 .pass-field{
     margin-bottom: 10px;
 }
 
 #submit{
-
     font-family: "Oswald";
     font-size: 14px;
     font-weight: 700;
@@ -42,7 +37,6 @@
     margin-top: 10px;
     padding: 10px 35px;
     align-self: flex-end;
-
 }
 
 .details-field {
@@ -63,6 +57,9 @@
     border: 1.5px solid #81d4fa;
     line-height: 2em;
     padding-left: 5px;
+    font-family: "Oswald";
+    font-weight: 300;
+    font-size: 18px;
 }
 
 #user-error{
