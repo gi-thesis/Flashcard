@@ -5,7 +5,6 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/registration.css" >
-        <script src="${pageContext.request.contextPath}/resources/js/confirm.js" ></script>
         <title>Title</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
@@ -32,7 +31,7 @@
                 <form:input class="input-field" id="first_name" type="text" path="firstName" required="true"/>
             </div>
             <div class="details-field">
-                <form:label class="" path="lastName"> Last Name<span class="red">*</span> </form:label>
+                <form:label class="valami" path="lastName"> Last Name<span class="red">*</span> </form:label>
                 <form:input class="input-field" id="last_name" type="text" path="lastName" required="true"/>
             </div>
             <div class="details-field">
@@ -52,5 +51,6 @@
                 <span class="text-button">SUBMIT</span>
             </form:button>
         </form:form>
+        <script src="${pageContext.request.contextPath}/resources/js/confirm.js" ></script>
     </body>
 </html>
