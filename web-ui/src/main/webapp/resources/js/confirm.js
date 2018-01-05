@@ -1,10 +1,10 @@
-if(document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', afterLoaded);
-} else {
-    afterLoaded();
-}
+//if(document.readyState === 'loading') {
+//    document.addEventListener('DOMContentLoaded', afterLoaded);
+//} else {
+//    afterLoaded();
+//}
 
-function afterLoaded() {
+window.onload = function afterLoaded() {
 
     var password = document.getElementById('password')
         , confirm_password = document.getElementById('confirm_password')
@@ -16,11 +16,14 @@ function afterLoaded() {
             confirm_password.style.backgroundColor = "#F44336";
             confirm_password.style.border = "#8B0000";
         } else {
+            confirm_password.style.backgroundColor = "#80CBC4";
+            confirm_password.style.border = "#004D40";
             confirm_password.setCustomValidity('');
         }
     }
-
-password.oninput = validatePassword();
-confirm_password.oninput = validatePassword();
+    password.addEventListener('input', validatePassword, true)
+    confirm_password.addEventListener('input', validatePassword, true)
+//password.oninput = validatePassword();
+//confirm_password.oninput = validatePassword();
 //submit.onclick = validatePassword();
 }
