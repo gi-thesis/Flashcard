@@ -20,7 +20,7 @@ function afterLoaded() {
         }
     }
 
-password.onkeyup = validatePassword();
+password.oninput = validatePassword();
 confirm_password.oninput = validatePassword();
 //submit.onclick = validatePassword();
 }
