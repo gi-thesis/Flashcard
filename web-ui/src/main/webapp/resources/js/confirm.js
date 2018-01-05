@@ -20,8 +20,7 @@ function afterLoaded() {
         }
     }
 
-password.onchange = validatePassword();
-confirm_password.onkeyup = validatePassword();
+password.onkeyup = validatePassword();
+confirm_password.oninput = validatePassword();
 //submit.onclick = validatePassword();
-
 }
