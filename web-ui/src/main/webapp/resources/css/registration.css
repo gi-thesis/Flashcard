@@ -76,3 +76,21 @@
     padding: 10px 35px;
     align-self: flex-end;
 }
+
+meter{
+    margin: 0;
+}
+
+#meter-field{
+    align-self: flex-end;
+    display: none;
+}
+
+#password-strength-meter{
+    width: 100px;
+}
+#password-strength-text{
+    margin: 1px 1px;
+    font-size: 12px;
+    font-weight: 700;
+}

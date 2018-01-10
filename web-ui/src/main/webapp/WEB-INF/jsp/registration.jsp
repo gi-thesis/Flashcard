@@ -3,9 +3,13 @@
 <html>
     <head>
         <meta charset="utf-8">
+
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/registration.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/confirm.js" ></script>
+        <script src="${pageContext.request.contextPath}/resources/js/username-validation.js"></script>
         <title>Title</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
@@ -38,6 +42,10 @@
             <div class="details-field">
                 <form:label class="" path="password"> Password<span class="red">*</span> </form:label>
                 <form:input class="input-field" id="password" type="password" path="password" required="true"/>
+            </div>
+            <div id="meter-field">
+                <p id="password-strength-text">Strength:</p>
+                <meter max="4" id="password-strength-meter"></meter>
             </div>
             <div class="details-field">
                 <label class="" for="confirm_password"> Confirm Password<span class="red">*</span> </label>

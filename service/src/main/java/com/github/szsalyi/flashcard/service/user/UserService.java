@@ -4,4 +4,6 @@ public interface UserService {
 
     void save(UserVO userVO);
 
+    UserVO findUser(final String userName);
+
 }
