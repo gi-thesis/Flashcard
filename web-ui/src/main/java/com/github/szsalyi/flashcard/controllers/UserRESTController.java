@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/users",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(path = "/api/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UserRESTController {
 
     @Autowired
     private UserService userService;
 
     @GetMapping(path = "/exists")
-    public Result<Boolean> getUser(@RequestParam String username){
+    public Result<Boolean> getUser(@RequestParam final String username) {
         Result<Boolean> result = new Result<>();
-        if(userService.findUser(username) != null){
+        if (userService.findUser(username) != null) {
             result.setData(true);
-        }else {
+        } else {
             result.setData(false);
         }
         return result;

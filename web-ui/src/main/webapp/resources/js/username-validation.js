@@ -12,6 +12,10 @@ $(document).ready(function() {
               if(response.data == true){
                   console.log('succes',response.data);
                   $('#user_name').css("border-color", "red");
+                  $('#user_name').get(0).setCustomValidity('Nem jauuu');
+              }else {
+                  $('#user_name').css("border-color", "green");
+                  $('#user_name').get(0).setCustomValidity('');
               }
             }
         });
