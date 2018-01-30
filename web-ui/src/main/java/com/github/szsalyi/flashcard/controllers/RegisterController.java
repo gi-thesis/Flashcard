@@ -24,12 +24,13 @@ public class RegisterController {
     }
 
     @PostMapping
-    public String postRegister(final UserVO user) {
+    public String postRegister(final Model model, final UserVO user) {
         user.setRole(Role.USER);
         user.setEnabled(1);
 
         userService.save(user);
-        return "registration_success";
+        model.addAttribute("loginUser", new UserVO());
+        return "login";
     }
 
 }

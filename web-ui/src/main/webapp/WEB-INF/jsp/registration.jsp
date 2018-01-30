@@ -17,10 +17,12 @@
     </head>
     <body id = "fc-body">
         <header id="fc-header">
-            <div class="header-wrapper">
-                <i class="material-icons md-30">picture_in_picture_alt</i>
-                <span class="bold-text">FLASH</span>
-                <span class="light-text">CARDS</span>
+            <div id="symbol-wrapper">
+                <div class="header-wrapper">
+                    <i class="material-icons md-30">picture_in_picture_alt</i>
+                    <span class="bold-text">FLASH</span>
+                    <span class="light-text">CARDS</span>
+                </div>
             </div>
         </header>
         <form:form class="registration-form" action="${pageContext.request.contextPath}/registration" modelAttribute="user">

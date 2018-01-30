@@ -13,10 +13,12 @@
     </head>
     <body id="fc-body">
         <header id="fc-header">
-            <div class="header-wrapper">
-                <i class="material-icons md-30">picture_in_picture_alt</i>
-                <span class="bold-text">FLASH</span>
-                <span class="light-text">CARDS</span>
+            <div id="symbol-wrapper">
+                <div class="header-wrapper">
+                    <i class="material-icons md-30">picture_in_picture_alt</i>
+                    <span class="bold-text">FLASH</span>
+                    <span class="light-text">CARDS</span>
+                </div>
             </div>
         </header>
         <form:form class="login-wrapper" action = "${pageContext.request.contextPath}/login" modelAttribute="loginUser">
@@ -24,11 +26,11 @@
                 <span id="user-error">Wrong username or password!</span>
             </c:if>
             <div class="details-field">
-                <form:label class="" path="userName">Username  </form:label>
+                <form:label class="" path="userName">Username</form:label>
                 <form:input class="input-field" type="text" path="userName" required="true"/>
             </div>
             <div class="details-field">
-                <form:label class="" path="password"> Password  </form:label>
+                <form:label class="" path="password">Password</form:label>
                 <form:input class="input-field" type="password" path="password" required="true"/>
             </div>
             <form:button id="submit" type="submit">
