@@ -44,10 +44,10 @@
             <div class="details-field">
                 <form:label class="" path="password"> Password<span class="red">*</span> </form:label>
                 <form:input class="input-field" id="password" type="password" path="password" required="true"/>
-            </div>
-            <div id="meter-field">
+                <div id="meter-field">
                 <p id="password-strength-text">Strength:</p>
                 <meter max="4" id="password-strength-meter"></meter>
+                </div>
             </div>
             <div class="details-field">
                 <label class="" for="confirm_password"> Confirm Password<span class="red">*</span> </label>

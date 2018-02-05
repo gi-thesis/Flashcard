@@ -10,9 +10,8 @@ $(document).ready(function() {
             data: {username : $('#user_name').val()},
             success: function (response) {
               if(response.data == true){
-                  console.log('succes',response.data);
                   $('#user_name').css("border-color", "red");
-                  $('#user_name').get(0).setCustomValidity('Nem jauuu');
+                  $('#user_name').get(0).setCustomValidity('A felhasználó név már létezik!');
               }else {
                   $('#user_name').css("border-color", "green");
                   $('#user_name').get(0).setCustomValidity('');

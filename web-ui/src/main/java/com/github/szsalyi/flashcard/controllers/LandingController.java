@@ -17,6 +17,4 @@ public class LandingController {
         return "landing";
     }
 
-    @PostMapping
-    public String postLogin() { return "profile"; }
 }

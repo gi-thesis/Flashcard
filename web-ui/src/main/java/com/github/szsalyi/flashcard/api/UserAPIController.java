@@ -1,4 +1,4 @@
-package com.github.szsalyi.flashcard.controllers;
+package com.github.szsalyi.flashcard.api;
 
 import com.github.szsalyi.flashcard.response.Result;
 import com.github.szsalyi.flashcard.service.user.UserService;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/api/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-public class UserRESTController {
+public class UserAPIController {
 
     @Autowired
     private UserService userService;

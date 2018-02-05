@@ -20,7 +20,7 @@
                     <span class="light-text">CARDS</span>
                 </div>
             </div>
-            <form:form id="login-wrapper" action="${pageContext.request.contextPath}/" modelAttribute="loginUser">
+            <form:form id="login-wrapper" action="${pageContext.request.contextPath}/login" modelAttribute="loginUser">
                 <div id="login-details">
                     <div id="user-details">
                         <form:label class="light-text" path="userName">Username</form:label>

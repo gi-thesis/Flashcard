@@ -12,7 +12,7 @@ window.onload = function afterLoaded() {
     var text = document.getElementById('password-strength-text');
     var meterfield = document.getElementById('meter-field');
     var strength = {
-        0: "Worst",
+        0: "Bad",
         1: "Bad",
         2: "Weak",
         3: "Good",
@@ -21,7 +21,7 @@ window.onload = function afterLoaded() {
 
     function confirmPassword(){
         if(password.value != confirm_password.value) {
-            confirm_password.setCustomValidity("A jelszavak nem egyeznek!");
+            confirm_password.setCustomValidity("Passwords doesn't match!");
             confirm_password.style.backgroundColor = "#F44336";
             confirm_password.style.border = "1.5px solid #8B0000";
         } else {
@@ -40,13 +40,22 @@ window.onload = function afterLoaded() {
 
             // Update the text indicator
             if (val !== "") {
-                meterfield.style.display = 'block';
                 text.innerHTML = "Strength: " + strength[result.score];
+                meterfield.style.display = 'block';
             } else {
                 text.innerHTML = "";
             }
         },true);
+
     password.addEventListener('blur', function () {
+        var val = password.value;
+        var result = zxcvbn(val);
+        if(result.score < 3){
+            password.setCustomValidity("The password isn't enough strong! (Strength must be at least good!)");
+            password.style.borderColor = 'red';
+        }else {
+            password.style.borderColor = '#81d4fa';
+        }
         meterfield.style.display = 'none';
     },true)
 

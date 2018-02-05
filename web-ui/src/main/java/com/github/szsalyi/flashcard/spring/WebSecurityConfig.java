@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,30 +14,30 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 
-@Configuration
 @EnableWebSecurity
-@Order(2)
+@Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final int ENCODER_STRENGTH = 11;
+
     @Autowired
     @Qualifier("dataSource")
     private DataSource dataSource;
 
-
-
     @Autowired
-    private MyUserDetailsService userDetailsService;
+    private FlashcardUserDetailsService userDetailsService;
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
+            .csrf().disable()
             .authorizeRequests()
             .antMatchers("/", "/registration", "/resources/**", "/api/**").permitAll()
             .anyRequest().authenticated()
             .and()
             .formLogin()
             .loginPage("/login")
+            .defaultSuccessUrl("/profile")
             .usernameParameter("userName")
             .permitAll()
             .and()
