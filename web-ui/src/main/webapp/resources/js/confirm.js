@@ -55,6 +55,7 @@ window.onload = function afterLoaded() {
             password.style.borderColor = 'red';
         }else {
             password.style.borderColor = '#81d4fa';
+            password.setCustomValidity("");
         }
         meterfield.style.display = 'none';
     },true)
