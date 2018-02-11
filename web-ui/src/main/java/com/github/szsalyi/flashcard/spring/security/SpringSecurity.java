@@ -1,4 +1,4 @@
-package com.github.szsalyi.flashcard.spring;
+package com.github.szsalyi.flashcard.spring.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

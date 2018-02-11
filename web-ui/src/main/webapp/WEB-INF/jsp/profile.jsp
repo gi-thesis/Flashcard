@@ -26,23 +26,23 @@
             </div>
             <div class="detail-field">
                 <span>User Name</span>
-                <label>${user.user.userName}</label>
+                <span>${user.user.userName}</span>
             </div>
             <div class="detail-field">
-                <span>First Name</span>
-                <label>${user.user.firstName}</label>
+                    <span>First Name</span>
+                    <span>${user.user.firstName}</span>
             </div>
             <div class="detail-field">
                 <span>Last Name</span>
-                <label>${user.user.lastName}</label>
+                <span>${user.user.lastName}</span>
             </div>
             <div class="detail-field">
                 <span>Email</span>
-                <label>${user.user.email}</label>
+                <span>${user.user.email}</span>
             </div>
             <div class="detail-field">
                 <span>Password</span>
-                <label>${user.user.password}</label>
+                <span>${user.user.password}</span>
             </div>
         </div>
     </body>

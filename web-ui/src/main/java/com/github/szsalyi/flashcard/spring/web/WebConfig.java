@@ -1,4 +1,4 @@
-package com.github.szsalyi.flashcard.spring;
+package com.github.szsalyi.flashcard.spring.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

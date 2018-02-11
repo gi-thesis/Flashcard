@@ -1,7 +1,8 @@
-package com.github.szsalyi.flashcard.spring;
+package com.github.szsalyi.flashcard.spring.security;
 
 import com.github.szsalyi.flashcard.service.user.UserService;
 import com.github.szsalyi.flashcard.service.user.UserVO;
+import com.github.szsalyi.flashcard.spring.security.FlashcardUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

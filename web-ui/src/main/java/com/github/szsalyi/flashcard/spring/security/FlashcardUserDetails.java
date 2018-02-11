@@ -1,4 +1,4 @@
-package com.github.szsalyi.flashcard.spring;
+package com.github.szsalyi.flashcard.spring.security;
 
 import com.github.szsalyi.flashcard.service.user.UserVO;
 
