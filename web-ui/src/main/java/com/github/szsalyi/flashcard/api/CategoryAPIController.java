@@ -10,10 +10,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -57,5 +59,12 @@ public class CategoryAPIController {
         return ResponseEntity.status(200).body(result);
     }
 
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Result<Boolean>> updateCategory(@PathVariable final long id) {
+        Result<Boolean> result = new Result<>();
+        categoryService.delete(id);
+        result.setData(true);
+        return ResponseEntity.status(200).body(result);
+    }
 
 }

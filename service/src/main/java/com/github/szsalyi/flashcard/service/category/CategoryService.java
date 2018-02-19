@@ -16,4 +16,5 @@ public interface CategoryService {
     CategoryVO getCategory(long id) throws ResourceNotFoundException;
 
     void delete(long id);
+
 }
