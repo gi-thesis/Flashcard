@@ -60,11 +60,13 @@ public class CategoryAPIController {
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Result<Boolean>> updateCategory(@PathVariable final long id) {
+    public ResponseEntity<CategoryVO> updateCategory(@RequestBody final CategoryVO category) {
         Result<Boolean> result = new Result<>();
-        categoryService.delete(id);
-        result.setData(true);
-        return ResponseEntity.status(200).body(result);
+        try {
+            return ResponseEntity.status(200).body(categoryService.save(category));
+        } catch (SaveException e) {
+            return ResponseEntity.status(500).build();
+        }
     }
 
 }
