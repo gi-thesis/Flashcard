@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="app/reset.css">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="app/core/header/header.component.css">
+
+        <base href="/flashcard/"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+        <script src="app/app.module.js"></script>
+        <script src="app/core/header/header.component.js"></script>
+
 
     </head>
-    <body>
+    <body ng-app="fc-app">
+
+        <fc-header></fc-header>
         <h1>Hello</h1>
     </body>
 </html>

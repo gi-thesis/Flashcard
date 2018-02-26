@@ -5,10 +5,10 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css" >
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/app/core/header/header.css">
         <title>Title</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/app/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600" rel="stylesheet">
     </head>
     <body id="fc-body">

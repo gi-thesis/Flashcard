@@ -4,9 +4,9 @@
     <head>
         <title>Title</title>
         <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600" rel="stylesheet">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/app/core/header/header.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/app/reset.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/profile.css">
     </head>
     <body id="fc-body">

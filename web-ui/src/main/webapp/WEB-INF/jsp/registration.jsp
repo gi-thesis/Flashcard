@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/app/core/header/header.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/registration.css" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
@@ -12,7 +12,7 @@
         <script src="${pageContext.request.contextPath}/resources/js/username-validation.js"></script>
         <title>Title</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/static/app/reset.css">
         <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,600" rel="stylesheet">
     </head>
     <body id = "fc-body">
