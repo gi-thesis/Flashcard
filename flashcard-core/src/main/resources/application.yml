@@ -1,0 +1,7 @@
+server:
+    port: 9090
+    contextPath: /flashcard
+
+spring:
+    profiles:
+        active: dev

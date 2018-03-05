@@ -10,7 +10,7 @@
         <version>0.1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>flashcard-web-ui</artifactId>
+    <artifactId>flashcard-ui</artifactId>
     <packaging>jar</packaging>
 
     <name>Flashcard App - Web UI</name>

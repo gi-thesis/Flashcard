@@ -1,1 +1,0 @@
-INSERT INTO user VALUE (0,'sa@sa.com' , 1, 'sa', 'sa', 'sa', 'ADMIN', 'sa')

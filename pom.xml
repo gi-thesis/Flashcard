@@ -5,16 +5,16 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.szsalyi</groupId>
-    <artifactId>flashcard-parent</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.10.RELEASE</version>
     </parent>
+
+    <groupId>com.github.szsalyi</groupId>
+    <artifactId>flashcard-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <name>Flashcard App - Parent</name>
     <description>Web application for learning languages using flashcards.</description>
@@ -39,8 +39,8 @@
     </developers>
 
     <modules>
-        <module>core</module>
-        <module>web-ui</module>
+        <module>flashcard-core</module>
+        <module>flashcard-ui</module>
     </modules>
 
     <properties>
