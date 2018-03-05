@@ -7,153 +7,37 @@
     <parent>
         <groupId>com.github.szsalyi</groupId>
         <artifactId>flashcard-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>flashcard-web-ui</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>Flashcard App - Web UI</name>
-    <description>Web Layer of the Flashcard App.</description>
+    <description>Web UI of the Flashcards App.</description>
 
     <properties>
         <dir.codequality>${project.parent.basedir}/code-quality</dir.codequality>
-
-        <version.warplugin>3.1.0</version.warplugin>
-        <version.jetty>9.4.6.v20170531</version.jetty>
-
-        <config.jetty.port>9090</config.jetty.port>
-        <config.jetty.contextPath>/flashcard</config.jetty.contextPath>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.szsalyi</groupId>
-            <artifactId>flashcard-service</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.github.szsalyi</groupId>
             <artifactId>flashcard-core</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${version.spring.boot}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-            <version>${version.spring.boot}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <version>${version.spring.boot}</version>
-        </dependency>
-
-
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-
-
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${version.spring.boot}</version>
-            </plugin>
-
-            <!-- Testing Plugins -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-            </plugin>
-            <!-- /Testing Plugins -->
-
-            <!-- Code Quality Plugins -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-            </plugin>
-            <!-- /Code Quality Plugins -->
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>${version.warplugin}</version>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <mainClass>com.github.szsalyi.flashcard.spring.FlashcardApplication</mainClass>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>${version.jetty}</version>
             </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>jetty</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.jetty</groupId>
-                        <artifactId>jetty-maven-plugin</artifactId>
-                        <configuration>
-                            <webApp>
-                                <contextPath>${config.jetty.contextPath}</contextPath>
-                            </webApp>
-                            <httpConnector>
-                                <port>${config.jetty.port}</port>
-                            </httpConnector>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <!-- Package phase because of the war file creation and for war file to be running( or later phase) -->
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>run</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 </project>

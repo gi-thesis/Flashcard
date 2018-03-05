@@ -7,7 +7,7 @@
 
     <groupId>com.github.szsalyi</groupId>
     <artifactId>flashcard-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <parent>
@@ -20,9 +20,26 @@
     <description>Web application for learning languages using flashcards.</description>
     <inceptionYear>2017</inceptionYear>
 
+    <developers>
+        <developer>
+            <id>szabolcs-salyi</id>
+            <name>Szabolcs Salyi</name>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>attila-gyongyosi</id>
+            <name>Attila Gyongyosi</name>
+            <email>attilagyongyosi0@gmail.com</email>
+            <roles>
+                <role>supervisor</role>
+            </roles>
+        </developer>
+    </developers>
+
     <modules>
         <module>core</module>
-        <module>service</module>
         <module>web-ui</module>
     </modules>
 
@@ -34,20 +51,16 @@
 
         <version.java>1.8</version.java>
 
-        <dozer.version>5.5.1</dozer.version>
-        <dozer.jdk8.support.version>1.0.2</dozer.jdk8.support.version>
         <version.lombok>1.16.18</version.lombok>
+        <version.dozer>5.5.1</version.dozer>
+        <version.dozer-jdk8>1.0.2</version.dozer-jdk8>
+
         <version.mysql>5.1.45</version.mysql>
         <version.hibernate>5.2.10.Final</version.hibernate>
-        <version.servlet>4.0.0</version.servlet>
-        <version.spring>4.3.10.RELEASE</version.spring>
-        <version.springjpa>1.11.6.RELEASE</version.springjpa>
-        <version.spring.security>4.2.3.RELEASE</version.spring.security>
+
         <version.spring.boot>1.5.10.RELEASE</version.spring.boot>
-        <version.jackson>2.9.3</version.jackson>
 
         <version.compiler>3.6.1</version.compiler>
-
         <version.surefire>2.20</version.surefire>
         <version.cobertura>2.7</version.cobertura>
 
@@ -55,91 +68,6 @@
         <version.findbugs>3.0.5</version.findbugs>
         <version.pmd>3.8</version.pmd>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- Utilities -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${version.lombok}</version>
-                <scope>compile</scope>
-            </dependency>
-
-            <!-- Dozer Mapper -->
-            <dependency>
-                <groupId>net.sf.dozer</groupId>
-                <artifactId>dozer</artifactId>
-                <version>${dozer.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.craftsman</groupId>
-                <artifactId>dozer-jdk8-support</artifactId>
-                <version>${dozer.jdk8.support.version}</version>
-            </dependency>
-
-            <!-- Database Dependencies -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${version.mysql}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>${version.hibernate}</version>
-            </dependency>
-
-            <!-- JSR-303 Bean Validation -->
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>${version.hibernate}</version>
-            </dependency>
-
-            <!-- Servlet API -->
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${version.servlet}</version>
-                <scope>provided</scope>
-            </dependency>
-
-            <!-- Spring Modules -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-jdbc</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-jpa</artifactId>
-                <version>${version.springjpa}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-web</artifactId>
-                <version>${version.spring.security}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-taglibs</artifactId>
-                <version>${version.spring.security}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-config</artifactId>
-                <version>${version.spring.security}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <pluginManagement>
