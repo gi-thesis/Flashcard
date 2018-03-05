@@ -10,6 +10,12 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.10.RELEASE</version>
+    </parent>
+
     <name>Flashcard App - Parent</name>
     <description>Web application for learning languages using flashcards.</description>
     <inceptionYear>2017</inceptionYear>
@@ -31,12 +37,14 @@
         <dozer.version>5.5.1</dozer.version>
         <dozer.jdk8.support.version>1.0.2</dozer.jdk8.support.version>
         <version.lombok>1.16.18</version.lombok>
-        <version.mysql>5.1.40</version.mysql>
+        <version.mysql>5.1.45</version.mysql>
         <version.hibernate>5.2.10.Final</version.hibernate>
         <version.servlet>4.0.0</version.servlet>
         <version.spring>4.3.10.RELEASE</version.spring>
         <version.springjpa>1.11.6.RELEASE</version.springjpa>
         <version.spring.security>4.2.3.RELEASE</version.spring.security>
+        <version.spring.boot>1.5.10.RELEASE</version.spring.boot>
+        <version.jackson>2.9.3</version.jackson>
 
         <version.compiler>3.6.1</version.compiler>
 
@@ -119,6 +127,12 @@
                 <artifactId>spring-security-web</artifactId>
                 <version>${version.spring.security}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-taglibs</artifactId>
+                <version>${version.spring.security}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-config</artifactId>

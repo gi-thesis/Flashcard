@@ -6,13 +6,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.ManyToMany;
 import javax.persistence.Column;
-import javax.persistence.Enumerated;
-import javax.persistence.JoinTable;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 
@@ -47,8 +46,7 @@ public class UserEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
      private Role role;
 
-    @ManyToMany
-    @JoinTable(name = "user_cards")
+    @OneToMany
     private List<CardEntity> cardEntities;
 
 }

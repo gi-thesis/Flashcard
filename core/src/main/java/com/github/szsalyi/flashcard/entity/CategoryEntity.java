@@ -24,6 +24,6 @@ public class CategoryEntity extends BaseEntity {
     private static final Long serialVersionUID = 1L;
 
     @Column(nullable = false, unique = true)
-    private String category;
+    private String name;
 
 }

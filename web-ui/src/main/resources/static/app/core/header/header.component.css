@@ -5,6 +5,7 @@
     background-color: #81d4fa;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     top: 0;
     z-index: 100;
     -webkit-box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.23);
@@ -12,9 +13,7 @@
     box-shadow: -1px 4px 5px 0px rgba(0,0,0,0.23);
 }
 
-.wrapper{
-    left: 3%;
-    position: relative;
+.header-wrapper{
     display: flex;
     align-items: center;
     font-family: "Oswald";
@@ -36,4 +35,8 @@
     vertical-align: center;
 }
 
-
+#symbol-wrapper{
+    position: relative;
+    display: flex;
+    left: 3%;
+}

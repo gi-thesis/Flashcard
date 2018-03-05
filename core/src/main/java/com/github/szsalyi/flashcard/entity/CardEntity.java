@@ -5,13 +5,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
 import javax.persistence.FetchType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.Set;
 
 @Data
@@ -24,21 +24,15 @@ public class CardEntity extends BaseEntity {
 
     private static final Long serialVersionUID = 1L;
 
-    @OneToOne
-    @JoinColumn(name = "word_id")
-    private WordEntity value;
+    private String front;
 
-    private String meaning;
+    private String back;
 
-    @ManyToMany(mappedBy = "cardEntities")
-    private Set<UserEntity> user;
+    @ManyToOne()
+    private UserEntity user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CategoryEntity category;
-
-    @ManyToOne
-    @JoinColumn(name = "language_id")
-    private LanguageEntity language;
-
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable()
+    private Set<CategoryEntity> category;
 
 }

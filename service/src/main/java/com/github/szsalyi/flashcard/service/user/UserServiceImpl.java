@@ -22,4 +22,9 @@ public class UserServiceImpl implements UserService {
     public void save(final UserVO userVO) {
         userRepository.save(conversionService.convert(userVO, UserEntity.class));
     }
+
+    @Override
+    public UserVO findUser(final String userName) {
+        return conversionService.convert(userRepository.findByUserName(userName), UserVO.class);
+    }
 }
