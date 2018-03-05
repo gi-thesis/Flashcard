@@ -2,9 +2,13 @@ package com.github.szsalyi.flashcard.api;
 
 import com.github.szsalyi.flashcard.response.Result;
 import com.github.szsalyi.flashcard.service.user.UserService;
+import com.github.szsalyi.flashcard.service.user.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,5 +30,11 @@ public class UserAPIController {
             result.setData(false);
         }
         return result;
+    }
+
+    @PostMapping
+    public ResponseEntity<Boolean> saveUser(final UserVO userVO) {
+        userService.save(userVO);
+        return ResponseEntity.status(201).build();
     }
 }

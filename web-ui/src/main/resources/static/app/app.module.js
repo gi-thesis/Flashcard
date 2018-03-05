@@ -1,21 +1,28 @@
 var fcApp = angular.module("fc-app",['ui.router']);
 
-fcApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+fcApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
    $urlRouterProvider.otherwise('/');
 
    $stateProvider
        .state('landing', {
            url : '/',
-           templateUrl : ''
+           component : ''
 
+       })
+       .state('profile', {
+           url : '/profile',
+           component : 'fcProfile'
        })
        .state('login', {
            url : '/login',
-           templateUrl : 'app/login/login.component.html'
+           component : 'fcLogin'
        })
        .state('registration', {
            url : '/registration',
-           templateUrl : 'app/registration/registration.component.html',
+           component : 'fcRegistrationForm',
        });
+
+   $locationProvider.html5Mode(true);
+   
 }]);
