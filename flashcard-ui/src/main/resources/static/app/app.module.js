@@ -1,14 +1,12 @@
-var fcApp = angular.module("fc-app",['ui.router']);
+var fcApp = angular.module('fc-app', ['ui.router']);
 
-fcApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-
+fcApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
    $urlRouterProvider.otherwise('/');
 
    $stateProvider
        .state('landing', {
            url : '/',
            component : ''
-
        })
        .state('profile', {
            url : '/profile',
@@ -20,9 +18,8 @@ fcApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
        })
        .state('registration', {
            url : '/registration',
-           component : 'fcRegistrationForm',
+           component : 'fcRegistration',
        });
 
    $locationProvider.html5Mode(true);
-   
 }]);

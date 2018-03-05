@@ -1,12 +1,12 @@
 <header id="fc-header">
     <div id="symbol-wrapper">
         <div class="header-wrapper">
-            <i class="material-icons md-30">{{header.icon}}</i>
+            <i class="material-icons md-30">{{ header.icon }}</i>
             <span class="bold-text">FLASH</span>
             <span class="light-text">CARDS</span>
         </div>
     </div>
-    <div sec:authorize="isAuthenticated()">
-    <fc-headerlogin></fc-headerlogin>
+    <div>
+        <fc-headerlogin></fc-headerlogin>
     </div>
 </header>
