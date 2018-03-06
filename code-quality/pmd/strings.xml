@@ -74,7 +74,7 @@ need to be be created and destroyed by the JVM.
 <![CDATA[
     // Avoid this, two buffers are actually being created here
 StringBuffer sb = new StringBuffer("tmp = "+System.getProperty("java.io.tmpdir"));
-    
+
     // do this instead
 StringBuffer sb = new StringBuffer("tmp = ");
 sb.append(System.getProperty("java.io.tmpdir"));
@@ -93,7 +93,7 @@ Using equalsIgnoreCase() is faster than using toUpperCase/toLowerCase().equals()
 		<example>
        <![CDATA[
 boolean answer1 = buz.toUpperCase().equals("baz");	 		// should be buz.equalsIgnoreCase("baz")
-    
+
 boolean answer2 = buz.toUpperCase().equalsIgnoreCase("baz");	 // another unnecessary toUpperCase()
  ]]>
        </example>
@@ -111,9 +111,9 @@ or StringBuffer.toString().length() == ...
 		<example>
   <![CDATA[
 StringBuffer sb = new StringBuffer();
-    
-if (sb.toString().equals("")) {}	    // inefficient 
-    
+
+if (sb.toString().equals("")) {}	    // inefficient
+
 if (sb.length() == 0) {}	    		// preferred
   ]]>
       </example>
@@ -182,7 +182,7 @@ if (s.indexOf('d') {}
 		externalInfoUrl="${pmd.website.baseurl}/rules/java/strings.html#InefficientEmptyStringCheck">
 		<description>
 String.trim().length() is an inefficient way to check if a String is really empty, as it
-creates a new String object just to check its size. Consider creating a static function that
+creates a new String object just to check its size. Consider creating a ui function that
 loops through a string, checking Character.isWhitespace() on each character and returning
 false if a non-whitespace character is found.
     </description>
@@ -204,7 +204,7 @@ public void bar(String string) {
 		externalInfoUrl="${pmd.website.baseurl}/rules/java/strings.html#InsufficientStringBufferDeclaration">
 		<description>
 Failing to pre-size a StringBuffer or StringBuilder properly could cause it to re-size many times
-during runtime. This rule attempts to determine the total number the characters that are actually 
+during runtime. This rule attempts to determine the total number the characters that are actually
 passed into StringBuffer.append(), but represents a best guess "worst case" scenario. An empty
 StringBuffer/StringBuilder constructor initializes the object to 16 characters. This default
 is assumed if the length of the constructor can not be determined.
@@ -214,7 +214,7 @@ is assumed if the length of the constructor can not be determined.
 <![CDATA[
 StringBuffer bad = new StringBuffer();
 bad.append("This is a long string that will exceed the default 16 characters");
-        
+
 StringBuffer good = new StringBuffer(41);
 good.append("This is a long string, which is pre-sized");
 ]]>
@@ -254,7 +254,7 @@ new StringBuffer() 		//  16
 new StringBuffer(6)		//  6
 new StringBuffer("hello world")  // 11 + 16 = 27
 new StringBuffer('A')	//  chr(A) = 65
-new StringBuffer("A")   //  1 + 16 = 17 
+new StringBuffer("A")   //  1 + 16 = 17
 
 new StringBuilder() 		//  16
 new StringBuilder(6)		//  6
@@ -282,9 +282,9 @@ Literal
 <![CDATA[
 	// misleading instantiation, these buffers
 	// are actually sized to 99 characters long
-StringBuffer  sb1 = new StringBuffer('c');   
+StringBuffer  sb1 = new StringBuffer('c');
 StringBuilder sb2 = new StringBuilder('c');
-  
+
 // in these forms, just single characters are allocated
 StringBuffer  sb3 = new StringBuffer("c");
 StringBuilder sb4 = new StringBuilder("c");

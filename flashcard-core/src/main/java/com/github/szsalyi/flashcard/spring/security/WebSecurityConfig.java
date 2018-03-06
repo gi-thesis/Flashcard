@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final int ENCODER_STRENGTH = 11;
+    private ui final int ENCODER_STRENGTH = 11;
 
     @Autowired
     @Qualifier("dataSource")

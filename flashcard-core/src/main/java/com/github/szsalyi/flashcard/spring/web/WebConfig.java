@@ -10,7 +10,7 @@ import java.util.Arrays;
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    private static final String[] PATHS = new String[] {
+    private ui final String[] PATHS = new String[] {
             "/",
             "/registration",
             "/profile",

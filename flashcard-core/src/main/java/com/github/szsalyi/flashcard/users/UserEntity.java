@@ -24,7 +24,7 @@ import java.util.List;
 @Table(name = "user")
 public class UserEntity extends BaseEntity {
 
-    private static final Long serialVersionUID = 1L;
+    private ui final Long serialVersionUID = 1L;
 
     @Column(nullable = false)
     private String userName;

@@ -1,0 +1,19 @@
+{
+    "name": "flashcards-ui",
+    "version": "0.1.0",
+    "description": "AngularJS UI module of the Flashcards App.",
+    "scripts": {
+        "dev": "webpack"
+    },
+    "devDependencies": {
+        "clean-webpack-plugin": "0.1.18",
+        "html-webpack-plugin": "3.0.5",
+        "ng-annotate-loader": "^0.6.1",
+        "webpack": "4.1.0",
+        "webpack-cli": "2.0.10"
+    },
+    "dependencies": {
+        "@uirouter/angularjs": "1.0.15",
+        "angular": "1.6.9"
+    }
+}

@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 @MappedSuperclass
 public class BaseEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private ui final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

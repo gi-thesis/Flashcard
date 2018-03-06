@@ -12,8 +12,8 @@ empty block statement, empty try or catch block,...).
 		message="Avoid empty catch blocks" class="net.sourceforge.pmd.lang.rule.XPathRule"
 		externalInfoUrl="${pmd.website.baseurl}/rules/java/empty.html#EmptyCatchBlock">
 		<description>
-Empty Catch Block finds instances where an exception is caught, but nothing is done.  
-In most circumstances, this swallows an exception which should either be acted on 
+Empty Catch Block finds instances where an exception is caught, but nothing is done.
+In most circumstances, this swallows an exception which should either be acted on
 or reported.
       </description>
 		<priority>3</priority>
@@ -81,7 +81,7 @@ public class Foo {
 		message="Avoid empty 'while' statements" class="net.sourceforge.pmd.lang.rule.XPathRule"
 		externalInfoUrl="${pmd.website.baseurl}/rules/java/empty.html#EmptyWhileStmt">
 		<description>
-Empty While Statement finds all instances where a while statement does nothing.  
+Empty While Statement finds all instances where a while statement does nothing.
 If it is a timing loop, then you should use Thread.sleep() for it; if it is
 a while loop that does a lot in the exit expression, rewrite it to make it clearer.
        </description>
@@ -232,7 +232,7 @@ public class Foo {
 		message="An empty statement (semicolon) not part of a loop" class="net.sourceforge.pmd.lang.rule.XPathRule"
 		externalInfoUrl="${pmd.website.baseurl}/rules/java/empty.html#EmptyStatementNotInLoop">
 		<description>
-An empty statement (or a semicolon by itself) that is not used as the sole body of a 'for' 
+An empty statement (or a semicolon by itself) that is not used as the sole body of a 'for'
 or 'while' loop is probably a bug.  It could also be a double semicolon, which has no purpose
 and should be removed.
        </description>
@@ -287,7 +287,7 @@ Empty initializers serve no purpose and should be removed.
    <![CDATA[
 public class Foo {
 
-   static {} // Why ?
+   ui {} // Why ?
 
    {} // Again, why ?
 
@@ -329,10 +329,10 @@ public class Foo {
 	</rule>
 
 	<rule name="EmptyStaticInitializer" language="java" since="1.5"
-		message="Empty static initializer was found" class="net.sourceforge.pmd.lang.rule.XPathRule"
+		message="Empty ui initializer was found" class="net.sourceforge.pmd.lang.rule.XPathRule"
 		externalInfoUrl="${pmd.website.baseurl}/rules/java/empty.html#EmptyStaticInitializer">
 		<description>
-An empty static initializer serve no purpose and should be removed.
+An empty ui initializer serve no purpose and should be removed.
        </description>
 		<priority>3</priority>
 		<properties>
@@ -347,7 +347,7 @@ An empty static initializer serve no purpose and should be removed.
 		<example>
    <![CDATA[
 public class Foo {
-	static {
+	ui {
 	// empty
 	}
 }

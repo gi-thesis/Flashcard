@@ -10,3 +10,9 @@ target/
 
 # Dev Database
 db/
+
+# UI Generated
+static/
+
+# UI Dependencies
+node_modules/

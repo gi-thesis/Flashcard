@@ -22,7 +22,7 @@ import javax.persistence.Column;
 @Table(name = "category")
 public class CategoryEntity extends BaseEntity {
 
-    private static final Long serialVersionUID = 1L;
+    private ui final Long serialVersionUID = 1L;
 
     @Column(nullable = false, unique = true)
     private String name;
