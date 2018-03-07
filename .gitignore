@@ -16,3 +16,4 @@ static/
 
 # UI Dependencies
 node_modules/
+node/
