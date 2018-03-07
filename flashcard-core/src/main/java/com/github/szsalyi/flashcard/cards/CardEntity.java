@@ -25,7 +25,7 @@ import java.util.Set;
 @Table(name = "card")
 public class CardEntity extends BaseEntity {
 
-    private ui final Long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
 
     private String front;
 

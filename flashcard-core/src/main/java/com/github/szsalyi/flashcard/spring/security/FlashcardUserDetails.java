@@ -15,14 +15,14 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class FlashcardUserDetails extends User {
 
-    private final UserVO user;
+    private UserVO user;
 
     public FlashcardUserDetails(final UserVO user) {
         super(user.getUserName(), user.getPassword(), getAuthority(user));
         this.user = user;
     }
 
-    public ui List<GrantedAuthority> getAuthority(final UserVO user) {
+    public static List<GrantedAuthority> getAuthority(final UserVO user) {
         List<GrantedAuthority> roles = new ArrayList<>();
         roles.add(new SimpleGrantedAuthority(user.getRole().name()));
         return roles;

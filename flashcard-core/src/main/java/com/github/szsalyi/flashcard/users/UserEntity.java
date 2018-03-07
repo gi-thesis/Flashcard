@@ -24,7 +24,7 @@ import java.util.List;
 @Table(name = "user")
 public class UserEntity extends BaseEntity {
 
-    private ui final Long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
 
     @Column(nullable = false)
     private String userName;
@@ -45,7 +45,7 @@ public class UserEntity extends BaseEntity {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-     private Role role;
+    private Role role;
 
     @OneToMany
     private List<CardEntity> cardEntities;
