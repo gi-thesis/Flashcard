@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 @Data
 public class UserVO implements Serializable {
-    private ui final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private String userName;
     private String firstName;

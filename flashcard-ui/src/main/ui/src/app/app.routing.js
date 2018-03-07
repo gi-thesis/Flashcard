@@ -25,4 +25,4 @@
         $locationProvider.html5Mode(true);
     });
 
-}(angular.module('fcApp')));
+}(angular.module('fc-app')));

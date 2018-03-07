@@ -10,12 +10,13 @@ import java.util.Arrays;
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    private ui final String[] PATHS = new String[] {
-            "/",
-            "/registration",
-            "/profile",
-            "/login"
+    private static final String[] PATHS = new String[] {
+        "/",
+        "/registration",
+        "/profile",
+        "/login"
     };
+
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry
@@ -25,7 +26,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
-        Arrays.asList(PATHS).stream()
-                .forEach(path ->  registry.addViewController(path).setViewName("forward:/index.html"));
+        Arrays.asList(PATHS)
+            .stream()
+            .forEach(path -> registry
+                .addViewController(path)
+                .setViewName("forward:/index.html"));
     }
 }

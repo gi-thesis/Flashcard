@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private ui final int ENCODER_STRENGTH = 11;
+    private static final int ENCODER_STRENGTH = 11;
 
     @Autowired
     @Qualifier("dataSource")
@@ -29,8 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        http
-            .csrf().disable()
+        http.csrf().disable()
             .authorizeRequests()
             .antMatchers("/", "/registration", "/resources/**", "/api/**", "/app/**").permitAll()
             .anyRequest().authenticated()
@@ -51,11 +50,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-
         auth.jdbcAuthentication()
-                .dataSource(dataSource)
-                .usersByUsernameQuery("SELECT userName, password, enabled FROM user WHERE userName=?")
-                .authoritiesByUsernameQuery("SELECT userName, role FROM user WHERE userName=?");
+            .dataSource(dataSource)
+            .usersByUsernameQuery("SELECT userName, password, enabled FROM user WHERE userName=?")
+            .authoritiesByUsernameQuery("SELECT userName, role FROM user WHERE userName=?");
 
         auth.authenticationProvider(authenticationProvider());
 
@@ -63,8 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider authProvider
-                = new DaoAuthenticationProvider();
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService);
         //authProvider.setPasswordEncoder(encoder());
         return authProvider;
