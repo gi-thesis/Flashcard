@@ -1,13 +1,13 @@
 (function () {
     'use strict';
 
-    const HtmlWebpackPlugin = require('html-webpack-plugin');
-    const CleanPlugin       = require('clean-webpack-plugin');
+    var HtmlWebpackPlugin = require('html-webpack-plugin');
+    var CleanPlugin       = require('clean-webpack-plugin');
 
-    const contextPath   = '/flashcard';
-    const targetFolder  = __dirname + '/../static';
+    var contextPath   = '/flashcard';
+    var targetFolder  = __dirname + '/../resources/static';
 
-    const plugins = [
+    var plugins = [
         new CleanPlugin(targetFolder, { allowExternal: true }),
         new HtmlWebpackPlugin({
             template: './src/index.html'
@@ -15,7 +15,6 @@
     ];
 
     module.exports = {
-        mode: 'development',
         entry: {
             app: 'main.js',
             lib: 'lib.js'
@@ -30,7 +29,19 @@
         },
         module: {
             rules: [{
-                test: /.js$/,
+                test: /\.js$/, // include .js files
+                enforce: "pre", // preload the jshint loader
+                exclude: /node_modules/, // exclude any and all files in the node_modules folder
+                use: [{
+                    loader: "jshint-loader",
+                    options: {
+                        camelcase: true,
+                        emitErrors: false,
+                        failOnHint: false
+                    }
+                }]
+            }, {
+                test: /\.js$/,
                 loaders: [ 'ng-annotate-loader' ]
             }]
         },
