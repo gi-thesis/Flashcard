@@ -3,15 +3,25 @@
 
     var HtmlWebpackPlugin = require('html-webpack-plugin');
     var CleanPlugin       = require('clean-webpack-plugin');
+    var CopyPlugin        = require('copy-webpack-plugin');
 
-    var contextPath   = '/flashcard';
+    var contextPath   = '/flashcard/';
     var targetFolder  = __dirname + '/../resources/static';
 
     var plugins = [
         new CleanPlugin(targetFolder, { allowExternal: true }),
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
+        new CopyPlugin([{
+            from: '**/*.css',
+            to: targetFolder,
+            context: './src/'
+        }, {
+            from: '**/*.html',
+            to: targetFolder,
+            context: './src'
+        }])
     ];
 
     module.exports = {
@@ -21,7 +31,8 @@
         },
         output: {
             path: targetFolder,
-            filename: '[name].js'
+            filename: '[name].js',
+            publicPath: contextPath
         },
         resolve: {
             extensions: [ '*', '.js' ],
@@ -29,15 +40,18 @@
         },
         module: {
             rules: [{
-                test: /\.js$/, // include .js files
-                enforce: "pre", // preload the jshint loader
-                exclude: /node_modules/, // exclude any and all files in the node_modules folder
+                test: /\.js$/,
+                enforce: 'pre',
+                exclude: /node_modules/,
                 use: [{
-                    loader: "jshint-loader",
+                    loader: 'jshint-loader',
                     options: {
                         camelcase: true,
-                        emitErrors: false,
-                        failOnHint: false
+                        curly: true,
+                        eqeqeq: true,
+                        quotmark: 'single',
+                        emitErrors: true,
+                        failOnHint: true
                     }
                 }]
             }, {
@@ -50,7 +64,7 @@
             port: 10000,
             contentBase: targetFolder,
             historyApiFallback: {
-                index: contextPath + '/index.html'
+                index: contextPath + 'index.html'
             },
             proxy: {
                 '/api': {

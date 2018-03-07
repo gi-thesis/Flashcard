@@ -3,5 +3,5 @@ angular.module('fc-app').service('fcUserService', function ($http) {
 
     srvc.save = function (user) {
        return $http.post('api/users/', user);
-    }
+    };
 });

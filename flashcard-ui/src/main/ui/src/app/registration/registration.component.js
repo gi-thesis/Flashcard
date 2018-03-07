@@ -9,7 +9,7 @@ angular.module('fc-app').component('fcRegistration', {
             fcUserService.save(ctrl.user).then(function (res) {
                 console.log(res);
             });
-        }
+        };
     },
     controllerAs: 'registration'
 });
