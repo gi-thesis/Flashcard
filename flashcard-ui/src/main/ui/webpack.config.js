@@ -67,7 +67,7 @@
                 index: contextPath + 'index.html'
             },
             proxy: {
-                '/api': {
+                '/flashcard/api': {
                     target: 'http://localhost:9090'
                 }
             }

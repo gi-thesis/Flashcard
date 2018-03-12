@@ -2,11 +2,15 @@
     box-sizing: border-box;
 }
 
-#fc{
+body {
+    height: 100vh;
+}
+
+div[ui-view]{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+
 }
 
 .registration-form{

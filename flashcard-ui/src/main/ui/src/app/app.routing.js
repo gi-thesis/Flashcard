@@ -1,7 +1,7 @@
 (function (appModule) {
     'use strict';
 
-    appModule.config(function ($urlRouterProvider, $stateProvider, $locationProvider) {
+    appModule.config(function ($urlRouterProvider, $stateProvider, $locationProvider , $httpProvider) {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
@@ -22,6 +22,7 @@
                 component : 'fcRegistration',
             });
 
+        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         $locationProvider.html5Mode(true);
     });
 

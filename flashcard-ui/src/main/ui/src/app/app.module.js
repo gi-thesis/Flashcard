@@ -8,3 +8,4 @@ require('./core/header-login/header-login.component');
 
 require('./login/login.component');
 require('./registration/registration.component');
+require('./profile/profile.component');
