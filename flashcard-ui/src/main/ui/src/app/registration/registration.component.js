@@ -6,7 +6,7 @@ angular.module('fc-app').component('fcRegistration', {
         ctrl.user = {};
         ctrl.success = true;
         ctrl.save = function () {
-            fcUserService.save(ctrl.user).then(function (res) {
+            fcUserService.login(ctrl.user).then(function (res) {
                 console.log(res);
                 $state.go('login');
 

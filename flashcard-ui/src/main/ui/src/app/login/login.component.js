@@ -1,6 +1,6 @@
 angular.module('fc-app').component('fcLogin', {
     templateUrl: 'app/login/login.component.html',
-    controller : function ($rootScope, $scope, $http, $location) {
+    controller : function ($rootScope, $http, $state) {
         var authenticate = function (credentials, callback) {
             var headers = credentials ? {
                     authorization: 'Basic ' + btoa(credentials.userName + ':' + credentials.password)
@@ -25,10 +25,10 @@ angular.module('fc-app').component('fcLogin', {
         $scope.login = function () {
             authenticate($scope.credentials, function () {
                 if ($rootScope.authenticated) {
-                    $location.path('/profile');
+                    $state.go('profile');
                     $scope.error = false;
                 } else {
-                    $location.path('/login');
+                    $state.go('login');
                     $scope.error = true;
                 }
             });

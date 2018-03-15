@@ -1,7 +1,10 @@
-angular.module('fc-app').service('fcUserService', function ($http) {
+angular.module('fc-app').service('fcUserService', function ($http, fcUserLogin) {
     var srvc = this;
 
-    srvc.save = function (user) {
-       return $http.post('api/users/', user);
-    };
+
+   return {
+       login : function (user) {
+           fcUserLogin.save(user);
+       }
+   }
 });
