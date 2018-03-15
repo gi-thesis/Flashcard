@@ -2,6 +2,7 @@ package com.github.szsalyi.flashcard.cards;
 
 import com.github.szsalyi.flashcard.categories.CategoryEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ public class CardServiceImpl implements CardService{
     private CardRepository cardRepository;
 
     @Autowired
+    @Qualifier("createConversionService")
     private ConversionService conversionService;
 
     @Override
