@@ -22,6 +22,12 @@ public class UserAPIController {
     @Autowired
     private UserService userService;
 
+
+    @GetMapping(path = "/user", consumes = MediaType.ALL_VALUE)
+    public Principal user(Principal user) {
+        return user;
+    }
+
     @GetMapping(path = "/exists")
     public ResponseEntity<Boolean> getUser(@RequestParam final String userName) {
         if (userService.findUser(userName) != null) {

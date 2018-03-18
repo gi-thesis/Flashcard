@@ -20,10 +20,11 @@ angular.module('fc-app').service('fcUserAuthService', function ($rootScope, $htt
 
     srvc.authentication = function (credentials, callback) {
         var headers = credentials ? {
-            authorization: 'Basic ' + btoa(credentials.userName + ':' + credentials.password)
-        } : {};
+            authorization: 'Basic ' + btoa(credentials.userName + ':' + credentials.password),
+            'Content-Type': 'application/json'
+        } : { 'Content-Type': 'application/json'};
 
-        $http.get('user', {headers: headers}).then(function (data) {
+        $http.get('api/users/user', {headers: headers}).then(function (data) {
             console.log(data.name.toString());
             if (data) {
                 console.log('true');
