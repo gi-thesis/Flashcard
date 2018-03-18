@@ -25,9 +25,10 @@ angular.module('fc-app').service('fcUserAuthService', function ($rootScope, $htt
         } : { 'Content-Type': 'application/json'};
 
         $http.get('api/users/user', {headers: headers}).then(function (data) {
-            console.log(data.name.toString());
+            console.log(data);
             if (data) {
                 console.log('true');
+                console.log(data);
                 $rootScope.authenticated = true;
             } else {
                 console.log('false');
@@ -36,7 +37,8 @@ angular.module('fc-app').service('fcUserAuthService', function ($rootScope, $htt
             if(callback) {
                 callback();
             }
-        }).catch(function () {
+        }).catch(function (e) {
+            console.log(e);
             console.log('cfalse');
             $rootScope.authenticated = false;
             if(callback) {

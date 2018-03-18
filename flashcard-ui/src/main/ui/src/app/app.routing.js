@@ -30,9 +30,9 @@
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         $locationProvider.html5Mode(true);
 
-    });/*.run(function ($transitions, fcUserAuthService, $state, $cookies) {
+    });/*.run(function ($transitions, fcUserAuthService, $state, $rootScope) {
         $transitions.onStart({entering : 'user.**'}, function () {
-            if(!fcUserAuthService.isAuthenticated()){
+            if($rootScope.authenticated){
                 console.log('landing');
                 $state.go('profile');
             }

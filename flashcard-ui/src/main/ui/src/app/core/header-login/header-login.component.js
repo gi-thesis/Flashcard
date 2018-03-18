@@ -3,7 +3,7 @@ angular.module('fc-app').component('fcHeaderLogin', {
     controller : function (fcUserAuthService) {
         var ctrl = this;
 
-        ctrl.isAuthenticated = fcUserAuthService.isAuthenticated;
+        //ctrl.isAuthenticated = fcUserAuthService.isAuthenticated;
     },
     controllerAs : 'headerLogin'
 });
