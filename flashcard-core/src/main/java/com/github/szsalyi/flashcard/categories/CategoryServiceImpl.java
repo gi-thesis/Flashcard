@@ -45,4 +45,8 @@ public class CategoryServiceImpl implements CategoryService {
         return conversionService.convert(categoryEntity, CategoryVO.class);
     }
 
+    @Override
+    public void deleteCategory(long id) throws ResourceNotFoundException {
+        categoryRepository.delete(id);
+    }
 }

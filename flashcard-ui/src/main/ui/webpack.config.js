@@ -67,7 +67,10 @@
                 index: contextPath + 'index.html'
             },
             proxy: {
-                '/api': {
+                '/flashcard/api': {
+                    target: 'http://localhost:9090'
+                },
+                '/flashcard/login' : {
                     target: 'http://localhost:9090'
                 }
             }

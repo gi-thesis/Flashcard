@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
+
+
     @Autowired
     private UserRepository userRepository;
 
@@ -17,6 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(final UserVO userVO) {
+        System.out.println(userVO);
         userRepository.save(conversionService.convert(userVO, UserEntity.class));
     }
 

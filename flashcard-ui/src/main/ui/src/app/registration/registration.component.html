@@ -3,21 +3,24 @@
         <div class="header-field">
             <span>Create an Account</span>
         </div>
+        <div ng-if="!registration.success">
+            <span>Registraion failed</span>
+        </div>
         <div class="details-field">
             <label class=""  path="userName"> User Name<span class="red">*</span> </label>
-            <input class="input-field" id="user_name" type="text" path="userName" required="true"/>
+            <input class="input-field" ng-model="registration.user.userName" id="user_name" type="text" required="true"/>
         </div>
         <div class="details-field">
             <label class="" path="firstName"> First Name<span class="red">*</span> </label>
-            <input class="input-field" id="first_name" type="text" path="firstName" required="true"/>
+            <input class="input-field" ng-model="registration.user.firstName" id="first_name" type="text"  required="true"/>
         </div>
         <div class="details-field">
             <label class="" path="lastName"> Last Name<span class="red">*</span> </label>
-            <input class="input-field" id="last_name" type="text" path="lastName" required="true"/>
+            <input class="input-field" id="last_name" ng-model="registration.user.lastName" type="text"  required="true"/>
         </div>
         <div class="details-field">
             <label class="" path="password"> Password<span class="red">*</span> </label>
-            <input class="input-field" id="password" type="password" path="password" required="true"/>
+            <input class="input-field" id="password" type="password" ng-model="registration.user.password"  required="true"/>
             <div id="meter-field">
                 <p id="password-strength-text">Strength:</p>
                 <meter max="4" id="password-strength-meter"></meter>
@@ -29,7 +32,7 @@
         </div>
         <div class="details-field">
             <label class="" path="email"> Email<span class="red">*</span> </label>
-            <input class="input-field" id="email" type="email" path="email" required="true"/>
+            <input class="input-field" id="email" type="email" path="email" ng-model="registration.user.email" required="true"/>
         </div>
         <span class="information">The fields signed with <span class="red">*</span> are required!</span>
         <button id="submit" type="submit">
