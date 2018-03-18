@@ -1,5 +1,6 @@
 package com.github.szsalyi.flashcard.spring.security;
 
+import com.github.szsalyi.flashcard.spring.CSRF.CsrfHeaderFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
@@ -13,6 +14,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 import javax.sql.DataSource;
 
@@ -32,23 +37,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http.httpBasic().and()
             .authorizeRequests()
-            .antMatchers("/","/index.html", "/login", "/registration", "/resources/**", "/api/**", "/app/**", "/*.js", "/assets/reset.css").permitAll()
+            .antMatchers("/", "/index.html", "/login", "/registration", "/resources/**", "/api/**", "/app/**", "/*.js", "/assets/reset.css").permitAll()
             .anyRequest().authenticated()
             .and()
-            .formLogin()
-            .loginPage("/login")
-            .defaultSuccessUrl("/profile")
-            .usernameParameter("userName")
-            .permitAll()
-            .and()
+            //.formLogin()
+            //.loginPage("/login")
+            //.defaultSuccessUrl("/profile")
+            //.usernameParameter("userName")
+            //.permitAll()
+            //.and()
             .logout()
             .permitAll()
             .and()
             .authorizeRequests()
             .antMatchers("/admin/*")
-            .hasRole("ADMIN");
+            .hasRole("ADMIN").and()
+                .csrf().csrfTokenRepository(csrfTokenRepository())
+                .and()
+                .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
+    }
+
+
+    private CsrfTokenRepository csrfTokenRepository() {
+        HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+        repository.setHeaderName("X-XSRF-TOKEN");
+        return repository;
     }
 
     @Override

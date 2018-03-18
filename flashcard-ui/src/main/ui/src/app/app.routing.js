@@ -30,12 +30,13 @@
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         $locationProvider.html5Mode(true);
 
-    }).run(function ($transitions, fcUserAuthService, $state) {
-        $transitions.onStart({entering : 'user.*'}, function () {
+    });/*.run(function ($transitions, fcUserAuthService, $state, $cookies) {
+        $transitions.onStart({entering : 'user.**'}, function () {
             if(!fcUserAuthService.isAuthenticated()){
-                $state.go('landing');
+                console.log('landing');
+                $state.go('profile');
             }
         });
-    });
+    });*/
 
 }(angular.module('fc-app')));

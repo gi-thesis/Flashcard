@@ -22,11 +22,6 @@ public class UserAPIController {
     @Autowired
     private UserService userService;
 
-    @GetMapping()
-    public Principal user(Principal user) {
-        return user;
-    }
-
     @GetMapping(path = "/exists")
     public ResponseEntity<Boolean> getUser(@RequestParam final String userName) {
         if (userService.findUser(userName) != null) {
@@ -37,10 +32,10 @@ public class UserAPIController {
     }
 
     @PostMapping
-    public ResponseEntity<Boolean> saveUser(final @RequestBody UserVO user) {
+    public ResponseEntity<UserVO> saveUser(final @RequestBody UserVO user) {
         user.setRole(Role.USER);
         user.setEnabled(1);
         userService.save(user);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 }
