@@ -48,4 +48,13 @@ angular.module('fc-app').service('fcUserAuthService', function ($rootScope, $htt
 
     };
 
+    srvc.logout = function() {
+        $http.post('logout', {}).then(function() {
+            $rootScope.authenticated = false;
+            $state.go('landing');
+        }).catch(function(data) {
+            $rootScope.authenticated = false;
+        });
+    };
+
 });

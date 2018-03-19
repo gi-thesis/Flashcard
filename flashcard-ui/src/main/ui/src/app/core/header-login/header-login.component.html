@@ -1,4 +1,4 @@
-<div ng-if="!authenticated" id="login-wrapper">
+<div ng-if="!$root.authenticated" id="login-wrapper">
     <div id="login-details">
         <div id="user-details">
             <label class="light-text" for="userName">Username</label>
@@ -10,8 +10,11 @@
         <span ng-show="error">LOGIN FAILED!</span>
         <a id="register-link" ui-sref="registration">If you don't have an account please register</a>
     </div>
-    <button id="submit-login" type="submit">
+    <button class="submit-login" type="submit">
         <span class="bold-text">LOG IN</span>
     </button>
-
 </div>
+<button ng-show="$root.authenticated" ng-click="headerLogin.logout()" ui-sref="landing" class="submit-login" type="submit">
+    <span class="bold-text">LOG OUT</span>
+</button>
+
