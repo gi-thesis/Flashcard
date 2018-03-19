@@ -24,8 +24,11 @@ public class UserAPIController {
 
 
     @GetMapping(path = "/user", consumes = MediaType.ALL_VALUE)
-    public Principal user(Principal user) {
-        return user;
+    public ResponseEntity<Principal> user(Principal user) {
+        if(user != null) {
+            return ResponseEntity.ok(user);
+        }
+        return ResponseEntity.badRequest().build();
     }
 
     @GetMapping(path = "/exists")

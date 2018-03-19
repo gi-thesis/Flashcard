@@ -33,7 +33,7 @@ public class CategoryAPIController {
             .body(categoryService.save(category));
     }
 
-    @GetMapping
+    @GetMapping(consumes = MediaType.ALL_VALUE)
     public ResponseEntity<List<CategoryVO>> getAll() {
         return ResponseEntity
             .status(HttpStatus.OK)

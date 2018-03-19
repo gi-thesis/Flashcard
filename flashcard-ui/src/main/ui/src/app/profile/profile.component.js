@@ -1,9 +1,9 @@
 angular.module('fc-app').component('fcProfile', {
     templateUrl: 'app/profile/profile.component.html',
-    controller : function ($http) {
+    controller : function (fcUserAuthService) {
         var ctrl = this;
 
-        ctrl.user = {};
+        ctrl.user = fcUserAuthService.getAuthUser();
 
     },
     controllerAs: 'profile'

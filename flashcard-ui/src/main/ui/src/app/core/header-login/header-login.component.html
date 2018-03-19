@@ -1,11 +1,11 @@
-<div ng-if="!$root.authenticated" id="login-wrapper">
+<div ng-if="!headerLogin.isAuthenticated()" id="login-wrapper">
     <div id="login-details">
         <div id="user-details">
             <label class="light-text" for="userName">Username</label>
             <input id="userName" class="input-field" type="text" requried="true"/>
 
-            <label class="light-text" path="password">Password</label>
-            <input class="input-field" type="password" path="password" requried="true"/>
+            <label class="light-text" for="header-password">Password</label>
+            <input id="header-password" class="input-field" type="password" requried="true"/>
         </div>
         <span ng-show="error">LOGIN FAILED!</span>
         <a id="register-link" ui-sref="registration">If you don't have an account please register</a>
@@ -14,6 +14,6 @@
         <span class="bold-text">LOG IN</span>
     </button>
 </div>
-<button ng-show="$root.authenticated" ui-sref="landing" ng-click="headerLogin.logout()" class="submit-login" type="submit">
+<button ng-show="headerLogin.isAuthenticated()" ng-click="headerLogin.logout()" class="submit-login" type="submit">
     <span class="bold-text">LOG OUT</span>
 </button>

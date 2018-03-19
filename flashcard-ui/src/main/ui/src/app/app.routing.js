@@ -9,10 +9,6 @@
                 url : '/',
                 component : ''
             })
-            .state('user.profile', {
-                url : '/profile',
-                component : 'fcProfile'
-            })
             .state('login', {
                 url : '/login',
                 component : 'fcLogin'
@@ -25,18 +21,25 @@
                 abstract : true,
                 url : '/fc',
                 template : '<ui-view>'
+            })
+            .state('user.profile', {
+                url : '/profile',
+                component : 'fcProfile'
+            })
+            .state('user.categories', {
+                url : '/categories',
+                component : 'fcCategories'
             });
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         $locationProvider.html5Mode(true);
 
-    });/*.run(function ($transitions, fcUserAuthService, $state, $rootScope) {
+    }).run(function ($transitions, fcUserAuthService, $state) {
         $transitions.onStart({entering : 'user.**'}, function () {
-            if($rootScope.authenticated){
-                console.log('landing');
-                $state.go('profile');
-            }
+            fcUserAuthService.authentication(null, null, function () {
+                $state.go('login');
+            });
         });
-    });*/
+    });
 
 }(angular.module('fc-app')));

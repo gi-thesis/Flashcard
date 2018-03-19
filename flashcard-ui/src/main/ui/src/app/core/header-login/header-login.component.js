@@ -1,23 +1,17 @@
 angular.module('fc-app').component('fcHeaderLogin', {
     templateUrl : 'app/core/header-login/header-login.component.html',
-    controller : function ($http, $rootScope, fcUserAuthService) {
+    controller : function ($state, fcUserAuthService) {
         var ctrl = this;
 
-        ctrl.logout = function () {
-            $http.post('logout', {}).then(function() {
-                $rootScope.authenticated = false;
-                console.log('landing-logout');
+        ctrl.isAuthenticated = fcUserAuthService.isAuthenticated;
+
+        ctrl.logout = function() {
+            fcUserAuthService.logout(function () {
                 $state.go('landing');
-            }).catch(function(data) {
-                console.log(data);
-                $rootScope.authenticated = false;
             });
         };
-        console.log($rootScope.authenticated);
-        ctrl.isAuthenticated = function () {
-            return $rootScope.authenticated;
-        };
-        //ctrl.isAuthenticated = fcUserAuthService.isAuthenticated;
-    },
+
+
+        },
     controllerAs : 'headerLogin'
 });

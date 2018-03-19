@@ -70,9 +70,7 @@
                 '/flashcard/api': {
                     target: 'http://localhost:9090'
                 },
-                '/flashcard/login' : {
-                    target: 'http://localhost:9090'
-                },'/flashcard/logout' : {
+                '/flashcard/logout' : {
                     target: 'http://localhost:9090'
                 }
             }
