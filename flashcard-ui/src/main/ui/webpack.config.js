@@ -72,6 +72,8 @@
                 },
                 '/flashcard/login' : {
                     target: 'http://localhost:9090'
+                },'/flashcard/logout' : {
+                    target: 'http://localhost:9090'
                 }
             }
         }

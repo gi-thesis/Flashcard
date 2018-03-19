@@ -14,10 +14,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.session.SessionManagementFilter;
 
 import javax.sql.DataSource;
 
@@ -35,6 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private FlashcardUserDetailsService userDetailsService;
 
+    @Autowired
+    private LogoutSuccess logoutSuccess;
+
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.httpBasic().and()
@@ -49,23 +54,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             //.permitAll()
             //.and()
             .logout()
-            .permitAll()
             .and()
             .authorizeRequests()
             .antMatchers("/admin/*")
             .hasRole("ADMIN").and()
-                .csrf().csrfTokenRepository(csrfTokenRepository())
+                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
-                .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
+                .addFilterAfter(new CsrfHeaderFilter(), SessionManagementFilter.class);
     }
 
-
+/*
     private CsrfTokenRepository csrfTokenRepository() {
         HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
         repository.setHeaderName("X-XSRF-TOKEN");
         return repository;
     }
-
+*/
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()

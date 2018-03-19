@@ -23,7 +23,7 @@
             })
             .state('user', {
                 abstract : true,
-                url : '/app',
+                url : '/fc',
                 template : '<ui-view>'
             });
 

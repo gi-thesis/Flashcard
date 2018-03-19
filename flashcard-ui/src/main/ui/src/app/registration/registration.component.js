@@ -10,7 +10,9 @@ angular.module('fc-app').component('fcRegistration', {
                 console.log(res);
                 $state.go('login');
 
-            }).catch(function (reason) { ctrl.success = false; });
+            }).catch(function (reason) {
+                console.log(reason);
+                ctrl.success = false; });
 
         };
     },
