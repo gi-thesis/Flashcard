@@ -1,28 +1,31 @@
-<div id="details">
-    <div class="header-field">
-        <span>Profile Details</span>
+<div id="profile-wrapper">
+    <div class="details">
+        <div class="header-field">
+            <span>Profile Details</span>
+        </div>
+        <div class="detail-field">
+            <span>User Name</span>
+            <span>{{profile.user.userName}}</span>
+        </div>
+        <div class="detail-field">
+            <span>First Name</span>
+            <span>{{profile.user.firstName}}</span>
+        </div>
+        <div class="detail-field">
+            <span>Last Name</span>
+            <span>{{profile.user.lastName}}</span>
+        </div>
+        <div class="detail-field">
+            <span>Email</span>
+            <span>{{profile.user.email}}</span>
+        </div>
+        <div class="detail-field">
+            <span>Password</span>
+            <span>{{profile.user.password}}</span>
+        </div>
     </div>
-    <div class="detail-field">
-        <span>User Name</span>
-        <span>{{profile.user.userName}}</span>
-    </div>
-    <div class="detail-field">
-        <span>First Name</span>
-        <span>{{profile.user.firstName}}</span>
-    </div>
-    <div class="detail-field">
-        <span>Last Name</span>
-        <span>{{profile.user.lastName}}</span>
-    </div>
-    <div class="detail-field">
-        <span>Email</span>
-        <span>{{profile.user.email}}</span>
-    </div>
-    <div class="detail-field">
-        <span>Password</span>
-        <span>{{profile.user.password}}</span>
-    </div>
-    <div ui-sref="user.categories">
+
+    <div class="details" ui-sref="user.categories">
         Category Management
     </div>
 </div>

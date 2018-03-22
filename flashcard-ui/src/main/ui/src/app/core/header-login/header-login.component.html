@@ -1,4 +1,4 @@
-<div ng-if="!headerLogin.isAuthenticated()" id="login-wrapper">
+<form ng-submit="headerLogin.login()" ng-if="!headerLogin.isAuthenticated()" id="login-wrapper">
     <div id="login-details">
         <div id="user-details">
             <label class="light-text" for="userName">Username</label>
@@ -13,7 +13,7 @@
     <button class="submit-login" type="submit">
         <span class="bold-text">LOG IN</span>
     </button>
-</div>
+</form>
 <button ng-show="headerLogin.isAuthenticated()" ng-click="headerLogin.logout()" class="submit-login" type="submit">
     <span class="bold-text">LOG OUT</span>
 </button>

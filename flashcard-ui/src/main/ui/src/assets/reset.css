@@ -7,7 +7,15 @@ html, body, .ng-scope{
     min-height: 100%;
 }
 
-[ng-isolate-scope] {
+ui-view.ng-scope {
+    min-width: 100%;
+    position: absolute;
+}
+
+[ui-view] {
+
+}
+[ng-isolate-scope]{
     min-height: 100%;
 }
 

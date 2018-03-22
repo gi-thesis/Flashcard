@@ -5,6 +5,15 @@ angular.module('fc-app').component('fcHeaderLogin', {
 
         ctrl.isAuthenticated = fcUserAuthService.isAuthenticated;
 
+        ctrl.login = function () {
+            fcUserAuthService.authentication(ctrl.user, function() {
+                $state.go('user.profile');
+            }, function () {
+                $state.go('login');
+                ctrl.success = false;
+            });
+        };
+
         ctrl.logout = function() {
             fcUserAuthService.logout(function () {
                 $state.go('landing');

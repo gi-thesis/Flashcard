@@ -1,4 +1,11 @@
-#details{
+#profile-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.details{
     display: flex;
     padding-left: 35px;
     padding-bottom: 15px;
