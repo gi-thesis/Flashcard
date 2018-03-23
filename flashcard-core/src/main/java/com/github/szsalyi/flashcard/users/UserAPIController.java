@@ -31,7 +31,7 @@ public class UserAPIController {
         return ResponseEntity.badRequest().build();
     }
 
-    @GetMapping(path = "/exists")
+    @GetMapping(path = "/exists", consumes = MediaType.ALL_VALUE)
     public ResponseEntity<Boolean> getUser(@RequestParam final String userName) {
         if (userService.findUser(userName) != null) {
             return ResponseEntity.ok().build();

@@ -1,11 +1,11 @@
 <form ng-submit="headerLogin.login()" ng-if="!headerLogin.isAuthenticated()" id="login-wrapper">
     <div id="login-details">
         <div id="user-details">
-            <label class="light-text" for="userName">Username</label>
-            <input id="userName" class="input-field" type="text" requried="true"/>
+            <label class="light-text" for="header-userName">Username</label>
+            <input id="header-userName" placeholder="Username" ng-model="headerLogin.user.userName" class="input-field" type="text" requried="true"/>
 
             <label class="light-text" for="header-password">Password</label>
-            <input id="header-password" class="input-field" type="password" requried="true"/>
+            <input id="header-password" placeholder="Password" ng-model="headerLogin.user.password" class="input-field" type="password" requried="true"/>
         </div>
         <span ng-show="error">LOGIN FAILED!</span>
         <a id="register-link" ui-sref="registration">If you don't have an account please register</a>

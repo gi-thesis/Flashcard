@@ -1,4 +1,4 @@
-angular.module('fc-app').service('fcUserAuthService', function ($rootScope, $http, $cookies, $state) {
+angular.module('fc-app').service('fcUserAuthService', function ($rootScope, $http) {
     var srvc = this;
 
     /*!! to make boolean from anything*/

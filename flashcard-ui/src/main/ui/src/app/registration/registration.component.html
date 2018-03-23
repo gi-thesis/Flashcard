@@ -7,32 +7,33 @@
             <span>Registraion failed</span>
         </div>
         <div class="details-field">
-            <label class=""  path="userName"> User Name<span class="red">*</span> </label>
-            <input class="input-field" ng-model="registration.user.userName" id="user_name" type="text" required="true"/>
+            <label class="" for="userName" > User Name<span class="red">*</span> </label>
+            <input class="input-field" ng-model="registration.user.userName" ng-blur="registration.userExists($event, registration.user.userName)" id="userName" type="text" placeholder="Enter Username" required="true"/>
         </div>
         <div class="details-field">
-            <label class="" path="firstName"> First Name<span class="red">*</span> </label>
-            <input class="input-field" ng-model="registration.user.firstName" id="first_name" type="text"  required="true"/>
+            <label class="" for="firstName"> First Name<span class="red">*</span> </label>
+            <input class="input-field" ng-model="registration.user.firstName" id="firstName" type="text" placeholder="Enter First Name" required="true"/>
         </div>
         <div class="details-field">
-            <label class="" path="lastName"> Last Name<span class="red">*</span> </label>
-            <input class="input-field" id="last_name" ng-model="registration.user.lastName" type="text"  required="true"/>
+            <label class="" for="lastName"> Last Name<span class="red">*</span> </label>
+            <input class="input-field" id="lastName" ng-model="registration.user.lastName" type="text" placeholder="Enter Last Name" required="true"/>
         </div>
         <div class="details-field">
-            <label class="" path="password"> Password<span class="red">*</span> </label>
-            <input class="input-field" id="password" type="password" ng-model="registration.user.password"  required="true"/>
-            <div id="meter-field">
+            <label class="" for="password"> Password<span class="red">*</span> </label>
+            <input class="input-field" id="password" type="password" ng-model="registration.user.password" ng- placeholder="Enter Password" required="true"/>
+            <div id="meter-field" >
                 <p id="password-strength-text">Strength:</p>
                 <meter max="4" id="password-strength-meter"></meter>
             </div>
         </div>
         <div class="details-field">
-            <label class="" for="confirm_password"> Confirm Password<span class="red">*</span> </label>
-            <input class="input-field" id="confirm_password" type="password" name="confirm_password" required="true"/>
+            <label class="" for="confirmPassword"> Confirm Password<span class="red">*</span> </label>
+            <input class="input-field" id="confirmPassword" ng-model="registration.confirmPassword" type="password" name="confirmPassword" placeholder="Enter Password Again" required="true"/>
         </div>
+        <span ng-show="registration.user.password != registration.confirmPassword">Nem joooooo</span>
         <div class="details-field">
-            <label class="" path="email"> Email<span class="red">*</span> </label>
-            <input class="input-field" id="email" type="email" path="email" ng-model="registration.user.email" required="true"/>
+            <label class="" for="email"> Email<span class="red">*</span> </label>
+            <input class="input-field" id="email" type="email" ng-model="registration.user.email" placeholder="Enter Email Adress" required="true"/>
         </div>
         <span class="information">The fields signed with <span class="red">*</span> are required!</span>
         <button id="submit" type="submit">

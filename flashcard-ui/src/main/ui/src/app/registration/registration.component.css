@@ -49,7 +49,7 @@ div[ui-view]{
     padding-left: 5px;
     font-family: "Oswald";
     font-weight: 300;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .red{
@@ -92,7 +92,7 @@ meter{
     border: 2px solid #81d4fa;
     border-radius: 6px;
     background-color: white;
-    display: block;
+    display: none;
 }
 
 #meter-field:after,

@@ -4,12 +4,12 @@
             <span >Wrong username or password!</span>
         </div>
         <div class="details-field">
-            <label class="" path="userName">Username</label>
-            <input class="input-field" ng-model="login.user.userName" type="text" path="userName" required="true"/>
+            <label class="" for="userName" >Username</label>
+            <input class="input-field" id="userName" placeholder="Enter Username" ng-model="login.user.userName" type="text" required="true"/>
         </div>
         <div class="details-field">
-            <label class="" path="password">Password</label>
-            <input class="input-field" ng-model="login.user.password" type="password" path="password" required="true"/>
+            <label class=""  for="password" >Password</label>
+            <input class="input-field" id="password" placeholder="Enter Password" ng-model="login.user.password" type="password" required="true"/>
         </div>
         <button id="submit" type="submit">
             <span class="text-button">LOG IN</span>

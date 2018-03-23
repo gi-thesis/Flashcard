@@ -35,9 +35,9 @@ input{
     color : white;
     font-size: 18px;
     cursor: pointer;
-    min-height: 71px;
+    min-height: 69px;
     width: 150px;
-
+    border-radius: 2px;
 }
 
 .submit-login:hover {

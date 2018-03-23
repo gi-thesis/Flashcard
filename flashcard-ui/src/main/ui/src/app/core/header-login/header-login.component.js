@@ -5,6 +5,7 @@ angular.module('fc-app').component('fcHeaderLogin', {
 
         ctrl.isAuthenticated = fcUserAuthService.isAuthenticated;
 
+        ctrl.user = {};
         ctrl.login = function () {
             fcUserAuthService.authentication(ctrl.user, function() {
                 $state.go('user.profile');
