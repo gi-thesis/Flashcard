@@ -3,11 +3,12 @@
    License: none (public domain)
 */
 
-html, body, .ng-scope{
+html, body{
     min-height: 100%;
 }
 
-ui-view.ng-scope {
+[ui-view].ng-scope {
+    min-height: 100%;
     min-width: 100%;
     position: absolute;
 }

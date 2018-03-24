@@ -20,8 +20,8 @@
         </div>
         <div class="details-field">
             <label class="" for="password"> Password<span class="red">*</span> </label>
-            <input class="input-field" id="password" type="password" ng-model="registration.user.password" ng- placeholder="Enter Password" required="true"/>
-            <div id="meter-field" >
+            <input class="input-field" id="password" type="password" ng-focus="focused = true" ng-blur="focused = false" ng-model="registration.user.password" ng- placeholder="Enter Password" required="true"/>
+            <div id="meter-field" ng-if="focused">
                 <p id="password-strength-text">Strength:</p>
                 <meter max="4" id="password-strength-meter"></meter>
             </div>
