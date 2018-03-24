@@ -6,6 +6,7 @@ angular.module('fc-app').component('fcRegistration', {
         ctrl.user = {};
         ctrl.confirmPassword = null;
         ctrl.success = true;
+        ctrl.userExistsVal = null;
         ctrl.save = function () {
             fcUserService.save(ctrl.user).then(function (res) {
                 console.log(res);
@@ -17,11 +18,11 @@ angular.module('fc-app').component('fcRegistration', {
 
         };
 
-        ctrl.userExists = function (event, userName) {
+        ctrl.userExists = function (userName) {
             fcUserValidation.userExists(userName).then( function (res) {
-                angular.element(event.target).css('border-color', 'red');
+                ctrl.userExistsVal = true;
             }).catch(function (reason) {
-                angular.element(event.target).css('border-color', 'green');
+                ctrl.userExistsVal = false;
             });
         };
     },

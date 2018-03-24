@@ -146,3 +146,12 @@ meter::-webkit-meter-optimum-value {
     transition: width .4s ease-out;
 }
 
+.details-field-error {
+    border-color: red;
+    background-color: #FFCDD2;
+}
+
+.details-field-valid {
+    border-color: green;
+    background-color: palegreen;
+}

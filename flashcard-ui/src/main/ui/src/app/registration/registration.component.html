@@ -8,7 +8,7 @@
         </div>
         <div class="details-field">
             <label class="" for="userName" > User Name<span class="red">*</span> </label>
-            <input class="input-field" ng-model="registration.user.userName" ng-blur="registration.userExists($event, registration.user.userName)" id="userName" type="text" placeholder="Enter Username" required="true"/>
+            <input class="input-field" ng-model="registration.user.userName" ng-blur="registration.userExists(registration.user.userName)" ng-class="{'details-field-error' : registration.userExistsVal === true, 'details-field-valid' : registration.userExistsVal === false}" id="userName" type="text" placeholder="Enter Username" required="true"/>
         </div>
         <div class="details-field">
             <label class="" for="firstName"> First Name<span class="red">*</span> </label>
