@@ -8,7 +8,10 @@
         </div>
         <div class="details-field">
             <label class="" for="userName" > User Name<span class="red">*</span> </label>
-            <input class="input-field" ng-model="registration.user.userName" ng-blur="registration.userExists(registration.user.userName)" ng-class="{'details-field-error' : registration.userExistsVal === true, 'details-field-valid' : registration.userExistsVal === false}" id="userName" type="text" placeholder="Enter Username" required="true"/>
+            <input class="input-field" ng-model="registration.user.userName"
+                   ng-blur="registration.userExists(registration.user.userName)"
+                   ng-class="{'details-field-error' : registration.userExistsVal === true, 'details-field-valid' : registration.userExistsVal === false}"
+                   id="userName" type="text" placeholder="Enter Username" required="true"/>
         </div>
         <div class="details-field">
             <label class="" for="firstName"> First Name<span class="red">*</span> </label>
@@ -20,17 +23,21 @@
         </div>
         <div class="details-field">
             <label class="" for="password"> Password<span class="red">*</span> </label>
-            <input class="input-field" id="password" type="password" ng-focus="focused = true" ng-blur="focused = false" ng-model="registration.user.password" ng- placeholder="Enter Password" required="true"/>
+            <input class="input-field" id="password" type="password" ng-focus="focused = true"
+                   ng-change="registration.calculatePasswordStrength()"
+                   ng-model="registration.user.password"  placeholder="Enter Password" required="true"/>
             <div id="meter-field" ng-if="focused">
-                <p id="password-strength-text">Strength:</p>
-                <meter max="4" id="password-strength-meter"></meter>
+                <p id="password-strength-text">{{registration.passwordStrength.text}}</p>
+                <meter value="{{registration.passwordStrength.score}}" max="4" id="password-strength-meter"></meter>
             </div>
         </div>
         <div class="details-field">
             <label class="" for="confirmPassword"> Confirm Password<span class="red">*</span> </label>
-            <input class="input-field" id="confirmPassword" ng-model="registration.confirmPassword" type="password" name="confirmPassword" placeholder="Enter Password Again" required="true"/>
+            <input class="input-field" id="confirmPassword" ng-model="registration.confirmPassword"
+                   ng-class="{'details-field-error' : registration.user.password != registration.confirmPassword}"
+                   type="password" name="confirmPassword" placeholder="Enter Password Again" required="true"/>
         </div>
-        <span ng-show="registration.user.password != registration.confirmPassword">Nem joooooo</span>
+        <span id="validation-error" ng-show="registration.user.password != registration.confirmPassword">Passwords doesn't match!</span>
         <div class="details-field">
             <label class="" for="email"> Email<span class="red">*</span> </label>
             <input class="input-field" id="email" type="email" ng-model="registration.user.email" placeholder="Enter Email Adress" required="true"/>

@@ -1,8 +1,8 @@
 angular.module('fc-app').component('fcRegistration', {
     templateUrl: 'app/registration/registration.component.html',
-    controller: function (fcUserService, $state, fcUserValidation) {
+    controller: function (fcUserService, $state, fcPasswordValidation) {
         var ctrl = this;
-
+        //console.log(zxcvbn('valami'));
         ctrl.user = {};
         ctrl.confirmPassword = null;
         ctrl.success = true;
@@ -19,11 +19,17 @@ angular.module('fc-app').component('fcRegistration', {
         };
 
         ctrl.userExists = function (userName) {
-            fcUserValidation.userExists(userName).then( function (res) {
+            fcUserService.userExists(userName).then( function (res) {
                 ctrl.userExistsVal = true;
             }).catch(function (reason) {
                 ctrl.userExistsVal = false;
             });
+        };
+
+        ctrl.passwordStrength = {};
+        ctrl.calculatePasswordStrength = function() {
+            ctrl.passwordStrength = fcPasswordValidation.passwordStrength(ctrl.user.password);
+            console.log(ctrl.passswordStrength);
         };
     },
     controllerAs: 'registration'

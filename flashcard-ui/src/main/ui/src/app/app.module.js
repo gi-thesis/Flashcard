@@ -4,6 +4,7 @@ require('./app.routing');
 require('./core/users/users.service');
 require('./core/users/users-auth.service');
 require('./core/users/users-validation.service');
+require('./core/users/password-validation.service');
 require('./core/categories/categories.service');
 
 require('./core/header/header.component');

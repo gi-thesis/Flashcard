@@ -1,47 +1,47 @@
-angular.module('fc-app').service('fcUserValidation', function ($http) {
+angular.module('fc-app').service('fcPasswordValidation', function ($http) {
     var srvc = this;
 
-    srvc.password = null;
-    srvc.confirm_password = null;
     srvc.meter = document.getElementById('password-strength-meter');
     srvc.text = document.getElementById('password-strength-text');
     srvc.meterfield = document.getElementById('meter-field');
     var strength = {
-        0: "Bad",
-        1: "Bad",
-        2: "Weak",
-        3: "Good",
-        4: "Strong"
+        0: 'Bad',
+        1: 'Bad',
+        2: 'Weak',
+        3: 'Good',
+        4: 'Strong'
     };
 
-    srvc.confirmPassword = function () {
-        if (srvc.password !== srvc.confirm_password) {
+    /*srvc.confirmPassword = function (elementPass, elementCPass) {
+        if (elementPass !== elementCPass) {
             confirm_password.setCustomValidity("Passwords doesn't match!");
-            confirm_password.style.backgroundColor = "#F44336";
+            confirm_password.style.backgroundColor = '#F44336';
             confirm_password.style.border = "1.5px solid #8B0000";
+            return false;
         } else {
             confirm_password.style.backgroundColor = "#80CBC4";
             confirm_password.style.border = "1.5px solid #388E3C";
             confirm_password.setCustomValidity('');
+            return true;
         }
-    };
+    };*/
 
-    srvc.passwordStrengthWatcher = function (passwordElement) {
-        var val = passwordElement.value;
-        var result = zxcvbn(val);
-
-        // Update the password strength meter
-        meter.value = result.score;
-
-        // Update the text indicator
-        if (val !== "") {
-            text.innerHTML = "Strength: " + strength[result.score];
-            meterfield.style.display = 'block';
-        } else {
-            text.innerHTML = "";
+    srvc.passwordStrength = function (password) {
+        console.log(password);
+        if(!password){
+            return undefined;
         }
-    };
+        var result = {
+            score : zxcvbn(password).score,
+            text : ''
+        };
 
+        if (password !== '') {
+            result.text = 'Strength: ' + strength[result.score];
+        }
+        return result;
+    };
+/*
     srvc.passwordStrengthValidator = function () {
         var val = password.value;
         var result = zxcvbn(val);
@@ -53,8 +53,8 @@ angular.module('fc-app').service('fcUserValidation', function ($http) {
             password.setCustomValidity("");
         }
         meterfield.style.display = 'none';
-    };
+    };*/
 
-    password.addEventListener('input', confirmPassword, true);
-    confirm_password.addEventListener('input', confirmPassword, true);
+   /* password.addEventListener('input', confirmPassword, true);
+    confirm_password.addEventListener('input', confirmPassword, true);*/
 });

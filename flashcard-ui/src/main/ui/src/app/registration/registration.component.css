@@ -154,3 +154,14 @@ meter::-webkit-meter-optimum-value {
     border-color: green;
     background-color: palegreen;
 }
+
+#validation-error{
+    background-color: #e57373;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    font-family: "Oswald";
+    font-size: 12px;
+    font-weight: 200;
+}

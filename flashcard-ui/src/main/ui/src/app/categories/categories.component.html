@@ -1,4 +1,8 @@
 <div id="categories">
+    <form ng-submit="categoriesCtrl.saveCategory()">
+        <input ng-model="categoriesCtrl.category.name" placeholder="Please give the category name" />
+        <button type="submit">Add new category</button>
+    </form>
     <div ng-repeat="category in categoriesCtrl.categories" >
         <fc-category category="category"></fc-category>
     </div>
