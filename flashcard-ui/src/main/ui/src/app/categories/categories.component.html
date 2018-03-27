@@ -1,7 +1,7 @@
-<div id="categories">
+<div id="categories-wrapper">
     <form ng-submit="categoriesCtrl.saveCategory()">
-        <input ng-model="categoriesCtrl.category.name" placeholder="Please give the category name" />
-        <button type="submit">Add new category</button>
+        <input ng-model="categoriesCtrl.category.name" placeholder="Please give the categories name" />
+        <button type="submit">Add new categories</button>
     </form>
     <div ng-repeat="category in categoriesCtrl.categories" >
         <fc-category category="category"></fc-category>

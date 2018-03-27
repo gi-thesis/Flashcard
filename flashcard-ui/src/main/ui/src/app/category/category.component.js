@@ -6,7 +6,7 @@ angular.module('fc-app').component('fcCategory', {
     controller : function (fcCategoryService) {
         var ctrl = this;
 
-
+        //ctrl.catergory = category;
     },
     controllerAs : 'categoryCtrl'
 });

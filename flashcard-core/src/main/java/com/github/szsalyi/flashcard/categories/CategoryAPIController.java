@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -33,7 +34,8 @@ public class CategoryAPIController {
             .body(categoryService.save(category));
     }
 
-    @GetMapping(consumes = MediaType.ALL_VALUE)
+
+    @GetMapping(path = "/all", consumes = MediaType.ALL_VALUE)
     public ResponseEntity<List<CategoryVO>> getAll() {
         return ResponseEntity
             .status(HttpStatus.OK)
@@ -55,4 +57,10 @@ public class CategoryAPIController {
                 .build();
     }
 
+    @GetMapping (consumes = MediaType.ALL_VALUE)
+    public ResponseEntity<List<CategoryVO>> getCategoriesByUser(@RequestParam final String username) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(categoryService.getAllCategoriesByUsername(username));
+    }
 }

@@ -6,7 +6,7 @@ angular.module('fc-app').service('fcCategoryService', function ($http) {
         return $http.post('api/categories', category , {headers: {'Content-Type' : 'application/json'}});
     };
 
-    srvc.getAll = function () {
-        return $http.get('api/categories');
+    srvc.getAllByUsername = function (username) {
+        return $http.get('api/categories?username=' + username);
     };
 });

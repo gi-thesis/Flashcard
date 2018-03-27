@@ -1,6 +1,5 @@
 package com.github.szsalyi.flashcard.cards;
 
-import com.github.szsalyi.flashcard.categories.CategoryEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
@@ -29,6 +28,15 @@ public class CardServiceImpl implements CardService{
     public List<CardVO> getAllCards() {
         List<CardVO> cards = new ArrayList<>();
         for ( CardEntity cardEntity : cardRepository.findAll()) {
+            cards.add(conversionService.convert(cardEntity, CardVO.class));
+        }
+        return cards;
+    }
+
+    @Override
+    public List<CardVO> findCardsByCategoryIdAndUsername(Long categoryId, String username) {
+        List<CardVO> cards = new ArrayList<>();
+        for ( CardEntity cardEntity : cardRepository.findCardEntitiesByCategoriesAndUserUserName(categoryId, username)) {
             cards.add(conversionService.convert(cardEntity, CardVO.class));
         }
         return cards;

@@ -31,11 +31,12 @@ public class CardEntity extends BaseEntity {
 
     private String back;
 
-    @ManyToOne()
+    /*@ManyToOne()
     private UserEntity user;
+    */
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable()
-    private Set<CategoryEntity> category;
+    private Set<CategoryEntity> categories;
 
 }

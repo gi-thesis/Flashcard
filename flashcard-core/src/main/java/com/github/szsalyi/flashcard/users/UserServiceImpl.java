@@ -1,5 +1,7 @@
 package com.github.szsalyi.flashcard.users;
 
+import com.github.szsalyi.flashcard.categories.CategoryEntity;
+import com.github.szsalyi.flashcard.categories.CategoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
@@ -18,9 +20,10 @@ public class UserServiceImpl implements UserService {
      private ConversionService conversionService;
 
     @Override
-    public void save(final UserVO userVO) {
+    public UserVO save(final UserVO userVO) {
         System.out.println(userVO);
-        userRepository.save(conversionService.convert(userVO, UserEntity.class));
+       UserEntity userEntity = conversionService.convert(userVO, UserEntity.class);
+        return conversionService.convert(userRepository.save(userEntity), UserVO.class);
     }
 
     @Override

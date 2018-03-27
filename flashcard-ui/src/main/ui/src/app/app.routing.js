@@ -29,11 +29,16 @@
             .state('user.categories', {
                 url : '/categories',
                 component : 'fcCategories'
-            })
+            });/*
             .state('user.categories.view', {
                 url : '/:categoryId',
-                component : 'fcCards'
-            });
+                component : 'fcCards',
+                resolve : {
+                    categoryId: function ($stateparams) {
+
+                    }
+                }
+            });*/
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         $locationProvider.html5Mode(true);

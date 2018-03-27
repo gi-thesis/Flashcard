@@ -1,5 +1,5 @@
 angular.module('fc-app').component('fcCards', {
-    templateUrl : 'app/category/cards.component.html',
+    templateUrl : 'app/categories/cards.component.html',
     controller : function () {
         var ctrl = this;
 

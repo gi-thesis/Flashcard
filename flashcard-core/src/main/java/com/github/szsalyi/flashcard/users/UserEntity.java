@@ -1,6 +1,7 @@
 package com.github.szsalyi.flashcard.users;
 
 import com.github.szsalyi.flashcard.cards.CardEntity;
+import com.github.szsalyi.flashcard.categories.CategoryEntity;
 import com.github.szsalyi.flashcard.common.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,6 +15,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -26,7 +28,7 @@ public class UserEntity extends BaseEntity {
 
     private static final Long serialVersionUID = 1L;
 
-    @Column(name = "USERNAME", nullable = false)
+    @Column(name = "USERNAME", nullable = false, unique = true)
     private String userName;
 
     @Column(nullable = false)
@@ -46,6 +48,9 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "user")
+    private Set<CategoryEntity> categories;
 
     @OneToMany
     private List<CardEntity> cardEntities;

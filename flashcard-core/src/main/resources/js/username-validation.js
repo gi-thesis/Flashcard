@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('#user_name').blur(function () {
         $.ajax({
             type: 'GET',
-            url: 'api/users/exists',
+            url: 'api/user/exists',
             dataType: 'json',
             data: {username : $('#user_name').val()},
             success: function (response) {

@@ -1442,7 +1442,7 @@ public boolean bar(int a, int b) {
 		class="net.sourceforge.pmd.lang.rule.XPathRule" externalInfoUrl="${pmd.website.baseurl}/rules/java/design.html#UseVarargs">
 		<description>
 Java 5 introduced the varargs parameter declaration for methods and constructors.  This syntactic
-sugar provides flexibility for users of these methods and constructors, allowing them to avoid
+sugar provides flexibility for user of these methods and constructors, allowing them to avoid
 having to deal with the creation of an array.
 </description>
 		<priority>4</priority>

@@ -44,7 +44,7 @@ public class UserAPIController {
     public ResponseEntity<UserVO> saveUser(final @RequestBody UserVO user) {
         user.setRole(Role.USER);
         user.setEnabled(1);
-        userService.save(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
     }
 }

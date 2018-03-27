@@ -1,6 +1,7 @@
 package com.github.szsalyi.flashcard.cards;
 
 import com.github.szsalyi.flashcard.categories.CategoryVO;
+import com.github.szsalyi.flashcard.users.UserVO;
 import lombok.Data;
 
 import java.util.Set;
@@ -12,6 +13,8 @@ public class CardVO {
     private String back;
 
     //private String description;
+
+    //private UserVO user;
 
     private Set<CategoryVO> categories;
 
