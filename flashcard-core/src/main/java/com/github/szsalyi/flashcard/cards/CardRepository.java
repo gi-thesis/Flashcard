@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CardRepository extends JpaRepository <CardEntity, Long> {
 
-    List<CardEntity> findCardEntitiesByCategoriesAndUserUserName(Long categoryId, String username);
+    List<CardEntity> findCardEntitiesByCategories(Long categoryId);
 }

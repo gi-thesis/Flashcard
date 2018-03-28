@@ -49,9 +49,9 @@ public class CardAPIController {
     }*/
 
     @GetMapping
-    public ResponseEntity<List<CardVO>> getCardsByCategoryAndUser(@RequestParam final long categoryId, @RequestParam final String username) {
+    public ResponseEntity<List<CardVO>> getCardsByCategory(@RequestParam final long categoryId) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(cardService.findCardsByCategoryIdAndUsername(categoryId, username));
+                .body(cardService.findCardsByCategoryId(categoryId));
     }
 }

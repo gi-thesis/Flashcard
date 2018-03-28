@@ -28,7 +28,7 @@ public class UserEntity extends BaseEntity {
 
     private static final Long serialVersionUID = 1L;
 
-    @Column(name = "USERNAME", nullable = false, unique = true)
+    @Column(name = "USERNAME", nullable = false)
     private String userName;
 
     @Column(nullable = false)

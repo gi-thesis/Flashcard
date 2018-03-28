@@ -34,9 +34,9 @@ public class CardServiceImpl implements CardService{
     }
 
     @Override
-    public List<CardVO> findCardsByCategoryIdAndUsername(Long categoryId, String username) {
+    public List<CardVO> findCardsByCategoryId(Long categoryId) {
         List<CardVO> cards = new ArrayList<>();
-        for ( CardEntity cardEntity : cardRepository.findCardEntitiesByCategoriesAndUserUserName(categoryId, username)) {
+        for ( CardEntity cardEntity : cardRepository.findCardEntitiesByCategories(categoryId)) {
             cards.add(conversionService.convert(cardEntity, CardVO.class));
         }
         return cards;
