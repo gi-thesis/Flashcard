@@ -16,6 +16,6 @@ public class CardVO {
 
     //private UserVO user;
 
-    private Set<CategoryVO> categories;
+    private CategoryVO category;
 
 }

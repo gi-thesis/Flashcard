@@ -6,7 +6,7 @@ angular.module('fc-app').service('fcCardService', function ($http) {
         return $http.post('api/cards', card , {headers: {'Content-Type' : 'application/json'}});
     };
 
-    srvc.getAllByCategoryId = function () {
-        return $http.get('api/cards');
+    srvc.getAllByCategoryId = function (categoryId) {
+        return $http.get('api/cards?categoryId=' + categoryId);
     };
 });

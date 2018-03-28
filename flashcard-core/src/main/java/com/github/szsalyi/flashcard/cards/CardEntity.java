@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -35,8 +36,9 @@ public class CardEntity extends BaseEntity {
     private UserEntity user;
     */
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable()
-    private Set<CategoryEntity> categories;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CATEGORY_ID")
+    private CategoryEntity category;
 
 }

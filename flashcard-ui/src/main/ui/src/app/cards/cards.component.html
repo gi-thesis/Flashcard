@@ -1,3 +1,9 @@
-<div>
-    Hello Card!!
+<div id="cards-wrapper">
+    <form ng-submit="cardsCtrl.saveCard()">
+        <input ng-model="cardsCtrl.card.front" placeholder="Please give the card front" />
+        <button type="submit">Add new card</button>
+    </form>
+    <div ng-repeat="card in cardsCtrl.cards" >
+        <fc-category category="card"></fc-category>
+    </div>
 </div>

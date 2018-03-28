@@ -29,16 +29,19 @@
             .state('user.categories', {
                 url : '/categories',
                 component : 'fcCategories'
-            });/*
+            })
             .state('user.categories.view', {
                 url : '/:categoryId',
                 component : 'fcCards',
                 resolve : {
-                    categoryId: function ($stateparams) {
-
+                    cards: function ($stateParams, fcCardService) {
+                        return fcCardService.getAllByCategoryId($stateParams.categoryId);
+                    },
+                    categoryId : function ($stateParams) {
+                      return $stateParams.categoryId;
                     }
                 }
-            });*/
+            });
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         $locationProvider.html5Mode(true);

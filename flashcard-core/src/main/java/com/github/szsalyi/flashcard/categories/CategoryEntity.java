@@ -1,5 +1,6 @@
 package com.github.szsalyi.flashcard.categories;
 
+import com.github.szsalyi.flashcard.cards.CardEntity;
 import com.github.szsalyi.flashcard.common.BaseEntity;
 import com.github.szsalyi.flashcard.users.UserEntity;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import java.util.Set;
@@ -38,4 +40,12 @@ public class CategoryEntity extends BaseEntity {
     @JoinColumn(name = "USERNAME")
     private UserEntity user;
 
+    @OneToMany(mappedBy = "category")
+    private Set<CardEntity> cards;
+
+    @Column(name = "CATEGORY_ID")
+    @Override
+    public Long getId() {
+        return super.getId();
+    }
 }

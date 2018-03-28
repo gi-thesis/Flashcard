@@ -48,7 +48,7 @@ public class CardAPIController {
                 .body(cardService.getAllCards());
     }*/
 
-    @GetMapping
+    @GetMapping(consumes = MediaType.ALL_VALUE)
     public ResponseEntity<List<CardVO>> getCardsByCategory(@RequestParam final long categoryId) {
         return ResponseEntity
                 .status(HttpStatus.OK)
