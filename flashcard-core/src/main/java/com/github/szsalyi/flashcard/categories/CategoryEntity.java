@@ -43,9 +43,4 @@ public class CategoryEntity extends BaseEntity {
     @OneToMany(mappedBy = "category")
     private Set<CardEntity> cards;
 
-    @Column(name = "CATEGORY_ID")
-    @Override
-    public Long getId() {
-        return super.getId();
-    }
 }

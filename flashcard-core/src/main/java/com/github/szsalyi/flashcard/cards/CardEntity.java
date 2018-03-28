@@ -36,7 +36,6 @@ public class CardEntity extends BaseEntity {
     private UserEntity user;
     */
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CATEGORY_ID")
     private CategoryEntity category;
