@@ -35,7 +35,7 @@
                 component : 'fcCards',
                 resolve : {
                     cards: function ($stateParams, fcCardService) {
-                        return fcCardService.getAllByCategoryId($stateParams.categoryId);
+                        return fcCardService.getAllByCategoryId($stateParams.categoryId).then(function (value) { return value.data; });
                     }
                 }
             }).state('user.session', {

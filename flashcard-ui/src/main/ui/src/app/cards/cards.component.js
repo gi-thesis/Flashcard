@@ -9,11 +9,12 @@ angular.module('fc-app').component('fcCards', {
         };
 
         ctrl.saveCard = function () {
-           fcCardService.save(ctrl.card);
+           fcCardService.save(ctrl.card).then( function (value) {
+               fcCardService.getAllByCategoryId($stateParams.categoryId).then(function (value) {
+                   ctrl.cards = value.data;
+               })
+           });
 
-           fcCardService.getAllByCategoryId($stateParams.categoryId).then(function (value) {
-               console.log(value);
-               ctrl.cards = value.data; });
         };
 
     },
