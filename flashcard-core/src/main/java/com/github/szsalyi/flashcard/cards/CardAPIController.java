@@ -52,6 +52,6 @@ public class CardAPIController {
     public ResponseEntity<List<CardVO>> getCardsByCategory(@RequestParam final long categoryId) {
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(cardService.findCardsByCategory(categoryId));
+                .body(cardService.findCardsByCategoryId(categoryId));
     }
 }

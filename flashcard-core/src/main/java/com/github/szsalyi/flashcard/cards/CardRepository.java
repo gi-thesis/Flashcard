@@ -10,6 +10,6 @@ import java.util.List;
 public interface CardRepository extends JpaRepository <CardEntity, Long> {
 
     //@Query("SELECT c FROM card c WHERE c.category_id = :categoryId")
-    List<CardEntity> findCardEntitiesByCategory(CategoryEntity categoryEntity);
+    List<CardEntity> findCardEntitiesByCategoryId(Long id);
 }
 

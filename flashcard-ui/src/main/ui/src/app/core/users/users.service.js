@@ -6,6 +6,6 @@ angular.module('fc-app').service('fcUserService', function ($http) {
     };
 
     srvc.userExists = function (userName) {
-        return $http.get('api/user/exists', {params : {userName : userName}});
+        return $http.get('api/users/exists', {params : {userName : userName}});
     };
 });

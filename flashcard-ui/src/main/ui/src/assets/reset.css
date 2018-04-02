@@ -13,8 +13,9 @@ html, body{
     position: absolute;
 }
 
-[ui-view] {
-
+ui-view.ng-scope{
+    min-height: 100%;
+    min-width: 100%;
 }
 [ng-isolate-scope]{
     min-height: 100%;

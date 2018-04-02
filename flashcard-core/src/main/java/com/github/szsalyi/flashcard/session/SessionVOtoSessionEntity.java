@@ -1,4 +1,4 @@
-package com.github.szsalyi.flashcard.cards;
+package com.github.szsalyi.flashcard.session;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,13 +6,14 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CardEntitytoCardVO implements Converter<CardEntity, CardVO> {
+public class SessionVOtoSessionEntity implements Converter<SessionVO, SessionEntity>{
 
     @Autowired
     private DozerBeanMapper mapper;
 
+
     @Override
-    public CardVO convert(final CardEntity cardEntity) {
-        return mapper.map(cardEntity, CardVO.class);
+    public SessionEntity convert(SessionVO sessionVO) {
+        return mapper.map(sessionVO, SessionEntity.class);
     }
 }

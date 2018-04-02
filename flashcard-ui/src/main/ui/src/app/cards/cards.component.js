@@ -1,17 +1,19 @@
 angular.module('fc-app').component('fcCards', {
+    bindings : {cards : '<'},
     templateUrl : 'app/cards/cards.component.html',
-    controller : function (cards, categoryId) {
+    controller : function (fcCardService, $stateParams) {
         var ctrl = this;
 
-        ctrl.cards = cards;
-
-        ctrl.card = {};
+        ctrl.card = {
+            category : { id : $stateParams.categoryId}
+        };
 
         ctrl.saveCard = function () {
-            console.log(categoryId);
-            ctrl.card.categoryId = categoryId;
+           fcCardService.save(ctrl.card);
 
-            fcCardService.save(ctrl.card).then();
+           fcCardService.getAllByCategoryId($stateParams.categoryId).then(function (value) {
+               console.log(value);
+               ctrl.cards = value.data; });
         };
 
     },

@@ -30,15 +30,20 @@
                 url : '/categories',
                 component : 'fcCategories'
             })
-            .state('user.categories.view', {
-                url : '/:categoryId',
+            .state('user.cardmgmt', {
+                url : '/:categoryId/cards',
                 component : 'fcCards',
                 resolve : {
                     cards: function ($stateParams, fcCardService) {
                         return fcCardService.getAllByCategoryId($stateParams.categoryId);
-                    },
-                    categoryId : function ($stateParams) {
-                      return $stateParams.categoryId;
+                    }
+                }
+            }).state('user.session', {
+                url : '/session?categoryId',
+                component : 'fcSessions',
+                resolve : {
+                    cards: function ($stateParams, fcCardService) {
+                        return fcCardService.getAllByCategoryId($stateParams.categoryId).then(function (value) { return value.data; });
                     }
                 }
             });

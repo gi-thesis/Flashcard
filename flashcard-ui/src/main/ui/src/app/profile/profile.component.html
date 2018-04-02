@@ -28,4 +28,11 @@
         <span class="header-field">Categories</span>
         <span id="category-management" class="">Category Management</span>
     </div>
+    <div>
+        <select ng-model="profile.categoryId">
+            <option ng-repeat="category in profile.categories" value="{{category.id}}">{{category.name}}</option>
+        </select>
+        <div>valami : {{profile.categoryId}}</div>
+        <button ng-if="profile.categoryId" ui-sref="user.session({categoryId : {{profile.categoryId}} })">Let's play</button>
+    </div>
 </div>

@@ -3,10 +3,13 @@ angular.module('fc-app').component('fcCategory', {
       category : '='
     },
     templateUrl : 'app/category/category.component.html',
-    controller : function (fcCategoryService) {
+    controller : function (fcCategoryService, $state) {
         var ctrl = this;
 
-        //ctrl.catergory = category;
+        ctrl.redirect = function (categoryId) {
+            return $state.href('user.categories.cardmgmt', {categoryId : categoryId});
+        };
+        //ctrl.catergory = fcCategoryService;
     },
     controllerAs : 'categoryCtrl'
 });

@@ -1,8 +1,12 @@
 package com.github.szsalyi.flashcard.users;
 
+import com.github.szsalyi.flashcard.session.SessionVO;
 import lombok.Data;
+import org.hsqldb.Session;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Data
 public class UserVO implements Serializable {

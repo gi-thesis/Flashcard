@@ -3,6 +3,7 @@ package com.github.szsalyi.flashcard.users;
 import com.github.szsalyi.flashcard.cards.CardEntity;
 import com.github.szsalyi.flashcard.categories.CategoryEntity;
 import com.github.szsalyi.flashcard.common.BaseEntity;
+import com.github.szsalyi.flashcard.session.SessionEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,6 +13,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
@@ -52,7 +55,7 @@ public class UserEntity extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private Set<CategoryEntity> categories;
 
-    @OneToMany
-    private List<CardEntity> cardEntities;
+    @OneToMany(mappedBy = "userEntity")
+    private List<SessionEntity> sessions;
 
 }
