@@ -3,10 +3,20 @@ angular.module('fc-app').component('fcProfile', {
     controller : function (fcUserAuthService, fcCategoryService) {
         var ctrl = this;
 
+        ctrl.getCategoryId = function () {
+            return ctrl.category.id;
+        };
+        //ctrl.category = null;
+        //ctrl.categories = {};
         ctrl.user = fcUserAuthService.getAuthUser();
-        fcCategoryService.getAllByUsername(ctrl.user.userName).then(function (value) {
-            console.log(value.data);
-            ctrl.categories = value.data; });
+        ctrl.$onInit = function () {
+            fcCategoryService.getAllByUsername(ctrl.user.userName).then(function (value) {
+                console.log(value.data);
+                ctrl.categories = value.data; });
+        };
+
+
+
     },
     controllerAs: 'profile'
 });

@@ -12,7 +12,7 @@ angular.module('fc-app').component('fcCards', {
            fcCardService.save(ctrl.card).then( function (value) {
                fcCardService.getAllByCategoryId($stateParams.categoryId).then(function (value) {
                    ctrl.cards = value.data;
-               })
+               });
            });
 
         };

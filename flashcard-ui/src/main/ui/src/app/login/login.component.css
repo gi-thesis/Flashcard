@@ -52,7 +52,7 @@
     font-size: 18px;
 }
 
-#user-error{
+.error{
     background-color: #e57373;
     color: white;
     padding: 10px;

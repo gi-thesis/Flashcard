@@ -1,38 +1,53 @@
 <div id="profile-wrapper">
-    <div class="details">
-        <div class="header-field">
-            <span>Profile Details</span>
+    <div class="column-wrapper">
+        <div class="details">
+            <div class="header-field">
+                <span>Profile Details</span>
+            </div>
+            <div class="detail-field">
+                <span>User Name</span>
+                <span>{{profile.user.userName}}</span>
+            </div>
+            <div class="detail-field">
+                <span>First Name</span>
+                <span>{{profile.user.firstName}}</span>
+            </div>
+            <div class="detail-field">
+                <span>Last Name</span>
+                <span>{{profile.user.lastName}}</span>
+            </div>
+            <div class="detail-field">
+                <span>Email</span>
+                <span>{{profile.user.email}}</span>
+            </div>
+            <div class="detail-field">
+                <span>Password</span>
+                <span>{{profile.user.password}}</span>
+            </div>
         </div>
-        <div class="detail-field">
-            <span>User Name</span>
-            <span>{{profile.user.userName}}</span>
-        </div>
-        <div class="detail-field">
-            <span>First Name</span>
-            <span>{{profile.user.firstName}}</span>
-        </div>
-        <div class="detail-field">
-            <span>Last Name</span>
-            <span>{{profile.user.lastName}}</span>
-        </div>
-        <div class="detail-field">
-            <span>Email</span>
-            <span>{{profile.user.email}}</span>
-        </div>
-        <div class="detail-field">
-            <span>Password</span>
-            <span>{{profile.user.password}}</span>
+        <div class="details details-center" ui-sref="user.categories">
+            <span id="cagtegory-header" class="header-field">Category Management</span>
+            <div class="">
+                <span id="category-management" class="">Category</span>
+            </div>
         </div>
     </div>
-    <div class="management" ui-sref="user.categories">
-        <span class="header-field">Categories</span>
-        <span id="category-management" class="">Category Management</span>
-    </div>
-    <div>
-        <select ng-model="profile.categoryId">
-            <option ng-repeat="category in profile.categories" value="{{category.id}}">{{category.name}}</option>
-        </select>
-        <div>valami : {{profile.categoryId}}</div>
-        <button ng-if="profile.categoryId" ui-sref="user.session({categoryId : {{profile.categoryId}} })">Let's play</button>
+    <div class="column-wrapper">
+        <div class="details">
+            <span class="header-field">Scoreboard and Statics</span>
+        </div>
+        <div class="details">
+            <span class="header-field">Let's play</span>
+            <select ng-model="profile.categoryId">
+                <option ng-repeat="category in profile.categories" value="{{category.id}}" selected>{{category.name}}</option>
+            </select>
+            <!--<select ng-model="profile.categoryId"
+                    ng-init="profile.categoryId = profile.categoryId || profile.categories[0].id"
+                    ng-options="category.name as category.id for category in profile.categories">
+            </select>-->
+            <button ng-if="profile.categoryId" ui-sref="user.session({categoryId : {{profile.categoryId}} })">Let's play</button>
+            <span ng-if="profile.categories.length == 0" class="error">Please add category in the Category Management to start playing</span>
+        </div>
     </div>
 </div>
+
