@@ -8,7 +8,6 @@ angular.module('fc-app').component('fcLogin', {
 
         ctrl.login = function () {
             fcUserAuthService.authentication(ctrl.user, function() {
-                console.log($rootScope.loggedUser);
                 $state.go('user.profile');
             }, function () {
                 $state.go('login');

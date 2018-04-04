@@ -14,8 +14,6 @@ public class CardVO {
 
     //private String description;
 
-    //private UserVO user;
-
     private CategoryVO category;
 
 }

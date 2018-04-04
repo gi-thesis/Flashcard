@@ -1,24 +1,22 @@
 angular.module('fc-app').component('fcSessions', {
     bindings : {cards :  '<' },
     templateUrl : 'app/sessions/sessions.component.html',
-    controller : function () {
+    controller : function ($timeout, fcCardService, fcArrayUtils) {
         var ctrl = this;
 
-        var selectIndex = function (number) {
-            var index = Math.floor(Math.random()* number + 1);
-            console.log('index: ' + index);
-            return index;
-        };
-
+        ctrl.userGuess = '';
         ctrl.$onInit = function() {
-            console.log('length: ' + ctrl.cards.length);
-            ctrl.actualCard = ctrl.cards[selectIndex(ctrl.cards.length - 1)];
-
-            console.log(ctrl.actualCard);
+            fcArrayUtils.shuffle(ctrl.cards);
         };
-        ctrl.savSession = function () {
 
+        ctrl.guessing = function () {
+            fcCardService.compareCards(ctrl.actualCard.back, ctrl.userGuess);
+            $timeout(function () {
+                ctrl.userGuess = '';
+            }, 1000);
         };
+
+
 
     },
     controllerAs : 'sessionsCtrl'

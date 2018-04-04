@@ -1,3 +1,5 @@
-<div>
-    {{sessionsCtrl.actualCard.front}}
+<div ng-repeat="card in sessionsCtrl.cards">
+    <span>{{card.front}}</span>
+    <input placeholder="Give the right meaning of the word" ng-model="sessionsCtrl.userGuess"/>
+    <button ng-click="sessionsCtrl.guessing()">Guess</button>
 </div>

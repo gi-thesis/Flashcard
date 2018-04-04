@@ -1,11 +1,13 @@
 <div id="cards-wrapper">
     <form ng-submit="cardsCtrl.saveCard()">
         <input  placeholder="Please give the card front" ng-model="cardsCtrl.card.front" />
+        <input  placeholder="Please give the card back" ng-model="cardsCtrl.card.back" />
         <button >Add new card</button>
     </form>
     <div>
         <div ng-repeat="card in cardsCtrl.cards" >
             <div>{{card.front}}</div>
+            <div>{{card.back}}</div>
         </div>
     </div>
 </div>
