@@ -2,7 +2,7 @@ angular.module('fc-app').component('fcRegistration', {
     templateUrl: 'app/registration/registration.component.html',
     controller: function (fcUserService, $state, fcPasswordValidation) {
         var ctrl = this;
-        //console.log(zxcvbn('valami'));
+
         ctrl.user = {};
         ctrl.confirmPassword = null;
         ctrl.success = true;

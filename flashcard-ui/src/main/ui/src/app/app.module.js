@@ -2,6 +2,7 @@ angular.module('fc-app', [ 'ui.router', 'ngCookies' ]);
 require('./app.routing');
 
 require('./core/utility/array-utils.service');
+require('./core/utility/card-style.service');
 
 require('./core/users/users.service');
 require('./core/users/users-auth.service');

@@ -1,5 +1,17 @@
-<div ng-repeat="card in sessionsCtrl.cards">
-    <span>{{card.front}}</span>
-    <input placeholder="Give the right meaning of the word" ng-model="sessionsCtrl.userGuess"/>
-    <button ng-click="sessionsCtrl.guessing()">Guess</button>
+<div class="session-background" ng-if="sessionsCtrl.cards.length !== 0">
+    <div class="session" ng-style="sessionsCtrl.getCurrentCardCss()">
+        <div ng-repeat="card in sessionsCtrl.cards" ng-style="sessionsCtrl.generateCss($index)" ng-if="sessionsCtrl.cards.length > 0">
+            <span>{{card.front}}</span>
+            <input placeholder="Give the right meaning of the word" ng-model="sessionsCtrl.userGuess"/>
+            <button ng-click="sessionsCtrl.guessing()">Guess</button>
+        </div>
+        <div id="session-end" ng-style="sessionsCtrl.generateCss(sessionsCtrl.cards.length)" ng-if="sessionsCtrl.cards.length > 0">
+            <span>Session is ended</span>
+        </div>
+    </div>
 </div>
+<div ng-if="sessionsCtrl.cards.length === 0">
+    <span>You don't have cards in this category</span>
+    <button ui-sref="">Add cards</button>
+</div>
+<button ng-click="sessionsCtrl.count()">Next Card</button>
