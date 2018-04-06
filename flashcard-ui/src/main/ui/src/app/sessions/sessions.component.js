@@ -4,14 +4,18 @@ angular.module('fc-app').component('fcSessions', {
     controller : function ($timeout, fcCardService, fcArrayUtils, fcCardStyle) {
         var ctrl = this;
         var counter = 0;
+        var tz = 0;
 
         ctrl.degree = 'red';
         ctrl.userGuess = '';
+        ctrl.index = 0;
 
         ctrl.$onInit = function() {
             fcArrayUtils.shuffle(ctrl.cards);
             cardsNumber = ctrl.cards.length;
         };
+
+
 
         var tzCalculator = function (length) {
             return Math.round( ( 300 / 2 ) /
@@ -19,20 +23,25 @@ angular.module('fc-app').component('fcSessions', {
         };
 
         ctrl.getCurrentCardCss = function () {
-            console.log(counter * -1);
-            return ctrl.generateCss(counter * -1);
+            return ctrl.generateCss(counter * -1, true);
         };
 
 
-        ctrl.count = function () {
-            console.log(counter);
+        ctrl.turnCard = function () {
+            if(counter === ctrl.cards.length + 1) {
+                counter = 0;
+                return counter;
+            }
             return counter++;
         };
 
-        ctrl.generateCss = function (index) {
+        ctrl.generateCss = function (index, current) {
             var deg = 0;
-            var tz = tzCalculator(ctrl.cards.length);
-            degree = Math.round(360/ctrl.cards.length);
+            degree = Math.round(360/(ctrl.cards.length + 1));
+            tz = tzCalculator(ctrl.cards.length + 1);
+            if(current) {
+                tz = -Math.abs(tz);
+            }
             css = {'-webkit-transform' : 'rotateY(' + deg + 'deg) translateZ(288px)'};
             deg = degree * index;
             return {
@@ -40,12 +49,10 @@ angular.module('fc-app').component('fcSessions', {
             };
         };
 
-        ctrl.sessionElement = function (el) {
-            console.log(el);
-        };
-
         ctrl.guessing = function () {
-            fcCardService.compareCards(ctrl.actualCard.back, ctrl.userGuess);
+            ctrl.getCurrentCardCss();
+            counter++;
+            fcCardService.compareCards(ctrl.cards[counter].back, ctrl.userGuess);
             $timeout(function () {
                 ctrl.userGuess = '';
             }, 1000);

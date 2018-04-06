@@ -23,6 +23,9 @@
 }
  button {
      position: relative;
+
  }
 
-
+.session{
+    left: 50%;
+}
