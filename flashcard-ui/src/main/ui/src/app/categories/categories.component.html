@@ -1,10 +1,11 @@
-<div class="column-wrapper">
+<div class="column-wrapper categories-wrapper">
     <form class="details" ng-submit="categoriesCtrl.saveCategory()">
         <span class="header-field">Create a new category</span>
         <input ng-model="categoriesCtrl.category.name" placeholder="Please give the categories name" />
         <button type="submit">Add new categories</button>
     </form>
     <div class="details">
+        <span class="header-field">Categories</span>
         <div ng-repeat="category in categoriesCtrl.categories" >
             <fc-category category="category"></fc-category>
         </div>

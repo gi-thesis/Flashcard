@@ -1,15 +1,47 @@
 #category {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
     padding-left: 35px;
     padding-bottom: 15px;
-    padding-right: 25px;
     padding-top: 15px;
     margin-bottom: 10px;
     width: 300px;
     -webkit-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
     -moz-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
     box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
-    flex-direction: column;
+
+}
+
+.clear {
+    color: red!important;
+    cursor: pointer;
+}
+
+.clear:hover {
+    color: firebrick!important;
+}
+.edit {
+    color: #81d4fa!important;
+    cursor: pointer;
+}
+
+.edit:hover{
+    color: #1E88E5!important;
+}
+
+.content {
+    color: gray!important;
+    cursor: pointer;
+}
+
+.content:hover{
+    color: black!important;
+}
+
+.category-field {
+    font-family: Oswald;
+    font-size: 24px ;
+    font-weight: 300;
 }

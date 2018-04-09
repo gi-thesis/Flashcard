@@ -1,3 +1,5 @@
 <div id="category">
-    <span ui-sref="user.cardmgmt({categoryId : {{categoryCtrl.category.id}} })">{{categoryCtrl.category.name}}</span>
+    <span class="category-field content" ui-sref="user.cardmgmt({categoryId : {{categoryCtrl.category.id}} })">{{categoryCtrl.category.name}}</span>
+    <i class="material-icons md-30 edit">{{ categoryCtrl.edit }}</i>
+    <i class="material-icons md-30 clear">{{ categoryCtrl.clear }}</i>
 </div>

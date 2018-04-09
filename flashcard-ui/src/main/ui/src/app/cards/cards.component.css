@@ -1,0 +1,23 @@
+.card-mgmt{
+    display: block;
+    width: 280px;
+    height: 300px;
+    left: 40px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #81d4fa;
+    background-color: white;
+    -webkit-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
+    -moz-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
+    box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
+}
+
+#cards-wrapper {
+    padding: 10%;
+}
+
+.card-input {
+    width: 250px;
+}

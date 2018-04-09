@@ -3,32 +3,39 @@ angular.module('fc-app').component('fcSessions', {
     templateUrl : 'app/sessions/sessions.component.html',
     controller : function ($timeout, fcCardService, fcArrayUtils, fcCardStyle) {
         var ctrl = this;
-        var counter = 0;
+
         var tz = 0;
 
         ctrl.degree = 'red';
         ctrl.userGuess = '';
         ctrl.index = 0;
 
+        ctrl.compare = null;
+
+        ctrl.counter = 0;
+
         ctrl.$onInit = function() {
             fcArrayUtils.shuffle(ctrl.cards);
             cardsNumber = ctrl.cards.length;
+            ctrl.currentCard = ctrl.cards[0];
+            console.log(ctrl.currentCard);
+
         };
 
 
 
         var tzCalculator = function (length) {
-            return Math.round( ( 300 / 2 ) /
-                Math.tan( ( ( Math.PI * 2 ) / length ) / 2 ) );
+            return (Math.round( ( 400 / 2 ) /
+                Math.tan( ( ( Math.PI * 2 ) / length ) / 2 ) ));
         };
 
         ctrl.getCurrentCardCss = function () {
-            return ctrl.generateCss(counter * -1, true);
+            return ctrl.generateCss(ctrl.counter * -1, true);
         };
 
 
         ctrl.turnCard = function () {
-            if(counter === ctrl.cards.length + 1) {
+            if(counter >= ctrl.cards.length + 1) {
                 counter = 0;
                 return counter;
             }
@@ -38,23 +45,25 @@ angular.module('fc-app').component('fcSessions', {
         ctrl.generateCss = function (index, current) {
             var deg = 0;
             degree = Math.round(360/(ctrl.cards.length + 1));
-            tz = tzCalculator(ctrl.cards.length + 1);
+            tz = tzCalculator(ctrl.cards.length );
+            console.log(tz);
             if(current) {
                 tz = -Math.abs(tz);
             }
-            css = {'-webkit-transform' : 'rotateY(' + deg + 'deg) translateZ(288px)'};
             deg = degree * index;
             return {
-                '-webkit-transform' : 'rotateY(' + deg + 'deg) translateZ(' + tz + 'px)'
+                '-webkit-transform' : 'rotateY(' + deg + 'deg) translateZ(' + tz + 'px)',
             };
         };
 
         ctrl.guessing = function () {
             ctrl.getCurrentCardCss();
-            counter++;
-            fcCardService.compareCards(ctrl.cards[counter].back, ctrl.userGuess);
+            ctrl.currentCard = ctrl.cards[ctrl.counter];
+            ctrl.compare = fcCardService.compareCards(ctrl.cards[ctrl.counter].back, ctrl.userGuess);
+            ctrl.counter++;
             $timeout(function () {
                 ctrl.userGuess = '';
+                ctrl.compare = null;
             }, 1000);
         };
 

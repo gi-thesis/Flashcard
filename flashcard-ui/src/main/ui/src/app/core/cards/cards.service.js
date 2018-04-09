@@ -17,6 +17,7 @@ angular.module('fc-app').service('fcCardService', function ($http) {
         if(!userGuess  || !cardBack) {
             return false;
         }
+        console.log(userGuess + cardBack);
         return userGuess.toLowerCase().trim() === cardBack.toLowerCase().trim();
     };
 });
