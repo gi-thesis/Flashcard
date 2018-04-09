@@ -1,9 +1,11 @@
 <div id="cards-wrapper" class="column-wrapper">
     <form class="card-mgmt" ng-submit="cardsCtrl.saveCard()">
-        <span class="header-field">Create new Card</span>
-        <input class="card-input" placeholder="Please give the card front" ng-model="cardsCtrl.card.front" />
-        <input class="card-input" placeholder="Please give the card back" ng-model="cardsCtrl.card.back" />
-        <button >Add new card</button>
+        <span class="header-field card-field">Create new Card</span>
+        <span class="card-detail card-field">Give the card front</span>
+        <input class="card-input input-field card-field" placeholder="Please give the card front" ng-model="cardsCtrl.card.front" />
+        <span class="card-detail card-field">Give the card back</span>
+        <input class="card-input input-field card-field" placeholder="Please give the card back" ng-model="cardsCtrl.card.back" />
+        <button class="button-add-card">Add new card</button>
     </form>
     <div>
         <div ng-repeat="card in cardsCtrl.cards" >

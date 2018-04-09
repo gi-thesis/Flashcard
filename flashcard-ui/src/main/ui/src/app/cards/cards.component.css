@@ -4,7 +4,7 @@
     height: 300px;
     left: 40px;
     display: flex;
-    padding: 10px;
+    padding: 7px;
     align-items: center;
     flex-direction: column;
     border: 1px solid #81d4fa;
@@ -20,4 +20,15 @@
 
 .card-input {
     width: 250px;
+}
+ .card-detail {
+     font-family: Oswald;
+     font-size: 24px;
+ }
+.card-field {
+    padding: 5px;
+}
+
+.button-add-card {
+    margin-top: 20px;
 }
