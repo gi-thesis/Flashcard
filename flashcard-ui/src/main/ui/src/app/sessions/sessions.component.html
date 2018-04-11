@@ -16,7 +16,7 @@
     <span>You don't have cards in this category</span>
     <button ui-sref="">Add cards</button>
 </div>
-<div class="guess-panel" ng-class="{green : sessionsCtrl.compare == true, red : sessionsCtrl.compare == false}">
+<div class="guess-panel" ng-class="{right : sessionsCtrl.compare == true, wrong : sessionsCtrl.compare == false}">
     <button  ng-class="{hidden : sessionsCtrl.counter == sessionsCtrl.cards.length}" ng-click="sessionsCtrl.guessing()">Guess</button>
     <button ui-sref="user.profile"  ng-if="sessionsCtrl.counter == sessionsCtrl.cards.length">Back to profile</button>
 </div>

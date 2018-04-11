@@ -7,7 +7,7 @@
         $stateProvider
             .state('landing', {
                 url : '/',
-                component : ''
+                component : 'fcLanding'
             })
             .state('login', {
                 url : '/login',

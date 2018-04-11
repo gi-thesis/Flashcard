@@ -71,10 +71,10 @@ button:hover {
     background-color: #1E88E5;
 }
 
-.green {
+.right {
     background-color: green;
 }
-.red {
+.wrong {
     background: red;
 }
 .hidden {

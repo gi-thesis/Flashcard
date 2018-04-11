@@ -15,6 +15,7 @@ require('./core/sessions/sessions.service');
 require('./core/header/header.component');
 require('./core/header-login/header-login.component');
 
+require('./landing/landing.component');
 require('./login/login.component');
 require('./registration/registration.component');
 require('./profile/profile.component');
