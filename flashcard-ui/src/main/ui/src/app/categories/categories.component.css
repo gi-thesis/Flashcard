@@ -1,3 +1,21 @@
 .categories-wrapper {
     padding: 10%;
+    display: flex;
+
+}
+
+.category-add {
+    align-items: center;
+    justify-content: center;
+}
+
+.category-add-input {
+    width: 100%;
+    height: 40px;
+}
+.category-add-button {
+    font-size: 20px;
+    height: 75px;
+    width: 190px;
+    margin-top: 20px;
 }

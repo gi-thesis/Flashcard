@@ -1,8 +1,8 @@
 <div class="column-wrapper categories-wrapper">
-    <form class="details" ng-submit="categoriesCtrl.saveCategory()">
+    <form class="details category-add" ng-submit="categoriesCtrl.saveCategory()">
         <span class="header-field">Create a new category</span>
-        <input ng-model="categoriesCtrl.category.name" placeholder="Please give the categories name" />
-        <button type="submit">Add new categories</button>
+        <input class="category-add-input input-field" ng-model="categoriesCtrl.category.name" placeholder="Please give the categories name" />
+        <button class="category-add-button" type="submit">Add new category</button>
     </form>
     <div class="details">
         <span class="header-field">Categories</span>

@@ -130,6 +130,19 @@ label{
     align-items: center;
 }
 
+select {
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 40px;
+    font-family: Oswald;
+    font-size: 20px;
+    border: 1px solid #81d4fa;
+}
+
+.play-button {
+    width: 100%;
+}
+
 #cagtegory-header {
 
 }

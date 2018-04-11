@@ -2,7 +2,7 @@
     <div class="column-wrapper">
         <div class="details">
             <div class="header-field">
-                <span>Profile Details</span>
+                <span class="fc-header">Profile Details</span>
             </div>
             <div class="detail-field">
                 <span>User Name</span>
@@ -26,18 +26,19 @@
             </div>
         </div>
         <div class="details details-center" ui-sref="user.categories">
-            <span id="cagtegory-header" class="header-field">Category Management</span>
+            <span id="cagtegory-header" class="header-field fc-header">Category Management</span>
             <div class="">
-                <span id="category-management" class="">Category</span>
+                <span id="category-management" class="">Categories</span>
             </div>
         </div>
     </div>
     <div class="column-wrapper">
         <div class="details">
-            <span class="header-field">Scoreboard and Statics</span>
+            <span class="header-field fc-header">Scoreboard and Statics</span>
+            <span ng-class="{error : true}">You don't have ended sessions to be displayed</span>
         </div>
         <div class="details">
-            <span class="header-field">Let's play</span>
+            <span class="header-field fc-header">Let's play</span>
             <select ng-model="profile.categoryId">
                 <option ng-repeat="category in profile.categories" value="{{category.id}}" selected>{{category.name}}</option>
             </select>
@@ -45,7 +46,7 @@
                     ng-init="profile.categoryId = profile.categoryId || profile.categories[0].id"
                     ng-options="category.name as category.id for category in profile.categories">
             </select>-->
-            <button ng-if="profile.categoryId" ui-sref="user.session({categoryId : {{profile.categoryId}} })">Let's play</button>
+            <button class="play-button" ng-if="profile.categoryId" ui-sref="user.session({categoryId : {{profile.categoryId}} })">Let's play</button>
             <span ng-if="profile.categories.length == 0" class="error">Please add category in the Category Management to start playing</span>
         </div>
     </div>
