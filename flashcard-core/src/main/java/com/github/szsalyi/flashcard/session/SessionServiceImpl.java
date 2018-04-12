@@ -1,6 +1,5 @@
 package com.github.szsalyi.flashcard.session;
 
-import org.hsqldb.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.convert.ConversionService;
@@ -51,7 +50,15 @@ public class SessionServiceImpl implements SessionService {
 
     @Override
     public List<SessionVO> findAllByUserId(long userId) {
-        return sessionRepository.findAllByUserEntityId(userId)
+        return sessionRepository.findAllByUserId(userId)
+                .stream()
+                .map(session -> conversionService.convert(session, SessionVO.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<SessionVO> findAll() {
+        return sessionRepository.findAll()
                 .stream()
                 .map(session -> conversionService.convert(session, SessionVO.class))
                 .collect(Collectors.toList());

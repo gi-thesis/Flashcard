@@ -1,7 +1,7 @@
 angular.module('fc-app').component('fcSessions', {
     bindings : {cards :  '<' },
     templateUrl : 'app/sessions/sessions.component.html',
-    controller : function ($timeout, fcCardService, fcArrayUtils, fcCardStyle) {
+    controller : function ($timeout, fcCardService, fcArrayUtils, fcSessionService, $stateParams, $rootScope, $state) {
         var ctrl = this;
 
         var tz = 0;
@@ -22,8 +22,6 @@ angular.module('fc-app').component('fcSessions', {
 
         };
 
-
-
         var tzCalculator = function (length) {
             return (Math.round( ( 400 / 2 ) /
                 Math.tan( ( ( Math.PI * 2 ) / length ) / 2 ) ));
@@ -31,15 +29,6 @@ angular.module('fc-app').component('fcSessions', {
 
         ctrl.getCurrentCardCss = function () {
             return ctrl.generateCss(ctrl.counter * -1, true);
-        };
-
-
-        ctrl.turnCard = function () {
-            if(counter >= ctrl.cards.length + 1) {
-                counter = 0;
-                return counter;
-            }
-            return counter++;
         };
 
         ctrl.generateCss = function (index, current) {
@@ -72,8 +61,23 @@ angular.module('fc-app').component('fcSessions', {
         };
         
         ctrl.saveSession = function () {
-            
-        }
+            var percent = ctrl.score/ctrl.cards.length * 100;
+            var date = new Date();
+            console.log(date.getTime());
+            var session = {
+                percent: Math.round(percent),
+                score: Math.round(percent),
+                date: date.getTime(),
+                category: {
+                    id: $stateParams.categoryId
+                },
+                user: $rootScope.loggedUser
+            }
+            ;
+            return fcSessionService.save(session).then(function (value) {
+                $state.go('user.profile');
+            });
+        };
 
     },
     controllerAs : 'sessionsCtrl'

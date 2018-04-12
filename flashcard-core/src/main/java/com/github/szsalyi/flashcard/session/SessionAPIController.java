@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -39,12 +40,14 @@ public class SessionAPIController {
         return ResponseEntity.status(HttpStatus.OK).body(sessionService.findAllByUserId(userId));
     }
 
-
-
-
     @PostMapping
     public ResponseEntity<SessionVO> save(@RequestBody SessionVO session) {
         return ResponseEntity.status(HttpStatus.CREATED).body(sessionService.save(session));
+    }
+
+    @GetMapping(path = "/all")
+    public ResponseEntity<List<SessionVO>> getAll() {
+        return ResponseEntity.status(HttpStatus.OK).body(sessionService.findAll());
     }
 
 }

@@ -55,7 +55,7 @@ public class UserEntity extends BaseEntity {
     @OneToMany(mappedBy = "user")
     private Set<CategoryEntity> categories;
 
-    @OneToMany(mappedBy = "userEntity")
+    @OneToMany(mappedBy = "user")
     private List<SessionEntity> sessions;
 
 }

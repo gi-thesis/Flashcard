@@ -9,14 +9,16 @@ import java.util.Date;
 @Data
 public class SessionVO {
 
-    private Date date;
+    private long id;
 
-    private CategoryVO categoryVO;
+    private long date;
+
+    private CategoryVO category;
 
     private double percent;
 
     private int score;
 
-    private UserVO userVO;
+    private UserVO user;
 }
 

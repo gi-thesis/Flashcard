@@ -10,4 +10,5 @@ public interface SessionService {
     SessionVO get(long id);
     List<SessionVO> getAll();
     List<SessionVO> findAllByUserId(long userId);
+    List<SessionVO> findAll();
 }
