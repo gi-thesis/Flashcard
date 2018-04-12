@@ -25,6 +25,17 @@ angular.module('fc-app').component('fcCategories', {
             });
         };
 
+        ctrl.deleteCategory = function (category) {
+            ctrl.getCategories();
+            fcCategoryService.delete(category.id).then(function (value) {
+                var idx = ctrl.categories.indexOf(category.id);
+                if (idx >= 0) {
+                    ctrl.categories.splice(idx, 1);
+                }
+                ctrl.getCategories();
+            });
+
+        };
 
     },
     controllerAs : 'categoriesCtrl'

@@ -19,6 +19,26 @@ angular.module('fc-app').component('fcCards', {
 
         };
 
+        ctrl.editPopUp = false;
+        ctrl.editCategory = function () {
+            ctrl.editPopUp = true;
+            console.log(ctrl.editPopUp);
+        };
+
+        ctrl.newFront = '';
+        ctrl.newBack = '';
+        ctrl.update = function () {
+            var updatedCard = {
+                user : $rootScope.loggedUser,
+                id : ctrl.category.id,
+                name : ctrl.newName,
+                front : ctrl.newFront,
+                back : ctrl.newBack
+            };
+            fcCardService.save(updatedCard).then(function (value) { ctrl.category = value.data; });
+            ctrl.editPopUp = false;
+        };
+
     },
     controllerAs : 'cardsCtrl'
 });

@@ -1,6 +1,7 @@
 angular.module('fc-app').component('fcCategory', {
     bindings : {
-      category : '='
+      category : '=',
+    onDelete : '&'
     },
     templateUrl : 'app/category/category.component.html',
     controller : function ($rootScope, fcCategoryService, $state) {
@@ -32,8 +33,7 @@ angular.module('fc-app').component('fcCategory', {
         };
 
         ctrl.delete = function (categoryId) {
-            fcCategoryService.delete(categoryId).then(function (value) { $state.go('user.categories'); });
-
+            ctrl.onDelete();
         };
     },
     controllerAs : 'categoryCtrl'

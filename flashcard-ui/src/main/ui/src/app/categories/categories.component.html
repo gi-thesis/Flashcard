@@ -10,7 +10,7 @@
     <div class="details">
         <span class="header-field">Categories</span>
         <div ng-repeat="category in categoriesCtrl.categories" >
-            <fc-category category="category"></fc-category>
+            <fc-category on-delete="categoriesCtrl.deleteCategory(category)" category="category"></fc-category>
         </div>
     </div>
 </div>
