@@ -30,6 +30,11 @@ angular.module('fc-app').component('fcCategory', {
             fcCategoryService.save(updatedCategory).then(function (value) { ctrl.category = value.data; });
             ctrl.editPopUp = false;
         };
+
+        ctrl.delete = function (categoryId) {
+            fcCategoryService.delete(categoryId).then(function (value) { $state.go('user.categories'); });
+
+        };
     },
     controllerAs : 'categoryCtrl'
 });

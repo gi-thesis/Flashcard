@@ -9,4 +9,8 @@ angular.module('fc-app').service('fcCategoryService', function ($http) {
     srvc.getAllByUsername = function (username) {
         return $http.get('api/categories?username=' + username);
     };
+
+    srvc.delete = function (id) {
+        return $http.delete('api/categories/delete?id=' + id, {headers: {'Content-Type' : 'application/json'}});
+    };
 });

@@ -9,7 +9,7 @@ public interface CategoryService {
     CategoryVO save(CategoryVO categoryVO) throws SaveException;
     List<CategoryVO> getAllCategory();
     CategoryVO getCategory(long id) throws ResourceNotFoundException;
-    void deleteCategory(long id) throws ResourceNotFoundException;
+    void deleteCategory(long id);
     List<CategoryVO> getAllCategoriesByUsername(String username);
     //List<CategoryVO> getAllCategoryByUserId(long id);
 }

@@ -63,4 +63,10 @@ public class CategoryAPIController {
                 .status(HttpStatus.OK)
                 .body(categoryService.getAllCategoriesByUsername(username));
     }
+
+    @DeleteMapping(path = "/delete", consumes = MediaType.ALL_VALUE)
+    public ResponseEntity deleteCategory(@RequestParam final long id) {
+        categoryService.deleteCategory(id);
+        return ResponseEntity.noContent().build();
+    }
 }
