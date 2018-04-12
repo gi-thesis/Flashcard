@@ -3,6 +3,7 @@ angular.module('fc-app').component('fcProfile', {
     controller : function (fcUserAuthService, fcCategoryService) {
         var ctrl = this;
 
+        ctrl.edit = false;
         ctrl.getCategoryId = function () {
             return ctrl.category.id;
         };

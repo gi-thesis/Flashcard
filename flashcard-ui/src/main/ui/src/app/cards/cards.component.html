@@ -7,10 +7,24 @@
         <input class="card-input input-field card-field" placeholder="Please give the card back" ng-model="cardsCtrl.card.back" />
         <button class="button-add-card">Add new card</button>
     </form>
-    <div>
-        <div ng-repeat="card in cardsCtrl.cards" >
-            <div>{{card.front}}</div>
-            <div>{{card.back}}</div>
+    <div class="details">
+        <div class="card-details-header card-detail" >
+            <span class="header-field card-field">Cards</span>
+            <div class="card-desc-header">
+                <span>Front</span>
+                <span>Back</span>
+            </div>
+        </div>
+        <div class="card-details" ng-repeat="card in cardsCtrl.cards" >
+            <span class="category-field content">{{card.front}}</span>
+            <span class="category-field content">{{card.back}}</span>
+            <div>
+            <i class="material-icons md-30 edit">{{ cardsCtrl.edit }}</i>
+            <i class="material-icons md-30 clear">{{ cardsCtrl.clear }}</i>
+            </div>
         </div>
     </div>
+</div>
+<div class="column-wrapper center">
+    <button ui-sref="user.session({categoryId : {{cardsCtrl.card.category.id}} })">Let's Play</button>
 </div>

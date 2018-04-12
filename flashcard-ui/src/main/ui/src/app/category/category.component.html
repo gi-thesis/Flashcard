@@ -1,7 +1,12 @@
 <div id="category">
     <span class="category-field content" ui-sref="user.cardmgmt({categoryId : {{categoryCtrl.category.id}} })">{{categoryCtrl.category.name}}</span>
     <div>
-        <i class="material-icons md-30 edit">{{ categoryCtrl.edit }}</i>
+        <i class="material-icons md-30 edit" ng-click="categoryCtrl.editCategory()">{{ categoryCtrl.edit }}</i>
         <i class="material-icons md-30 clear">{{ categoryCtrl.clear }}</i>
     </div>
 </div>
+<form ng-if="categoryCtrl.editPopUp == true" ng-submit="">
+    <span>Update category detail</span>
+    <input class="category-add-input input-field" ng-model="" placeholder="Please update the categories name" />
+    <button class="category-add-button" type="submit">Update category</button>
+</form>

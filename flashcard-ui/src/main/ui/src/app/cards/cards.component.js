@@ -4,6 +4,8 @@ angular.module('fc-app').component('fcCards', {
     controller : function (fcCardService, $stateParams) {
         var ctrl = this;
 
+        ctrl.clear = 'clear';
+        ctrl.edit = 'edit';
         ctrl.card = {
             category : { id : $stateParams.categoryId}
         };
