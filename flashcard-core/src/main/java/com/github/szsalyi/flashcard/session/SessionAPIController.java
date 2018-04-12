@@ -32,7 +32,8 @@ public class SessionAPIController {
         return ResponseEntity.status(HttpStatus.OK).body(sessionService.get(id));
     }
 
-    @GetMapping()
+
+    @GetMapping(consumes = MediaType.ALL_VALUE)
     public ResponseEntity<List<SessionVO>> getAllByUserId(@RequestParam Long userId) {
         if(userId == null ){
             return ResponseEntity.status(HttpStatus.OK).body(sessionService.getAll());

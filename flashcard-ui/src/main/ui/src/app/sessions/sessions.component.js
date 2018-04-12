@@ -79,6 +79,15 @@ angular.module('fc-app').component('fcSessions', {
             });
         };
 
+        ctrl.sessions = null;
+
+        ctrl.getSessions = function () {
+            return fcSessionService.getAllByUserId($rootScope.loggedUser.id)
+                .then(function (value) {
+                    ctrl.session = value;
+                });
+        };
+
     },
     controllerAs : 'sessionsCtrl'
 });

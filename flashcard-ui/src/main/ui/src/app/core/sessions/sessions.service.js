@@ -6,6 +6,6 @@ angular.module('fc-app').service('fcSessionService', function ($http) {
     };
 
     srvc.getAllByUserId = function (userId) {
-        return $http.get('api/categories?username=' + username);
+        return $http.get('api/sessions?userId=' + userId);
     };
 });
