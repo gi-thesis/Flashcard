@@ -63,11 +63,10 @@ angular.module('fc-app').component('fcSessions', {
         ctrl.saveSession = function () {
             var percent = ctrl.score/ctrl.cards.length * 100;
             var date = new Date();
-            console.log(date.getTime());
             var session = {
                 percent: Math.round(percent),
                 score: Math.round(percent),
-                date: date.getTime(),
+                date: date,
                 category: {
                     id: $stateParams.categoryId
                 },
@@ -84,7 +83,8 @@ angular.module('fc-app').component('fcSessions', {
         ctrl.getSessions = function () {
             return fcSessionService.getAllByUserId($rootScope.loggedUser.id)
                 .then(function (value) {
-                    ctrl.session = value;
+
+                    ctrl.session = value.data;
                 });
         };
 

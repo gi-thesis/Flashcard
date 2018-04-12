@@ -11,7 +11,7 @@ public class SessionVO {
 
     private long id;
 
-    private long date;
+    private Date date;
 
     private CategoryVO category;
 

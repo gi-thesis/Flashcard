@@ -35,7 +35,7 @@
     <div class="column-wrapper">
         <div class="details">
             <span class="header-field fc-header">Scoreboard and Statics</span>
-            <div ng-repeat="session in profile.sessions"></div>
+            <div ng-repeat="session in profile.sessions">{{session.date}}</div>
             <span ng-class="{error : true}">You don't have ended sessions to be displayed</span>
         </div>
         <div class="details">

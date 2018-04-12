@@ -1,6 +1,6 @@
 angular.module('fc-app').component('fcProfile', {
     templateUrl: 'app/profile/profile.component.html',
-    controller : function ($rootScope, fcUserAuthService, fcCategoryService, fcSessionService) {
+    controller : function ($rootScope, fcUserAuthService, fcCategoryService, fcSessionService, fcDateUtils) {
         var ctrl = this;
 
         ctrl.edit = false;
@@ -16,7 +16,7 @@ angular.module('fc-app').component('fcProfile', {
                 ctrl.categories = value.data; });
             fcSessionService.getAllByUserId(ctrl.user.id).then(function (value) {
                 console.log(value);
-                ctrl.sessions = value.data;
+                ctrl.sessions = fcDateUtils.convertToDate(value.data);
             });
         };
 
@@ -25,7 +25,7 @@ angular.module('fc-app').component('fcProfile', {
             return fcSessionService.getAllByUserId($rootScope.loggedUser.id)
                 .then(function (value) {
                     console.log(value);
-                    ctrl.session = value;
+                    ctrl.session = fcDateUtils.convertToDate(value);
                 });
         };
 
