@@ -5,8 +5,8 @@
         <i class="material-icons md-30 clear">{{ categoryCtrl.clear }}</i>
     </div>
 </div>
-<form ng-if="categoryCtrl.editPopUp == true" ng-submit="">
+<form ng-if="categoryCtrl.editPopUp == true" ng-submit="categoryCtrl.update()">
     <span>Update category detail</span>
-    <input class="category-add-input input-field" ng-model="" placeholder="Please update the categories name" />
-    <button class="category-add-button" type="submit">Update category</button>
+    <input class="category-add-input input-field" ng-model="categoryCtrl.newName" placeholder="Please update the categories name" />
+    <button type="submit">Update category</button>
 </form>
