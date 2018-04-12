@@ -18,5 +18,5 @@
 </div>
 <div class="guess-panel" ng-class="{right : sessionsCtrl.compare == true, wrong : sessionsCtrl.compare == false}">
     <button  ng-class="{hidden : sessionsCtrl.counter == sessionsCtrl.cards.length}" ng-click="sessionsCtrl.guessing()">Guess</button>
-    <button ui-sref="user.profile"  ng-if="sessionsCtrl.counter == sessionsCtrl.cards.length">Back to profile</button>
+    <button ng-click="sessionsCtrl.saveSession()" ui-sref="user.profile"  ng-if="sessionsCtrl.counter == sessionsCtrl.cards.length">Back to profile</button>
 </div>

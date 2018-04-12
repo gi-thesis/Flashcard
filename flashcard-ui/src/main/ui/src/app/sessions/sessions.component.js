@@ -13,7 +13,7 @@ angular.module('fc-app').component('fcSessions', {
         ctrl.compare = null;
 
         ctrl.counter = 0;
-
+        ctrl.score = 0;
         ctrl.$onInit = function() {
             fcArrayUtils.shuffle(ctrl.cards);
             cardsNumber = ctrl.cards.length;
@@ -60,12 +60,20 @@ angular.module('fc-app').component('fcSessions', {
             ctrl.getCurrentCardCss();
             ctrl.currentCard = ctrl.cards[ctrl.counter];
             ctrl.compare = fcCardService.compareCards(ctrl.cards[ctrl.counter].back, ctrl.userGuess);
+            if(ctrl.compare){
+                ctrl.score++;
+            }
+            console.log(ctrl.score);
             ctrl.counter++;
             $timeout(function () {
                 ctrl.userGuess = '';
                 ctrl.compare = null;
             }, 1000);
         };
+        
+        ctrl.saveSession = function () {
+            
+        }
 
     },
     controllerAs : 'sessionsCtrl'
