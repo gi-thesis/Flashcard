@@ -20,4 +20,8 @@ angular.module('fc-app').service('fcCardService', function ($http) {
         console.log(userGuess + cardBack);
         return userGuess.toLowerCase().trim() === cardBack.toLowerCase().trim();
     };
+
+    srvc.deleteCard = function(id) {
+        return $http.delete('api/cards/delete?id=' + id);
+    };
 });

@@ -2,10 +2,12 @@
     <div id="login-details">
         <div id="user-details">
             <label class="light-text" for="header-userName">Username</label>
-            <input id="header-userName" placeholder="Username" ng-model="headerLogin.user.userName" class="input-field" type="text" requried="true"/>
+            <input id="header-userName" placeholder="Username" ng-model="headerLogin.user.userName"
+                   class="input-field" type="text" requried="true"/>
 
             <label class="light-text" for="header-password">Password</label>
-            <input id="header-password" placeholder="Password" ng-model="headerLogin.user.password" class="input-field" type="password" requried="true"/>
+            <input id="header-password" placeholder="Password" ng-model="headerLogin.user.password"
+                   class="input-field" type="password" requried="true"/>
         </div>
         <span ng-show="error">LOGIN FAILED!</span>
         <a id="register-link" ui-sref="registration">If you don't have an account please register</a>
@@ -14,6 +16,7 @@
         <span class="bold-text">LOG IN</span>
     </button>
 </form>
-<button ng-show="headerLogin.isAuthenticated()" ng-click="headerLogin.logout()" class="submit-login header-button-border" type="submit">
+<button ng-show="headerLogin.isAuthenticated()" ng-click="headerLogin.logout()"
+        class="submit-login header-button-border" type="submit">
     <span class="bold-text">LOG OUT</span>
 </button>

@@ -1,7 +1,7 @@
 angular.module('fc-app').component('fcSessions', {
     bindings : {cards :  '<' },
     templateUrl : 'app/sessions/sessions.component.html',
-    controller : function ($timeout, fcCardService, fcArrayUtils, fcSessionService, $stateParams, $rootScope, $state) {
+    controller : function ($timeout, fcCardService, fcArrayUtils, fcSessionService,$stateParams, $rootScope, $state) {
         var ctrl = this;
 
         var tz = 0;
@@ -87,6 +87,7 @@ angular.module('fc-app').component('fcSessions', {
                     ctrl.session = value.data;
                 });
         };
+        ctrl.categoryIdd = $stateParams.categoryId;
 
     },
     controllerAs : 'sessionsCtrl'

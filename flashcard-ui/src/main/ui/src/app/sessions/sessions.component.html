@@ -4,7 +4,7 @@
         <div class="card" ng-repeat="card in sessionsCtrl.cards"
              ng-style="sessionsCtrl.generateCss($index)"
              ng-if="sessionsCtrl.cards.length > 0">
-            <span for="meaining">{{card.front}}</span>
+            <span class="meaning details-field" for="meaining">{{card.front}}</span>
             <input id="meaning" placeholder="Give the right meaning of the word" ng-model="sessionsCtrl.userGuess"/>
         </div>
         <div id="session-end" ng-style="sessionsCtrl.generateCss(sessionsCtrl.cards.length)" ng-if="sessionsCtrl.cards.length > 0">
@@ -12,11 +12,11 @@
         </div>
     </div>
 </div>
-<div ng-if="sessionsCtrl.cards.length === 0">
-    <span>You don't have cards in this category</span>
-    <button ui-sref="">Add cards</button>
+<div class="no-cards" ng-if="sessionsCtrl.cards.length === 0">
+    <span class="error details-field-error details-center">You don't have cards in this category</span>
+    <button class="" ui-sref="user.cardmgmt({categoryId : {{sessionsCtrl.categoryIdd}} })">Add cards</button>
 </div>
 <div class="guess-panel" ng-class="{right : sessionsCtrl.compare == true, wrong : sessionsCtrl.compare == false}">
     <button  ng-class="{hidden : sessionsCtrl.counter == sessionsCtrl.cards.length}" ng-click="sessionsCtrl.guessing()">Guess</button>
-    <button ng-click="sessionsCtrl.saveSession()" ng-if="sessionsCtrl.counter == sessionsCtrl.cards.length">Back to profile</button>
+    <button ng-click="sessionsCtrl.saveSession()" ng-if="sessionsCtrl.counter == sessionsCtrl.cards.length && sessionsCtrl.cards.length > 0">Back to profile</button>
 </div>

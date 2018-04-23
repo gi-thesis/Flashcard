@@ -35,7 +35,6 @@ public class CategoryEntity extends BaseEntity {
     @Column(nullable = false, unique = false)
     private String name;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USERNAME")
     private UserEntity user;

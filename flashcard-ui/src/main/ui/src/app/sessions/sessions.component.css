@@ -1,6 +1,5 @@
-
 #session-wrapper {
-    width: 400px;
+    width: 500px;
     height: 100px;
     position: relative;
     -webkit-perspective: 1000px;
@@ -15,13 +14,18 @@
     -webkit-transform-style: preserve-3d;
     -webkit-transition: transform 3s;
     -webkit-animation: spin 20s  infinite;
+}
 
+.no-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #session div {
     display: block;
     position: absolute;
-    width: 280px;
+    width: 180px;
     height: 300px;
     left: 40px;
     display: flex;
@@ -79,4 +83,13 @@ button:hover {
 }
 .hidden {
     display: none;
+}
+
+.meaning {
+    padding-bottom: 50px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
 }

@@ -25,10 +25,6 @@ public class SessionEntity extends BaseEntity{
 
     private Date date;
 
-    @ManyToOne
-    @JoinColumn(name = "CATEGORY_ID")
-    private CategoryEntity category;
-
     private double percent;
 
     private int score;
@@ -36,4 +32,8 @@ public class SessionEntity extends BaseEntity{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity user;
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID")
+    private CategoryEntity category;
 }

@@ -37,10 +37,12 @@
             <span class="header-field fc-header">Scoreboard and Statics</span>
             <div class="session-details">
                 <span>Date</span>
+                <span class="category-static">Category</span>
                 <span>Score</span>
             </div>
             <div class="session-details" ng-repeat="session in profile.sessions">
                 <span>{{session.date}}</span>
+                <span>{{session.category.name}}</span>
                 <span>{{session.score}}%</span>
             </div>
             <span class="error" ng-if="profile.sessions.length == 0">You don't have ended sessions to be displayed</span>

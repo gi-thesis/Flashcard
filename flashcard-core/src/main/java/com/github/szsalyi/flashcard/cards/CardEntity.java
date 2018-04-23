@@ -32,10 +32,6 @@ public class CardEntity extends BaseEntity {
 
     private String back;
 
-    /*@ManyToOne()
-    private UserEntity user;
-    */
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CATEGORY_ID")
     private CategoryEntity category;

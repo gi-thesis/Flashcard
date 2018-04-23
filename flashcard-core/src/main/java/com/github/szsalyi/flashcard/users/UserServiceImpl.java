@@ -19,11 +19,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserVO save(final UserVO userVO) {
-        System.out.println(userVO);
-       UserEntity userEntity = conversionService.convert(userVO, UserEntity.class);
+        UserEntity userEntity = conversionService.convert(userVO, UserEntity.class);
         return conversionService.convert(userRepository.save(userEntity), UserVO.class);
     }
-
     @Override
     public UserVO findUser(final String userName) {
         return conversionService.convert(userRepository.findByUserName(userName), UserVO.class);

@@ -22,6 +22,13 @@ public class UserAPIController {
     @Autowired
     private UserService userService;
 
+    @PostMapping(consumes = MediaType.ALL_VALUE)
+    public ResponseEntity<UserVO> saveUser(final @RequestBody UserVO user) {
+        user.setRole(Role.USER);
+        user.setEnabled(1);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
+    }
 
     @GetMapping(path = "/user", consumes = MediaType.ALL_VALUE)
     public ResponseEntity<Principal> user(Principal user) {
@@ -38,13 +45,5 @@ public class UserAPIController {
         } else {
             return ResponseEntity.badRequest().build();
         }
-    }
-
-    @PostMapping
-    public ResponseEntity<UserVO> saveUser(final @RequestBody UserVO user) {
-        user.setRole(Role.USER);
-        user.setEnabled(1);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
     }
 }

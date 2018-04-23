@@ -28,7 +28,6 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class UserEntity extends BaseEntity {
-
     private static final Long serialVersionUID = 1L;
 
     @Column(name = "USERNAME", nullable = false)
@@ -57,5 +56,4 @@ public class UserEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "user")
     private List<SessionEntity> sessions;
-
 }

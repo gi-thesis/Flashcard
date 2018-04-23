@@ -151,6 +151,6 @@ select {
     margin: 3px;
 }
 
-#cagtegory-header {
-
+.category-static {
+    padding-left: 60px;
 }

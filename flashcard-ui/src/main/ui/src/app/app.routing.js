@@ -44,6 +44,10 @@
                 resolve : {
                     cards: function ($stateParams, fcCardService) {
                         return fcCardService.getAllByCategoryId($stateParams.categoryId).then(function (value) { return value.data; });
+                    },
+                    categoryId: function ($stateParams) {
+                        console.log($stateParams.categoryId);
+                        return $stateParams.categoryId;
                     }
                 }
             });

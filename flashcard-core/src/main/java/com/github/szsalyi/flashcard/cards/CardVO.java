@@ -9,6 +9,8 @@ import java.util.Set;
 @Data
 public class CardVO {
 
+    private long id;
+
     private String front;
     private String back;
 

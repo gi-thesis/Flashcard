@@ -20,9 +20,6 @@ import javax.sql.DataSource;
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
-    private static final int ENCODER_STRENGTH = 11;
-
     @Autowired
     @Qualifier("dataSource")
     private DataSource dataSource;
@@ -30,22 +27,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private FlashcardUserDetailsService userDetailsService;
 
-    @Autowired
-    private LogoutSuccess logoutSuccess;
-
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http.httpBasic().and()
             .authorizeRequests()
-            .antMatchers("/", "/index.html", "/login", "/registration", "/resources/**", "/api/**", "/app/**", "/*.js", "/assets/reset.css").permitAll()
+            .antMatchers("/", "/index.html", "/login"
+                    , "/registration", "/resources/**", "/api/**"
+                    , "/app/**", "/*.js", "/assets/reset.css").permitAll()
             .anyRequest().authenticated()
             .and()
-            //.formLogin()
-            //.loginPage("/login")
-            //.defaultSuccessUrl("/profile")
-            //.usernameParameter("userName")
-            //.permitAll()
-            //.and()
             .logout()
             .and()
             .authorizeRequests()
@@ -53,7 +43,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .hasRole("ADMIN").and()
                 .csrf().disable();
     }
-
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
@@ -62,19 +51,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authoritiesByUsernameQuery("SELECT userName, role FROM user WHERE userName=?");
 
         auth.authenticationProvider(authenticationProvider());
-
     }
-
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService);
-        //authProvider.setPasswordEncoder(encoder());
-        return authProvider;
-    }
 
-    @Bean
-    public PasswordEncoder encoder() {
-        return new BCryptPasswordEncoder(ENCODER_STRENGTH);
+        return authProvider;
     }
 }

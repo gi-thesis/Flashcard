@@ -1,11 +1,8 @@
 angular.module('fc-app').service('fcUserAuthService', function ($rootScope, $http) {
     var srvc = this;
-
-    /*!! to make boolean from anything*/
     srvc.isAuthenticated = function () {
         return $rootScope.loggedUser;
     };
-
     srvc.authentication = function (credentials, successCallback, errorCallback) {
         var headers = credentials ? {
             authorization: 'Basic ' + btoa(credentials.userName + ':' + credentials.password),
@@ -27,7 +24,6 @@ angular.module('fc-app').service('fcUserAuthService', function ($rootScope, $htt
         });
 
     };
-
     srvc.logout = function(callback) {
         $http.post('logout', {}).then(function() {
             if(callback) {
