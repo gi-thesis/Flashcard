@@ -57,5 +57,11 @@ public class CardServiceImpl implements CardService{
     @Override
     public void deleteCard(long id) {
         cardRepository.delete(id);
+
+    }
+
+    @Override
+    public void deleteAllCardByCategoryId(long id) {
+        cardRepository.deleteAllByCategoryId(id);
     }
 }

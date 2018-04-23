@@ -50,8 +50,14 @@ public class CardAPIController {
     }
 
     @DeleteMapping(path = "/delete", consumes = MediaType.ALL_VALUE)
-    public ResponseEntity deleteCategory(@RequestParam final long id) {
+    public ResponseEntity deleteCard(@RequestParam final long id) {
         cardService.deleteCard(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping(path = "/delete/category", consumes = MediaType.ALL_VALUE)
+    public ResponseEntity deleteCardsByCatgory(@RequestParam final long id) {
+        cardService.deleteAllCardByCategoryId(id);
         return ResponseEntity.noContent().build();
     }
 }

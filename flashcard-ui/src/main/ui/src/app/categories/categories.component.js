@@ -1,6 +1,6 @@
 angular.module('fc-app').component('fcCategories', {
     templateUrl : 'app/categories/categories.component.html',
-    controller : function ($rootScope, fcCategoryService) {
+    controller : function ($rootScope, fcCategoryService, fcCardService) {
         var ctrl = this;
 
         ctrl.$onInit = function () {
@@ -26,15 +26,16 @@ angular.module('fc-app').component('fcCategories', {
         };
 
         ctrl.deleteCategory = function (category) {
-            ctrl.getCategories();
-            fcCategoryService.delete(category.id).then(function (value) {
-                var idx = ctrl.categories.indexOf(category.id);
-                if (idx >= 0) {
-                    ctrl.categories.splice(idx, 1);
-                }
+            fcCardService.deleteAllCardByCategory(category.id).then(function (value) {
                 ctrl.getCategories();
+                fcCategoryService.delete(category.id).then(function (value) {
+                    var idx = ctrl.categories.indexOf(category.id);
+                    if (idx >= 0) {
+                        ctrl.categories.splice(idx, 1);
+                    }
+                    ctrl.getCategories();
+                });
             });
-
         };
 
     },

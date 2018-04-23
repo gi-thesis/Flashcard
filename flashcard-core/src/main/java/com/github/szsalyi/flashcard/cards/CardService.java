@@ -10,5 +10,6 @@ public interface CardService {
     List<CardVO> findCardsByCategoryId(Long categoryId);
     CardVO getCard(long id);
     void deleteCard(long id);
+    void deleteAllCardByCategoryId(long id);
     //void deleteCardsByCategory(long categoryId);
 }

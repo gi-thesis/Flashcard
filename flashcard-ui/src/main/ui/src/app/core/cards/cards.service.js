@@ -24,4 +24,8 @@ angular.module('fc-app').service('fcCardService', function ($http) {
     srvc.deleteCard = function(id) {
         return $http.delete('api/cards/delete?id=' + id);
     };
+
+    srvc.deleteAllCardByCategory = function(id) {
+        return $http.delete('api/cards/delete/category?id=' + id);
+    };
 });
