@@ -154,3 +154,7 @@ select {
 .category-static {
     padding-left: 60px;
 }
+
+.fix {
+    height: 300px;
+}

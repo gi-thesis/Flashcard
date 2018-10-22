@@ -1,7 +1,7 @@
 angular.module('fc-app').component('fcSessions', {
     bindings : {cards :  '<' },
     templateUrl : 'app/sessions/sessions.component.html',
-    controller : function ($timeout, fcCardService, fcArrayUtils, fcSessionService,$stateParams, $rootScope, $state) {
+    controller : function ($timeout, fcCardService, fcArrayUtils, fcSessionService, $stateParams, $rootScope, $state) {
         var ctrl = this;
 
         var tz = 0;
@@ -35,7 +35,6 @@ angular.module('fc-app').component('fcSessions', {
             var deg = 0;
             degree = Math.round(360/(ctrl.cards.length + 1));
             tz = tzCalculator(ctrl.cards.length );
-            console.log(tz);
             if(current) {
                 tz = -Math.abs(tz);
             }
@@ -44,18 +43,17 @@ angular.module('fc-app').component('fcSessions', {
                 '-webkit-transform' : 'rotateY(' + deg + 'deg) translateZ(' + tz + 'px)',
             };
         };
-
         ctrl.guessing = function () {
             ctrl.getCurrentCardCss();
             ctrl.currentCard = ctrl.cards[ctrl.counter];
-            ctrl.compare = fcCardService.compareCards(ctrl.cards[ctrl.counter].back, ctrl.userGuess);
+            ctrl.compare = fcCardService
+                .compareCards(ctrl.cards[ctrl.counter].back, ctrl.userGuess);
             if(ctrl.compare){
                 ctrl.score++;
             }
-            console.log(ctrl.score);
             ctrl.counter++;
+            ctrl.userGuess = '';
             $timeout(function () {
-                ctrl.userGuess = '';
                 ctrl.compare = null;
             }, 1000);
         };

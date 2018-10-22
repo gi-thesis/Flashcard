@@ -1,5 +1,6 @@
 .card-mgmt{
     display: block;
+    position: relative;
     width: 280px;
     height: 300px;
     left: 40px;

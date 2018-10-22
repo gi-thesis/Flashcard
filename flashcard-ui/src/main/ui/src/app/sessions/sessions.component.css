@@ -1,15 +1,14 @@
 #session-wrapper {
     width: 500px;
-    height: 100px;
+    height: 350px;
     position: relative;
-    -webkit-perspective: 1000px;
+    perspective: 1000px;
 }
 
 #session {
     width: 100%;
     height: 100%;
-    left: 80%;
-    top: 25%;
+    left: 100%;
     position: absolute;
     -webkit-transform-style: preserve-3d;
     -webkit-transition: transform 3s;

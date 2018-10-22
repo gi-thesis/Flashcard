@@ -2,9 +2,13 @@
     <form class="card-mgmt" ng-submit="cardsCtrl.saveCard()">
         <span class="header-field card-field">Create new Card</span>
         <span class="card-detail card-field">Give the card front</span>
-        <input class="card-input input-field card-field" placeholder="Please give the card front" ng-model="cardsCtrl.card.front" />
+        <input class="card-input input-field card-field"
+               placeholder="Please give the card front"
+               ng-model="cardsCtrl.card.front" />
         <span class="card-detail card-field">Give the card back</span>
-        <input class="card-input input-field card-field" placeholder="Please give the card back" ng-model="cardsCtrl.card.back" />
+        <input class="card-input input-field card-field"
+               placeholder="Please give the card back"
+               ng-model="cardsCtrl.card.back" />
         <button class="button-add-card">Add new card</button>
     </form>
     <div class="details">
@@ -19,7 +23,8 @@
             <span class="category-field content">{{card.front}}</span>
             <span class="category-field content">{{card.back}}</span>
             <div>
-                <i class="material-icons md-30 clear" ng-click="cardsCtrl.deleteCard(card.id)">{{ cardsCtrl.clear }}</i>
+                <i class="material-icons md-30 clear" ng-click="cardsCtrl.deleteCard(card.id)">
+                    {{ cardsCtrl.clear }}</i>
             </div>
         </div>
     </div>
