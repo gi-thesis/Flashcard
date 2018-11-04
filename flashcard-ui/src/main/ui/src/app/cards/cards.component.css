@@ -2,11 +2,12 @@
     display: block;
     position: relative;
     width: 280px;
-    height: 300px;
+    height: 100%;
     left: 40px;
     display: flex;
     padding: 7px;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     border: 1px solid #81d4fa;
     background-color: white;
@@ -15,6 +16,11 @@
     box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.19);
 }
 
+.card-mgmt-body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .card-details {
     display: flex;
     justify-content: space-between;
@@ -47,6 +53,7 @@
     padding-left: 10%;
     padding-right: 10%;
     padding-bottom: 1%;
+    height: 500px;
 }
 
 .card-input {

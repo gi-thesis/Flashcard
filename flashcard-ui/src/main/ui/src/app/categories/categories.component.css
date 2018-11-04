@@ -2,6 +2,7 @@
     padding-left: 10%;
     padding-right: 10%;
     display: flex;
+    height: 600px;
 }
 
 .category-add {
@@ -39,4 +40,8 @@
     font-family: "Oswald";
     font-size: 32px;
     font-weight: 500;
+}
+
+.category-detail {
+    border: 1px solid #81d4fa;
 }

@@ -146,7 +146,7 @@ meter::-webkit-meter-optimum-value {
 }
 
 .details-field-error {
-    border-color: red;
+    border-color: red !important;
     background-color: #FFCDD2;
 }
 
@@ -164,4 +164,9 @@ meter::-webkit-meter-optimum-value {
     font-family: "Oswald";
     font-size: 12px;
     font-weight: 200;
+}
+
+.submit-error{
+    background-color: gray!important;
+    pointer-events: none;
 }

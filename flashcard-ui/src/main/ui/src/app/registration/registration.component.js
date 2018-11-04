@@ -7,6 +7,7 @@ angular.module('fc-app').component('fcRegistration', {
         ctrl.confirmPassword = null;
         ctrl.success = true;
         ctrl.userExistsVal = null;
+        ctrl.passTry = false;
         ctrl.save = function () {
             fcUserService.save(ctrl.user).then(function (res) {
                 console.log(res);
@@ -29,7 +30,7 @@ angular.module('fc-app').component('fcRegistration', {
         ctrl.passwordStrength = {};
         ctrl.calculatePasswordStrength = function() {
             ctrl.passwordStrength = fcPasswordValidation.passwordStrength(ctrl.user.password);
-            console.log(ctrl.passswordStrength);
+            console.log(ctrl.passwordStrength);
         };
     },
     controllerAs: 'registration'
